@@ -1,12 +1,12 @@
 ---
 // Import necessary components, modules and types
-import MainLayout from "~/shared/layouts/MainLayout.astro";
-import CardBlog from "~/shared/components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "~/shared/components/ui/cards/CardBlogRecent.astro";
-import CardInsight from "~/shared/components/ui/cards/CardInsight.astro";
+import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
+import CardBlog from "~/presentation/shared/components/ui/cards/CardBlog.astro";
+import CardBlogRecent from "~/presentation/shared/components/ui/cards/CardBlogRecent.astro";
+import CardInsight from "~/presentation/shared/components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "~/shared/constants/constants";
+import { SITE } from "~/presentation/shared/constants/constants";
 
 // Get all blogs post in English and sort them based on publish date
 

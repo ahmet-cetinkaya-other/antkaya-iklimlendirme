@@ -1,4 +1,4 @@
-import "~/shared/assets/styles/lenis.css";
+import "~/presentation/shared/assets/styles/lenis.css";
 
 import Lenis from "lenis";
 

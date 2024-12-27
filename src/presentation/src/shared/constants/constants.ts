@@ -1,4 +1,4 @@
-import ogImageSrc from "~/shared/assets/images/image-not-found.svg";
+import ogImageSrc from "~/presentation/shared/assets/images/image-not-found.svg";
 
 export const SITE = {
   title: "Lorem Ipsum",
