@@ -1,0 +1,23 @@
+{
+  "name": "antkaya-iklimlendirme",
+  "version": "1.0.0",
+  "description": "Website project prepared for air conditioning service.",
+  "author": {
+    "name": "Ahmet Çetinkaya",
+    "email": "contact@ahmetcetinkaya.me",
+    "url": "https://ahmetcetinkaya.me"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "(cd src/presentation && bun start)",
+    "install-all": "bun install && (cd src/presentation && bun install)",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.4.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
