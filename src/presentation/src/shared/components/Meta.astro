@@ -15,10 +15,7 @@ const defaultProps = {
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
 // For example:
 // <MainLayout title="Custom Title" meta="Custom description." />
-const {
-  meta = defaultProps.meta,
-  structuredData = defaultProps.structuredData,
-} = Astro.props;
+const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
 
 // Define the metadata for your website and individual pages
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
@@ -51,8 +48,7 @@ const fullPath: string = Astro.url.pathname;
 
 const alternateLanguageLinks: string = Object.entries(languages)
   .map(([lang, prefix]: [string, string]) => {
-    const basePath: string =
-      lang === "en" ? fullPath.replace(/^\/tr\//, "/") : fullPath;
+    const basePath: string = lang === "en" ? fullPath.replace(/^\/tr\//, "/") : fullPath;
 
     const href: string = createHref(lang, prefix, basePath);
 
@@ -76,21 +72,13 @@ const appleTouchIcon = await getImage({
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
      https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
-  structuredData && (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
-  )
+  structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 }
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
 <meta content={meta} name="description" />
 <meta name="web_author" content={author} />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="canonical" href={canonical} />
 <Fragment set:html={alternateLanguageLinks} />

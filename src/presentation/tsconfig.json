@@ -4,7 +4,7 @@
     "baseUrl": "../",
     "paths": {
       "~/*": ["./*"],
-      "~/presentation/*": ["./presentation/src/*"],
+      "~/presentation/*": ["./presentation/src/*"]
     },
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true

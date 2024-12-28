@@ -4,7 +4,7 @@ import icon from "~/presentation/shared/assets/images/image-not-found.svg";
 import maskableIcon from "~/presentation/shared/assets/images/image-not-found.svg";
 
 interface Favicon {
-  purpose: 'any' | 'maskable' | 'monochrome';
+  purpose: "any" | "maskable" | "monochrome";
   src: ImageMetadata;
   sizes: number[];
 }
@@ -12,15 +12,15 @@ interface Favicon {
 const sizes = [192, 512];
 const favicons: Favicon[] = [
   {
-    purpose: 'any',
+    purpose: "any",
     src: icon,
     sizes,
   },
   {
-    purpose: 'maskable',
+    purpose: "maskable",
     src: maskableIcon,
     sizes,
-   },
+  },
 ];
 
 export const GET: APIRoute = async () => {

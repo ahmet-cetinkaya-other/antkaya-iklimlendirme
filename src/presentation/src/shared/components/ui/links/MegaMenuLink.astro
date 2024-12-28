@@ -9,7 +9,7 @@ import { servicesData, successStoriesData } from "~/presentation/data_files/mega
 >
   <button
     type="button"
-    class="flex w-full text-base items-center font-medium text-neutral-600 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-500"
+    class="flex w-full items-center text-base font-medium text-neutral-600 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-500"
   >
     Services <Icon name="chevronDown" />
   </button>
@@ -28,9 +28,7 @@ import { servicesData, successStoriesData } from "~/presentation/data_files/mega
               >
                 <Icon name={data.icon} class="mt-1 size-5 flex-shrink-0" />
                 <div class="grow">
-                  <p class="font-medium text-neutral-800 dark:text-neutral-200">
-                    {data.title}
-                  </p>
+                  <p class="font-medium text-neutral-800 dark:text-neutral-200">{data.title}</p>
                   <p class="text-sm text-neutral-500 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-neutral-200">
                     {data.description}
                   </p>
@@ -50,9 +48,7 @@ import { servicesData, successStoriesData } from "~/presentation/data_files/mega
               >
                 <Icon name={data.icon} class="mt-1 size-5 flex-shrink-0" />
                 <div class="grow">
-                  <p class="font-medium text-neutral-800 dark:text-neutral-200">
-                    {data.title}
-                  </p>
+                  <p class="font-medium text-neutral-800 dark:text-neutral-200">{data.title}</p>
                   <p class="text-sm text-neutral-500 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-neutral-200">
                     {data.description}
                   </p>
@@ -63,10 +59,7 @@ import { servicesData, successStoriesData } from "~/presentation/data_files/mega
       </div>
 
       <div class="mx-1 flex flex-col pt-4 md:mx-0 md:pt-0">
-        <span
-          class="text-sm font-semibold uppercase text-neutral-800 dark:text-neutral-200"
-          >Success Stories</span
-        >
+        <span class="text-sm font-semibold uppercase text-neutral-800 dark:text-neutral-200">Success Stories</span>
         <a
           class="group mt-2 flex items-center gap-x-5 rounded-xl p-3 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
           href={successStoriesData[0].learnMoreUrl}

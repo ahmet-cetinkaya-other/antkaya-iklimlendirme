@@ -73,8 +73,7 @@ const articles: Article[] = [
     subTitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: usingTools,
-    imgAlt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    imgAlt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     isRightSection: true,
@@ -101,16 +100,18 @@ const pageTitle: string = `Services | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://antkayaiklimlendirme.com/services",
-    "url": "https://antkayaiklimlendirme.com/services",
-    "name": "Expert Consultation Services | Antkaya İklimlendirme",
-    "description": "Uniting expertise with your vision, Antkaya İklimlendirme provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://antkayaiklimlendirme.com",
-        "name": "Antkaya İklimlendirme",
-        "description": "Antkaya İklimlendirme offers top-tier hardware tools and expert construction services to meet all your project needs."
+    url: "https://antkayaiklimlendirme.com/services",
+    name: "Expert Consultation Services | Antkaya İklimlendirme",
+    description:
+      "Uniting expertise with your vision, Antkaya İklimlendirme provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://antkayaiklimlendirme.com",
+      name: "Antkaya İklimlendirme",
+      description:
+        "Antkaya İklimlendirme offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
@@ -130,7 +131,7 @@ const pageTitle: string = `Services | ${SITE.title}`;
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}

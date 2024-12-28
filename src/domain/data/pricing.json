@@ -11,11 +11,7 @@
     "price": "49",
     "cents": ".00",
     "billingFrequency": "USD / monthly",
-    "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
-    ],
+    "features": ["Key hardware tools", "Access to guides & tutorials", "Standard support"],
     "purchaseBtnTitle": "Get the Starter Kit",
     "purchaseLink": "#"
   },
@@ -26,12 +22,7 @@
     "price": "89",
     "cents": ".00",
     "billingFrequency": "USD / monthly",
-    "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
-    ],
+    "features": ["Premium tool selection", "Priority support", "Exclusive content & deals", "Bulk order discounts"],
     "purchaseBtnTitle": "Get the Professional Toolbox",
     "purchaseLink": "#"
   }

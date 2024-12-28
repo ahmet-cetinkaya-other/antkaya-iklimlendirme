@@ -2,15 +2,13 @@
 export const servicesData = [
   {
     title: "Lorem Ipsum",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.",
     icon: "guides",
     url: "#",
   },
   {
     title: "Dolor Sit Amet",
-    description:
-      "Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    description: "Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
     icon: "puzzle",
     url: "#",
   },
@@ -22,8 +20,7 @@ export const servicesData = [
   },
   {
     title: "Integer Nec Odio",
-    description:
-      "Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.",
+    description: "Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.",
     icon: "hammer",
     url: "#",
   },
@@ -47,8 +44,7 @@ export const successStoriesData = [
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     alt: "Image Description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.",
     learnMoreUrl: "#",
   },
 ];

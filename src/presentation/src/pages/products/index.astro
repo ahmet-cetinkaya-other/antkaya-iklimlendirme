@@ -17,10 +17,7 @@ const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
     return id.startsWith("en/");
   })
-).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
-);
+).sort((a: CollectionEntry<"products">, b: CollectionEntry<"products">) => a.data.main.id - b.data.main.id);
 
 // Define variables for page content
 const title: string = "Lorem Ipsum Dolor Sit Amet";
@@ -32,31 +29,28 @@ const testimonials = [
   // First testimonial data
   {
     content:
-      " \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\" ",
+      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
     author: "John Doe",
     role: "Role | Company",
-    avatarSrc:
-      "https://via.placeholder.com/320",
+    avatarSrc: "https://via.placeholder.com/320",
     avatarAlt: "Image Description",
   },
   // Second testimonial data
   {
     content:
-      " \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\" ",
+      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
     author: "Jane Smith",
     role: "Role | Company",
-    avatarSrc:
-      "https://via.placeholder.com/320",
+    avatarSrc: "https://via.placeholder.com/320",
     avatarAlt: "Image Description",
   },
   // Third testimonial data
   {
     content:
-      " \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\" ",
+      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
     author: "Richard Roe",
     role: "Role | Company",
-    avatarSrc:
-      "https://via.placeholder.com/320",
+    avatarSrc: "https://via.placeholder.com/320",
     avatarAlt: "Image Description",
   },
 ];
@@ -70,21 +64,21 @@ const pageTitle: string = `Products | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://antkayaiklimlendirme.com/products",
-    "url": "https://antkayaiklimlendirme.com/products",
-    "name": "Hardware Tools | Antkaya İklimlendirme",
-    "description": "Explore the durability and precision of Antkaya İklimlendirme tools, designed for both professionals and enthusiasts.",
-    "isPartOf": {
+    url: "https://antkayaiklimlendirme.com/products",
+    name: "Hardware Tools | Antkaya İklimlendirme",
+    description:
+      "Explore the durability and precision of Antkaya İklimlendirme tools, designed for both professionals and enthusiasts.",
+    isPartOf: {
       "@type": "WebSite",
-      "url": "https://antkayaiklimlendirme.com",
-      "name": "Antkaya İklimlendirme",
-      "description": "Antkaya İklimlendirme offers top-tier hardware tools and expert construction services to meet all your project needs."
+      url: "https://antkayaiklimlendirme.com",
+      name: "Antkaya İklimlendirme",
+      description:
+        "Antkaya İklimlendirme offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
-  <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
       <div class="flex items-center gap-12">
         <h1
@@ -94,9 +88,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
         </h1>
         {
           subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
+            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">{subTitle}</p>
           )
         }
       </div>
@@ -128,8 +120,5 @@ const pageTitle: string = `Products | ${SITE.title}`;
     ]}
   />
   <!--Testimonials section-->
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  />
+  <TestimonialsSectionAlt title="What Our Customers Say" testimonials={testimonials} />
 </MainLayout>

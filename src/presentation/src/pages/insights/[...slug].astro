@@ -7,9 +7,7 @@ import { getCollection } from "astro:content";
 
 // Use `getStaticPaths` to generate static routes for generated pages on build
 export async function getStaticPaths() {
-  const insightPosts = await getCollection("insights", ({ id }) =>
-    id.startsWith("en/")
-  );
+  const insightPosts = await getCollection("insights", ({ id }) => id.startsWith("en/"));
   return insightPosts.map((post) => {
     const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "tr/" prefix
     return {
@@ -47,18 +45,10 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           >
           </div>
           <div id="pin" class="mt-10 hidden space-y-4 md:block">
-            <div
-              class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700"
-            >
-              <div
-                id="progress"
-                class="h-px w-full bg-gradient-to-r from-orange-400/30 to-orange-400"
-              >
-              </div>
+            <div class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700">
+              <div id="progress" class="h-px w-full bg-gradient-to-r from-orange-400/30 to-orange-400"></div>
             </div>
-            <p class="text-pretty text-sm font-light text-neutral-500">
-              Table of Contents:
-            </p>
+            <p class="text-pretty text-sm font-light text-neutral-500">Table of Contents:</p>
             <div id="toc" class="">
               <ul
                 class="space-y-2 text-pretty text-base text-neutral-700 transition duration-300 dark:text-neutral-400"
@@ -75,9 +65,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             {post.data.title}
           </h1>
 
-          <article
-            class="text-pretty text-lg text-neutral-700 dark:text-neutral-300"
-          >
+          <article class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
             <Content />
           </article>
         </div>
@@ -161,10 +149,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
     if (articleHeight && articleOffsetTop && scrollTop) {
-      const progress =
-        ((scrollTop - articleOffsetTop) /
-          (articleHeight - window.innerHeight)) *
-        100;
+      const progress = ((scrollTop - articleOffsetTop) / (articleHeight - window.innerHeight)) * 100;
 
       const progressBar = document.getElementById("progress");
       const progressBarMobile = document.getElementById("progress-mobile");
@@ -229,9 +214,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     // The ToC container <ul> element
     const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
-    const headings: NodeListOf<HTMLElement> | [] = article
-      ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
-      : [];
+    const headings: NodeListOf<HTMLElement> | [] = article ? article.querySelectorAll("h1, h2, h3, h4, h5, h6") : [];
 
     headings.forEach((heading, i) => {
       if (heading instanceof HTMLElement) {
@@ -258,8 +241,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             end: () =>
               `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
             onEnter: () => setActiveLinkById(heading.id),
-            onLeaveBack: () =>
-              setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
+            onLeaveBack: () => setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
           },
         });
       }

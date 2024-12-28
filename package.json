@@ -9,13 +9,16 @@
   },
   "type": "module",
   "scripts": {
-    "start": "(cd src/presentation && bun start)",
-    "install-all": "bun install && (cd src/presentation && bun install)",
-    "format": "prettier --write ."
+    "format": "(prettier --write . \"!src/presentation/**/*\" \"!src/core/**/*\") && (cd src/presentation && bun format)",
+    "install-all": "bun install && (cd src/presentation && bun install && cd ../..) && (cd src/core/acore-ts && bun install && cd ../../..)",
+    "start": "(cd src/presentation && bun start)"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "prettier-plugin-jsdoc": "^1.3.0",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.6"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
