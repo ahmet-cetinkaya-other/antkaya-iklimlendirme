@@ -10,7 +10,7 @@ import TestimonialsSection from "~/presentation/shared/components/sections/testi
 import PricingSection from "~/presentation/shared/components/sections/pricing/PricingSection.astro";
 import FAQ from "~/presentation/shared/components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "~/presentation/shared/components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "~/presentation/shared/assets/images/image-not-found.svg";
+import heroImage from "~/presentation/shared/assets/images/living-room.webp";
 import faqs from "~/domain/data/faqs.json";
 import features from "~/domain/data/features.json";
 import pricing from "~/domain/data/pricing.json";
@@ -18,40 +18,35 @@ import featureImage from "~/presentation/shared/assets/images/image-not-found.sv
 import construction from "~/presentation/shared/assets/images/image-not-found.svg";
 import tools from "~/presentation/shared/assets/images/image-not-found.svg";
 import dashboard from "~/presentation/shared/assets/images/image-not-found.svg";
-import { useI18nStatic } from "../../shared/hooks/useI18n";
+import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 import Contacts from "~/domain/data/Contacts";
+import { PAGES } from "~/presentation/shared/constants/constants";
 
-const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-];
-
-const { translate } = useI18nStatic(Astro.url);
+const { translate, currentLocale } = useI18nStatic(Astro.url);
 ---
 
 <MainLayout>
-  <AnnouncementBanner 
-  title={translate(TranslationKeys.contact_call_us)}
-  btnId="dismiss-button" btnTitle={translate(TranslationKeys.contact_call)} url={`tel:${Contacts.tel}`} />
+  <AnnouncementBanner
+    title={translate(TranslationKeys.contact_call_us)}
+    btnId="dismiss-button"
+    btnTitle={translate(TranslationKeys.contact_call)}
+    url={`tel:${Contacts.tel}`}
+  />
 
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span>`
-    subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
+    title={translate(TranslationKeys.home_hero_title)}
+    subTitle={translate(TranslationKeys.home_hero_subtitle)}
+    primaryBtn={translate(TranslationKeys.home_hero_primary_btn)}
+    primaryBtnURL={PAGES.services.paths[currentLocale]}
+    secondaryBtn={translate(TranslationKeys.home_hero_secondary_btn)}
+    secondaryBtnURL={PAGES.contact.paths[currentLocale]}
     withReview={true}
-    avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    starCount={5}
+    reviews={translate(TranslationKeys.home_hero_reviews)}
     src={heroImage}
-    alt="Stack of Antkaya İklimlendirme product boxes containing assorted hardware tools"
+    alt="Modern air conditioning system installation and service"
   />
 
   <ClientsSection

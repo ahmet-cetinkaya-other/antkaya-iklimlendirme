@@ -11,6 +11,11 @@ export enum TranslationKeys {
   common_products = "common_products",
   contact_call = "contact_call",
   contact_call_us = "contact_call_us",
+  home_hero_title = "home_hero_title",
+  home_hero_subtitle = "home_hero_subtitle",
+  home_hero_primary_btn = "home_hero_primary_btn",
+  home_hero_secondary_btn = "home_hero_secondary_btn",
+  home_hero_reviews = "home_hero_reviews",
 }
 
 export type TranslationKey = TranslationKeys;

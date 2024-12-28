@@ -1,4 +1,14 @@
 export const Icons = {
+  thumbUp: {
+    paths: [
+      {
+        d: "M2 9h3v12H2a1 1 0 0 1-1-1V10c0-.6.4-1 1-1Zm5.3-1.3 6.4-6.4c.2-.2.4-.2.6 0l.9.6c.5.4.7 1 .6 1.6L14.6 8H21a2 2 0 0 1 2 2v2.1c0 .3 0 .5-.2.8l-3 7.5a1 1 0 0 1-1 .6H8a1 1 0 0 1-1-1V8.4c0-.3.1-.5.3-.7Z",
+      },
+    ],
+    class: "h-6 w-6 flex-shrink-0 fill-current",
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+  },
   groups: {
     paths: [
       {

@@ -78,7 +78,10 @@ const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
                 {props.product.data.longDescription.subTitle}
               </p>
               <p class="mt-5">
-                <PrimaryCTA title={props.product.data.longDescription.btnTitle} url={props.product.data.longDescription.btnURL} />
+                <PrimaryCTA
+                  title={props.product.data.longDescription.btnTitle}
+                  url={props.product.data.longDescription.btnURL}
+                />
               </p>
             </div>
 

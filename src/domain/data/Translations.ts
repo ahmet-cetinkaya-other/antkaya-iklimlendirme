@@ -50,5 +50,30 @@ export default {
     tr: "Bizi arayın",
     en: "Call us",
     ru: "Позвоните нам",
-  }
+  },
+  home_hero_title: {
+    tr: 'Profesyonel İklimlendirme Çözümleri ile <span class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span>',
+    en: 'Professional Climate Solutions with <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>',
+    ru: 'Профессиональные климатические решения с <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>',
+  },
+  home_hero_subtitle: {
+    tr: "Ev ve işyeriniz için uzman iklimlendirme servisi. Satış, montaj, bakım ve onarım hizmetleri.",
+    en: "Expert HVAC service for your home and business. Sales, installation, maintenance, and repair services.",
+    ru: "Экспертное обслуживание систем ОВиК для вашего дома и бизнеса. Продажа, установка, обслуживание и ремонт.",
+  },
+  home_hero_primary_btn: {
+    tr: "Hizmetleri İncele",
+    en: "Browse Services",
+    ru: "Просмотреть услуги",
+  },
+  home_hero_secondary_btn: {
+    tr: "Servis Talebi",
+    en: "Service Request",
+    ru: "Запрос на обслуживание",
+  },
+  home_hero_reviews: {
+    tr: '<span class="font-bold">1000+</span> Mutlu Müşteri',
+    en: '<span class="font-bold">1000+</span> Happy Customers',
+    ru: '<span class="font-bold">1000+</span> Довольных клиентов',
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

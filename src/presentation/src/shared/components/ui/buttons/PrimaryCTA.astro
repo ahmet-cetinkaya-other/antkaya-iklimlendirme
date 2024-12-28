@@ -19,7 +19,15 @@ const ringClasses = "dark:ring-zinc-200";
 ---
 
 <a
-  class={mergeCls(baseClasses, borderClasses, bgColorClasses, disableClasses, fontSizeClasses, ringClasses, props.class)}
+  class={mergeCls(
+    baseClasses,
+    borderClasses,
+    bgColorClasses,
+    disableClasses,
+    fontSizeClasses,
+    ringClasses,
+    props.class,
+  )}
   href={props.url}
 >
   {props.title}

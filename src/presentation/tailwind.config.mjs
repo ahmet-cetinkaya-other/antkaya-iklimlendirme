@@ -24,6 +24,17 @@ export default {
         "ac-glow": "ac-glow 2s ease-in-out infinite alternate",
       },
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+      },
+      screens: {
+        "2xl": "1280px",
+      },
+    },
   },
   plugins: [require("tailwindcss/nesting"), require("preline/plugin"), require("@tailwindcss/forms")],
 };
