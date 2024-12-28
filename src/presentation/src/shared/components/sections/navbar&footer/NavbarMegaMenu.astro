@@ -3,20 +3,17 @@
 import ThemeIcon from "~/presentation/shared/components/ThemeIcon.astro";
 import NavLink from "~/presentation/shared/components/ui/links/NavLink.astro";
 import MegaMenuLink from "~/presentation/shared/components/ui/links/MegaMenuLink.astro";
-import Authentication from "../misc/Authentication.astro";
 import enStrings from "~/presentation/shared/utils/navigation";
 import BrandLogo from "~/presentation/shared/components/BrandLogo.astro";
 import LanguagePicker from "~/presentation/shared/components/ui/LanguagePicker.astro";
 
 // Select the correct translation based on the page's lang prop:
-const strings =  enStrings;
-const homeUrl =  "/";
+const strings = enStrings;
+const homeUrl = "/";
 ---
 
 <!-- Main header component -->
-<header
-  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
->
+<header class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
   <!-- Navigation container -->
   <nav
     class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
@@ -96,7 +93,6 @@ const homeUrl =  "/";
           })
         }
 
-        <Authentication />
         <LanguagePicker />
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">
@@ -131,35 +127,27 @@ const homeUrl =  "/";
       }
 
       if (theme === "auto") {
-        theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "default";
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
       }
 
       document.querySelector("html").classList.remove("dark");
       document.querySelector("html").classList.remove("default");
       document.querySelector("html").classList.remove("auto");
 
-      document
-        .querySelector("html")
-        .classList.add(this.getOriginalAppearance());
+      document.querySelector("html").classList.add(this.getOriginalAppearance());
 
       setTimeout(() => {
         $resetStylesEl.remove();
       });
 
       if (dispatchEvent) {
-        window.dispatchEvent(
-          new CustomEvent("on-hs-appearance-change", { detail: theme })
-        );
+        window.dispatchEvent(new CustomEvent("on-hs-appearance-change", { detail: theme }));
       }
     },
     getAppearance() {
       let theme = this.getOriginalAppearance();
       if (theme === "auto") {
-        theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "default";
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
       }
       return theme;
     },
@@ -170,29 +158,19 @@ const homeUrl =  "/";
   };
   HSThemeAppearance.init();
 
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", () => {
-      if (HSThemeAppearance.getOriginalAppearance() === "auto") {
-        HSThemeAppearance.setAppearance("auto", false);
-      }
-    });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (HSThemeAppearance.getOriginalAppearance() === "auto") {
+      HSThemeAppearance.setAppearance("auto", false);
+    }
+  });
 
   window.addEventListener("load", () => {
-    const $clickableThemes = document.querySelectorAll(
-      "[data-hs-theme-click-value]"
-    );
-    const $switchableThemes = document.querySelectorAll(
-      "[data-hs-theme-switch]"
-    );
+    const $clickableThemes = document.querySelectorAll("[data-hs-theme-click-value]");
+    const $switchableThemes = document.querySelectorAll("[data-hs-theme-switch]");
 
     $clickableThemes.forEach(($item) => {
       $item.addEventListener("click", () =>
-        HSThemeAppearance.setAppearance(
-          $item.getAttribute("data-hs-theme-click-value"),
-          true,
-          $item
-        )
+        HSThemeAppearance.setAppearance($item.getAttribute("data-hs-theme-click-value"), true, $item),
       );
     });
 

@@ -3,29 +3,18 @@ import { languages } from "~/presentation/shared/utils/ui";
 import Icon from "./icons/Icon.astro";
 ---
 
-<div class="hs-dropdown relative inline-flex">
+<div class="hs-dropdown relative z-20 inline-flex">
   <button
     id="hs-dropdown-default"
     type="button"
     aria-label="Change language"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-none"
+    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-full px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-none"
   >
-    <Icon name="earth" />
-    <svg
-      class="size-4 hs-dropdown-open:rotate-180"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
-    >
+    <Icon name="earth" class="animate-glow text-emerald-500" />
   </button>
 
   <div
-    class="hs-dropdown-menu duration !left-[20%] !top-[98%] mt-2 hidden !transform-none rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:!left-[90%] md:!top-[80%]"
+    class="hs-dropdown-menu duration !left-[70%] !top-[60%] mt-2 hidden !transform-none rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:!left-[94%] md:!top-[70%]"
     aria-labelledby="hs-dropdown-hover-event"
   >
     {
@@ -58,18 +47,13 @@ import Icon from "./icons/Icon.astro";
     const languageLinks = document.querySelectorAll(".hs-dropdown-menu a");
     languageLinks.forEach((element) => {
       const link = element as HTMLAnchorElement;
-      const lang = link
-        .getAttribute("href")
-        ?.replace("/", "")
-        .replace("/", "") as TLanguage;
+      const lang = link.getAttribute("href")?.replace("/", "").replace("/", "") as TLanguage;
 
       link.addEventListener("click", function (event) {
         event.preventDefault();
 
         const url = new URL(window.location.href);
-        const pathParts = url.pathname
-          .split("/")
-          .filter((part) => part && !languages.includes(part as TLanguage));
+        const pathParts = url.pathname.split("/").filter((part) => part && !languages.includes(part as TLanguage));
 
         // Disable the selection of the same language
         if (lang === url.pathname.split("/")[1]) return;
@@ -96,3 +80,21 @@ import Icon from "./icons/Icon.astro";
     });
   });
 </script>
+
+<style is:inline>
+  .animate-glow {
+    filter: drop-shadow(0 0 2px currentColor);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 2px currentColor);
+      opacity: 0.7;
+    }
+    to {
+      filter: drop-shadow(0 0 8px currentColor);
+      opacity: 1;
+    }
+  }
+</style>
