@@ -1,13 +1,19 @@
 ---
+import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
 import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
+import type { TranslationKey } from "~/domain/models/TranslationKey";
+import Container, { Tokens } from "~/presentation/Container";
+import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 
-interface Props {
+type Props = {
   url: string;
-  name: string;
+  name: TranslationKey;
   class?: string;
-}
+};
 
 const props = Astro.props;
+
+const { translate } = useI18nStatic(Astro.url);
 ---
 
 <!--
@@ -17,41 +23,39 @@ We assign an ID matching the URL for easy reference in our script.
 If URL is '/' (home page), assign ID as 'home' 
 -->
 <a
-  id={props.url === "/" ? "home" : props.url.replace("/", "")}
   href={props.url}
   data-astro-prefetch
   class={mergeCls(
-    "rounded-lg text-base font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base",
+    "nav-link rounded-lg text-base font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base",
     props.class,
   )}
 >
-  {props.name}
+  {translate(props.name)}
 </a>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let url = window.location.pathname;
-    let urlSegments = url.split("/");
-    let navId;
+  document.addEventListener("DOMContentLoaded", highlightActiveNavLink);
+  document.addEventListener("astro:after-swap", highlightActiveNavLink);
 
-    if (url === "/") {
-      navId = "home";
-    } else {
-      navId = url.replace("/", "");
-    }
+  function highlightActiveNavLink() {
+    const pathName = decodeURI(window.location.pathname);
+    const navItems = document.querySelectorAll(".nav-link");
+    if (!navItems) throw new Error("No nav items found.");
 
-    let nav = document.getElementById(navId);
-
-    if (nav) {
-      nav.classList.remove(
-        "text-primary",
-        "dark:text-secondary",
-        "hover:text-primary/70",
-        "dark:hover:text-secondary/70",
-        "animate-ac-glow",
-      );
-      nav.classList.add("text-primary", "dark:text-secondary", "animate-ac-glow");
-      nav.setAttribute("aria-current", "page");
-    }
-  });
+    navItems.forEach((navItem) => {
+      const href = navItem.getAttribute("href");
+      if (href === pathName) {
+        navItem.classList.add("text-primary", "dark:text-secondary", "animate-ac-glow");
+        navItem.setAttribute("aria-current", "page");
+      } else {
+        navItem.classList.remove(
+          "text-primary",
+          "dark:text-secondary",
+          "hover:text-primary/70",
+          "dark:hover:text-secondary/70",
+          "animate-ac-glow",
+        );
+      }
+    });
+  }
 </script>

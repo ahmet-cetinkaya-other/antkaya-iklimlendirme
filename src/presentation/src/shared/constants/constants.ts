@@ -1,3 +1,4 @@
+import { TranslationKeys, type Locales } from "~/domain/models/TranslationKey";
 import ogImageSrc from "~/presentation/shared/assets/images/image-not-found.svg";
 
 export const SITE = {
@@ -38,4 +39,43 @@ export const OG = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   image: ogImageSrc,
+};
+
+export type PageLink = {
+  name: TranslationKeys;
+  paths: Record<Locales, string>;
+};
+export const PAGES: Record<string, PageLink> = {
+  home: {
+    name: TranslationKeys.common_home,
+    paths: {
+      tr: "/",
+      en: "/en/",
+      ru: "/ru/",
+    },
+  },
+  services: {
+    name: TranslationKeys.common_services,
+    paths: {
+      tr: "/hizmetler/",
+      en: "/services/",
+      ru: "/услуги/",
+    },
+  },
+  posts: {
+    name: TranslationKeys.common_posts,
+    paths: {
+      tr: "/yazilar/",
+      en: "/posts/",
+      ru: "/посты/",
+    },
+  },
+  contact: {
+    name: TranslationKeys.common_contact,
+    paths: {
+      tr: "/iletisim/",
+      en: "/contact/",
+      ru: "/контакты/",
+    },
+  },
 };

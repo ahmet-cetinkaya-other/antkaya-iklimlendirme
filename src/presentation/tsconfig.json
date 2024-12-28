@@ -7,6 +7,7 @@
       "~/presentation/*": ["./presentation/src/*"]
     },
     "allowImportingTsExtensions": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true
   }
 }

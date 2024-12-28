@@ -1,21 +1,13 @@
 ---
-//Import relevant dependencies
 import ThemeIcon from "~/presentation/shared/components/ThemeIcon.astro";
 import NavLink from "~/presentation/shared/components/ui/links/NavLink.astro";
-import enStrings from "~/presentation/shared/utils/navigation";
 import BrandLogo from "~/presentation/shared/components/BrandLogo.astro";
 import LanguagePicker from "~/presentation/shared/components/ui/LanguagePicker.astro";
-import Container, { Tokens } from "~/presentation/Container";
-import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
+import { PAGES } from "~/presentation/shared/constants/constants";
+import type { Locales } from "~/domain/models/TranslationKey";
 import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
-import { TranslationKeys } from "~/domain/models/TranslationKey";
 
-const i18n = Container.resolve<II18n>(Tokens.I18n);
-const translate = useI18nStatic(Astro.url);
-
-// Select the correct translation based on the page's lang prop:
-const strings = enStrings;
-const homeUrl = "/";
+const { currentLocale } = useI18nStatic(Astro.url);
 ---
 
 <!-- Main header component -->
@@ -74,7 +66,7 @@ const homeUrl = "/";
       <!-- Brand logo -->
       <a
         class="flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-        href={homeUrl}
+        href={PAGES.home.paths![currentLocale as Locales]}
         aria-label="Brand"
       >
         <BrandLogo class="h-auto w-24" />
@@ -133,8 +125,7 @@ const homeUrl = "/";
       <div
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
-        <!-- Navigation links and Authentication component -->
-        {strings.navBarLinks.map((link) => <NavLink url={link.url} name={link.name} />)}
+        {Object.values(PAGES).map((item) => <NavLink url={item.paths![currentLocale as Locales]} name={item.name} />)}
 
         <div class="flex items-center justify-center gap-1 pb-4 md:pb-0">
           <!-- ThemeIcon component specifically for larger screens -->

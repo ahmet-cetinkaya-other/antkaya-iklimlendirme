@@ -21,4 +21,19 @@ export default {
     en: "Русский",
     ru: "Русский",
   },
+  common_services: {
+    tr: "Hizmetler",
+    en: "Services",
+    ru: "Услуги",
+  },
+  common_posts: {
+    tr: "Yazılar",
+    en: "Posts",
+    ru: "Посты",
+  },
+  common_contact: {
+    tr: "İletişim",
+    en: "Contact",
+    ru: "Контакты",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

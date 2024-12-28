@@ -2,9 +2,6 @@
 import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 
 type Props = {
-  value: string;
-  name: string;
-  required?: boolean;
   dropdownClass?: string;
 };
 const props = Astro.props;
@@ -29,8 +26,6 @@ const uniqueId = `dropdown-${Math.random().toString(36).slice(2)}`;
     <slot name="content" />
   </div>
 </template>
-
-<input type="hidden" id={`${uniqueId}-input`} name={props.name} value={props.value} required={props.required} />
 
 <script define:vars={{ uniqueId, props }}>
   const triggerWrapper = document.querySelector(`[data-dropdown-trigger="${uniqueId}"]`);
