@@ -1,0 +1,30 @@
+---
+// Import the necessary components
+import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
+import ContactSection from "~/presentation/shared/components/sections/misc/ContactSection.astro";
+import { SITE } from "~/presentation/shared/constants/constants";
+
+const pageTitle: string = `Contact | ${SITE.title}`;
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://antkayaiklimlendirme.com/contact",
+    url: "https://antkayaiklimlendirme.com/contact",
+    name: "Contact Us | Antkaya İklimlendirme",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://antkayaiklimlendirme.com",
+      name: "Antkaya İklimlendirme",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    inLanguage: "en-US",
+  }}
+>
+  <ContactSection />
+</MainLayout>

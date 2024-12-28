@@ -8,6 +8,21 @@ export default {
         primary: "#F38310",
         secondary: "#529FE9",
       },
+      keyframes: {
+        "ac-glow": {
+          from: {
+            filter: "drop-shadow(0 0 2px currentColor)",
+            opacity: "0.7",
+          },
+          to: {
+            filter: "drop-shadow(0 0 8px currentColor)",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        "ac-glow": "ac-glow 2s ease-in-out infinite alternate",
+      },
     },
   },
   plugins: [require("tailwindcss/nesting"), require("preline/plugin"), require("@tailwindcss/forms")],

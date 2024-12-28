@@ -5,6 +5,13 @@ import NavLink from "~/presentation/shared/components/ui/links/NavLink.astro";
 import enStrings from "~/presentation/shared/utils/navigation";
 import BrandLogo from "~/presentation/shared/components/BrandLogo.astro";
 import LanguagePicker from "~/presentation/shared/components/ui/LanguagePicker.astro";
+import Container, { Tokens } from "~/presentation/Container";
+import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
+import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import { TranslationKeys } from "~/domain/models/TranslationKey";
+
+const i18n = Container.resolve<II18n>(Tokens.I18n);
+const translate = useI18nStatic(Astro.url);
 
 // Select the correct translation based on the page's lang prop:
 const strings = enStrings;
@@ -131,9 +138,9 @@ const homeUrl = "/";
 
         <div class="flex items-center justify-center gap-1 pb-4 md:pb-0">
           <!-- ThemeIcon component specifically for larger screens -->
-          <ThemeIcon />
+          <ThemeIcon transition:persist />
           <span class="hidden md:inline-block">
-            <LanguagePicker />
+            <LanguagePicker transition:persist />
           </span>
         </div>
       </div>

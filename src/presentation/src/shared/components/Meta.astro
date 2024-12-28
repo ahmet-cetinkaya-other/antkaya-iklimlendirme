@@ -3,6 +3,7 @@ import { getImage } from "astro:assets";
 import { OG, SEO, SITE } from "~/presentation/shared/constants/constants";
 import faviconSvgSrc from "/public/favicon.svg";
 import faviconSrc from "/public/favicon.png";
+import { ClientRouter } from "astro:transitions";
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -116,3 +117,6 @@ const appleTouchIcon = await getImage({
 <link href={appleTouchIcon.src} rel="shortcut icon" />
 <!-- Set theme color -->
 <meta name="theme-color" content="#facc15" />
+
+<!-- View transitions -->
+<ClientRouter />

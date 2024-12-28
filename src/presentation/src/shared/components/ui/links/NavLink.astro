@@ -48,28 +48,10 @@ If URL is '/' (home page), assign ID as 'home'
         "dark:text-secondary",
         "hover:text-primary/70",
         "dark:hover:text-secondary/70",
-        "ac-animate-glow",
+        "animate-ac-glow",
       );
-      nav.classList.add("text-primary", "dark:text-secondary", "ac-animate-glow");
+      nav.classList.add("text-primary", "dark:text-secondary", "animate-ac-glow");
       nav.setAttribute("aria-current", "page");
     }
   });
 </script>
-
-<style>
-  .ac-animate-glow {
-    filter: drop-shadow(0 0 2px currentColor);
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from {
-      filter: drop-shadow(0 0 2px currentColor);
-      opacity: 0.7;
-    }
-    to {
-      filter: drop-shadow(0 0 8px currentColor);
-      opacity: 1;
-    }
-  }
-</style>

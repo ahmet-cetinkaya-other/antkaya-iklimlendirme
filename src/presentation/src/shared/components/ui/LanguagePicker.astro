@@ -1,100 +1,74 @@
 ---
-import { languages } from "~/presentation/shared/utils/ui";
 import Icon from "~/presentation/shared/components/ui/icons/Icon.astro";
+import Container, { Tokens } from "~/presentation/Container";
+import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
+import { useI18nStatic } from "../../hooks/useI18n";
+import { TranslationKeys } from "~/domain/models/TranslationKey";
+import { navigate } from "astro:transitions/client";
+import Dropdown from "~/core/acore-astro/components/Dropdown.astro";
+
+const i18n = Container.resolve<II18n>(Tokens.I18n);
+const translate = useI18nStatic(Astro.url);
+const locales = i18n.locales;
+const currentLocale = i18n.getLocaleFromUrl(Astro.url, i18n.locales[0]);
+
+function getLocaleUrl(locale: string) {
+  return i18n.getLocaleUrl(Astro.url, locale, i18n.locales[0]).pathname;
+}
 ---
 
-<div class="hs-dropdown relative z-20 inline-flex">
+<Dropdown value={currentLocale} name="language" dropdownClass="min-w-[120px] dark:bg-neutral-800 dark:text-neutral-200">
   <button
-    id="hs-dropdown-default"
+    slot="trigger"
     type="button"
     aria-label="Change language"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-full px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-none"
+    class="ac-locales-dropdown-button inline-flex items-center gap-x-2 rounded-full px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-none"
   >
-    <Icon name="earth" class="animate-glow text-emerald-500" />
+    <Icon name="earth" class="animate-ac-glow text-emerald-500" />
   </button>
 
-  <div
-    class="hs-dropdown-menu duration !left-[70%] !top-[60%] mt-2 hidden !transform-none rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:!left-[94%] md:!top-[70%]"
-    aria-labelledby="hs-dropdown-hover-event"
-  >
+  <div slot="content">
     {
-      // Map through the list of languages, creating a link for each language
-      Object.entries(languages).map(([lang, label]) => (
-        <a
-          class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-          href={`/${lang === "en" ? "" : lang}`}
+      locales.map((locale) => (
+        <button
+          data-locale-url={getLocaleUrl(locale)}
+          data-locale={locale}
+          onclick={`
+            const locale = this.getAttribute('data-locale');
+            const localeUrl = this.getAttribute('data-locale-url');
+            localStorage.setItem('preffered_locale', locale);
+            window.acNavigate(localeUrl);
+          `}
+          class="ac-locale-button w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-neutral-700"
         >
-          {label}
-        </a>
+          {translate(TranslationKeys[`common_${locale}` as keyof typeof TranslationKeys])}
+        </button>
       ))
     }
   </div>
-</div>
-
-<!--Import the necessary Dropdown plugin-->
-<!--https://preline.co/plugins/html/dropdown.html-->
-<script>
-  import "@preline/dropdown/index.js";
-</script>
+</Dropdown>
 
 <script>
-  // Type alias for supported languages
-  type TLanguage = "en" | "tr";
-  // array of supported languages
-  const languages: TLanguage[] = ["en", "tr"];
+  import { navigate } from "astro:transitions/client";
+  import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
+  import Container, { Tokens } from "~/presentation/Container";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const languageLinks = document.querySelectorAll(".hs-dropdown-menu a");
-    languageLinks.forEach((element) => {
-      const link = element as HTMLAnchorElement;
-      const lang = link.getAttribute("href")?.replace("/", "").replace("/", "") as TLanguage;
+  // Add navigate to window object
+  (window as any).acNavigate = navigate;
 
-      link.addEventListener("click", function (event) {
-        event.preventDefault();
+  redirectPrefferedLocale();
 
-        const url = new URL(window.location.href);
-        const pathParts = url.pathname.split("/").filter((part) => part && !languages.includes(part as TLanguage));
+  function redirectPrefferedLocale() {
+    const currentUrl = new URL(window.location.href);
 
-        // Disable the selection of the same language
-        if (lang === url.pathname.split("/")[1]) return;
+    const i18n = Container.resolve<II18n>(Tokens.I18n);
+    const locales = i18n.locales;
+    const currentLocale = i18n.getLocaleFromUrl(currentUrl, i18n.locales[0]);
+    const prefferedLocale = localStorage.getItem("preffered_locale") || i18n.getBrowserLocale().split("-")[0];
 
-        // Determine if the current URL already has a language prefix
-        const currentLang = languages.includes(pathParts[0] as TLanguage) ? pathParts[0] : "en";
-
-        // Remove current language prefix from pathParts
-        if (languages.includes(pathParts[0] as TLanguage)) {
-          pathParts.shift();
-        }
-
-        // Determine if we are switching to a different language
-        if (lang !== currentLang) {
-          if (lang !== "en") {
-            // Add the new language prefix for non-English
-            pathParts.unshift(lang);
-          }
-        }
-
-        url.pathname = pathParts.join("/");
-        window.location.href = url.toString();
-      });
-    });
-  });
+    if (prefferedLocale && locales.includes(prefferedLocale) && currentLocale !== prefferedLocale) {
+      const localizedUrl = i18n.getLocaleUrl(currentUrl, prefferedLocale, i18n.locales[0]);
+      navigate(localizedUrl.pathname);
+    }
+  }
 </script>
-
-<style is:inline>
-  .animate-glow {
-    filter: drop-shadow(0 0 2px currentColor);
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from {
-      filter: drop-shadow(0 0 2px currentColor);
-      opacity: 0.7;
-    }
-    to {
-      filter: drop-shadow(0 0 8px currentColor);
-      opacity: 1;
-    }
-  }
-</style>
