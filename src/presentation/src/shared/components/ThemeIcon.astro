@@ -43,3 +43,59 @@
       d="m19.07 4.93-1.41 1.41"></path></svg
   >
 </button>
+
+<script>
+  const STORAGE_KEY = "preferred_theme";
+  const DEFAULT_THEME = "system";
+
+  document.addEventListener("DOMContentLoaded", onMount);
+  document.addEventListener("astro:after-swap", onMount);
+
+  function onMount() {
+    initTheme();
+
+    document
+      .querySelectorAll("[data-hs-theme-click-value]")
+      .forEach((button) => (button as HTMLElement).addEventListener("click", handleThemeButtonClick));
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", handleSystemThemeChange);
+  }
+
+  function getSystemTheme(): "dark" | "light" {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function getTheme() {
+    return localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME;
+  }
+
+  function initTheme() {
+    const savedTheme = getTheme();
+    const effectiveTheme = savedTheme === "system" ? getSystemTheme() : savedTheme;
+    applyTheme(effectiveTheme);
+  }
+
+  function setTheme(theme: string) {
+    localStorage.setItem(STORAGE_KEY, theme);
+    const effectiveTheme = theme === "system" ? getSystemTheme() : theme;
+    applyTheme(effectiveTheme);
+  }
+
+  function applyTheme(theme: string) {
+    document.documentElement.classList.remove("dark", "light");
+    document.documentElement.classList.add(theme);
+  }
+
+  function handleThemeButtonClick(event: MouseEvent) {
+    const target = event.currentTarget as HTMLElement | null;
+    if (!target) return;
+    const newTheme = target.getAttribute("data-hs-theme-click-value") === "dark" ? "dark" : "light";
+    setTheme(newTheme);
+  }
+
+  function handleSystemThemeChange(event: { matches: boolean }) {
+    if (getTheme() === "system") {
+      applyTheme(event.matches ? "dark" : "light");
+    }
+  }
+</script>
