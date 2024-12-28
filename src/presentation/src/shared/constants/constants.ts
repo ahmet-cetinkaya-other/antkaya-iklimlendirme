@@ -62,6 +62,14 @@ export const PAGES: Record<string, PageLink> = {
       ru: "/услуги/",
     },
   },
+  products: {
+    name: TranslationKeys.common_products,
+    paths: {
+      tr: "/urunler/",
+      en: "/products/",
+      ru: "/продукты/",
+    },
+  },
   posts: {
     name: TranslationKeys.common_posts,
     paths: {

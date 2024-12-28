@@ -36,4 +36,9 @@ export default {
     en: "Contact",
     ru: "Контакты",
   },
+  common_products: {
+    tr: "Ürünler",
+    en: "Products",
+    ru: "Продукты",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

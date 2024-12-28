@@ -14,22 +14,9 @@ declare global {
   }
 }
 
-// This gets the static paths for all the unique products
+const props = Astro.props;
 
-export async function getStaticPaths() {
-  const productEntries = await getCollection("products", ({ id }) => id.startsWith("en/"));
-  return productEntries.map((product) => {
-    const slugWithoutLang = product.slug.replace(/^en\//, ""); // Remove the "en/" prefix
-    return {
-      params: { slug: slugWithoutLang },
-      props: { product },
-    };
-  });
-}
-
-const { product } = Astro.props;
-
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
 ---
 
 <MainLayout title={pageTitle}>
@@ -41,7 +28,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         id="fadeText"
         class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl"
       >
-        {product.data.main.content}
+        {props.product.data.main.content}
       </p>
     </div>
     <div class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
@@ -49,18 +36,18 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         <h1
           class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          {product.data.title}
+          {props.product.data.title}
         </h1>
         <p class="text-lg text-neutral-600 dark:text-neutral-400">
-          {product.data.description}
+          {props.product.data.description}
         </p>
       </div>
       <div>
         <Image
           id="fadeInMoveRight"
-          src={product.data.main.imgMain}
+          src={props.product.data.main.imgMain}
           class="w-[600px]"
-          alt={product.data.main.imgAlt}
+          alt={props.product.data.main.imgAlt}
           format={"avif"}
           loading={"eager"}
         />
@@ -71,7 +58,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
   <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
     <nav class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0" aria-label="Tabs" role="tablist">
       {
-        product.data.tabs.map((tab, index) => (
+        props.product.data.tabs.map((tab: { title: string; id: string; dataTab: string }, index: number) => (
           <ProductTabBtn title={tab.title} id={tab.id} dataTab={tab.dataTab} first={index === 0} />
         ))
       }
@@ -85,19 +72,19 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
               <h2
                 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
               >
-                {product.data.longDescription.title}
+                {props.product.data.longDescription.title}
               </h2>
               <p class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400">
-                {product.data.longDescription.subTitle}
+                {props.product.data.longDescription.subTitle}
               </p>
               <p class="mt-5">
-                <PrimaryCTA title={product.data.longDescription.btnTitle} url={product.data.longDescription.btnURL} />
+                <PrimaryCTA title={props.product.data.longDescription.btnTitle} url={props.product.data.longDescription.btnURL} />
               </p>
             </div>
 
             <div class="space-y-6 lg:space-y-10">
               {
-                product.data.descriptionList.map((list) => (
+                props.product.data.descriptionList.map((list: { title: string; subTitle: string }) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
@@ -118,7 +105,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
           <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
             <div class="max-w-md space-y-6">
               {
-                product.data.specificationsLeft.map((spec) => (
+                props.product.data.specificationsLeft.map((spec: { title: string; subTitle: string }) => (
                   <div>
                     <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">{spec.title}</h3>
                     <p class="text-neutral-600 dark:text-neutral-400">{spec.subTitle}</p>
@@ -127,16 +114,16 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
               }
             </div>
             {
-              product.data.specificationsRight ? (
+              props.product.data.specificationsRight ? (
                 <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
-                  {product.data.specificationsRight?.map((spec) => (
+                  {props.product.data.specificationsRight?.map((spec: { title: string; subTitle: string }) => (
                     <div>
                       <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">{spec.title}</h3>
                       <p class="text-neutral-600 dark:text-neutral-400">{spec.subTitle}</p>
                     </div>
                   ))}
                 </div>
-              ) : product.data.tableData ? (
+              ) : props.product.data.tableData ? (
                 <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
                   <div class="flex flex-col">
                     <div class="-m-1.5 overflow-x-auto">
@@ -145,7 +132,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                           <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
                             <thead>
                               <tr>
-                                {product.data.tableData?.[0].feature?.map((header) => (
+                                {props.product.data.tableData?.[0].feature?.map((header: string) => (
                                   <th
                                     scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500"
@@ -156,7 +143,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                               </tr>
                             </thead>
                             <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
-                              {product.data.tableData?.map((row) =>
+                              {props.product.data.tableData?.map((row: { description: string[][] }) =>
                                 // Wrap each row's content in a separate <tr> element
                                 row.description.map((rowData) => (
                                   <tr>
@@ -191,9 +178,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         class="relative left-12 top-12 z-10 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 md:-ml-12 lg:ml-0"
       >
         {
-          product.data.blueprints.first && (
+          props.product.data.blueprints.first && (
             <Image
-              src={product.data.blueprints.first}
+              src={props.product.data.blueprints.first}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
               format={"avif"}
@@ -204,9 +191,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
       <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
         {
-          product.data.blueprints.second && (
+          props.product.data.blueprints.second && (
             <Image
-              src={product.data.blueprints.second}
+              src={props.product.data.blueprints.second}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
               format={"avif"}

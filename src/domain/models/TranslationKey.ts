@@ -8,6 +8,7 @@ export enum TranslationKeys {
   common_posts = "common_posts",
   common_contact = "common_contact",
   common_services = "common_services",
+  common_products = "common_products",
 }
 
 export type TranslationKey = TranslationKeys;

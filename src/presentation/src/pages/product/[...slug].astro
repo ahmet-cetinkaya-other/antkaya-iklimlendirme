@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import ProductPage from "~/presentation/pages/_components/products/product-page.astro";
+
+// This gets the static paths for all the unique products
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection("products", ({ id }) => id.startsWith("en/"));
+  return productEntries.map((product) => {
+    const slugWithoutLang = product.slug.replace(/^en\//, ""); // Remove the "en/" prefix
+    return {
+      params: { slug: slugWithoutLang },
+      props: { product },
+    };
+  });
+}
+
+const props = Astro.props;
+---
+
+<ProductPage product={props.product} />
