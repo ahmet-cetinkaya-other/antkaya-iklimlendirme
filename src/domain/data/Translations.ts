@@ -41,4 +41,14 @@ export default {
     en: "Products",
     ru: "Продукты",
   },
+  contact_call: {
+    tr: "Ara",
+    en: "Call",
+    ru: "Позвонить",
+  },
+  contact_call_us: {
+    tr: "Bizi arayın",
+    en: "Call us",
+    ru: "Позвоните нам",
+  }
 } as Record<TranslationKey, Record<Locales, string>>;

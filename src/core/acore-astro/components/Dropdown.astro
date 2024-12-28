@@ -80,7 +80,7 @@ const uniqueId = `dropdown-${Math.random().toString(36).slice(2)}`;
   }
 
   function updatePosition() {
-    if (!menu) throw new Error("Menu is not initialized.");
+    if (!menu) return;
 
     const rect = triggerWrapper.getBoundingClientRect();
     menu.style.position = "fixed";
