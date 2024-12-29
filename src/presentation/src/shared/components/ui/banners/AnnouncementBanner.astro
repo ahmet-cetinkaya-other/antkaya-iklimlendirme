@@ -11,7 +11,10 @@ const props = Astro.props;
 ---
 
 <astro-banner btnId={props.btnId}>
-  <div class="fixed bottom-0 start-1/2 z-[100] mx-auto w-full max-w-[280px] -translate-x-1/2 transform">
+  <div
+    id="announcementBanner"
+    class="fixed bottom-0 start-1/2 z-[100] mx-auto w-full max-w-[280px] -translate-x-1/2 transform transition-transform duration-1000"
+  >
     <!-- Remote body with navbar-like styling -->
     <div
       class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl dark:border-neutral-600/80 dark:border-t-white/10 dark:bg-neutral-800/75 dark:before:bg-[linear-gradient(0deg,_rgba(255,255,255,0.12)_1px,transparent_1px)]"
@@ -133,4 +136,15 @@ const props = Astro.props;
     temperatureValue.textContent = `${data.current.temperature_2m}°C`;
     humidityValue.textContent = `${data.current.relative_humidity_2m}%`;
   }
+
+  window.addEventListener("scroll", () => {
+    const banner = document.getElementById("announcementBanner");
+    if (banner) {
+      if (window.scrollY > 100) {
+        banner.style.transform = "translate(-50%, 100%)";
+      } else {
+        banner.style.transform = "translate(-50%, 0)";
+      }
+    }
+  });
 </script>
