@@ -86,4 +86,89 @@ export default {
     en: "As Antkaya HVAC, we are proud to offer service and maintenance services of leading brands in the industry.",
     ru: "Мы гордимся тем, что предлагаем сервис и обслуживание ведущих брендов в отрасли.",
   },
+  features_section_title: {
+    tr: "Profesyonel İklimlendirme Hizmetlerimiz",
+    en: "Our Professional HVAC Services",
+    ru: "Наши профессиональные услуги ОВиК",
+  },
+  features_section_subtitle: {
+    tr: "Uzman ekibimizle en iyi iklimlendirme çözümlerini sunuyoruz",
+    en: "We provide the best HVAC solutions with our expert team",
+    ru: "Мы предоставляем лучшие решения ОВиК с нашей командой экспертов",
+  },
+  features_professional_service: {
+    tr: "Profesyonel Servis",
+    en: "Professional Service",
+    ru: "Профессиональный сервис",
+  },
+  features_professional_service_desc: {
+    tr: "Deneyimli teknik ekibimizle tüm marka ve modellere uzman servis hizmeti",
+    en: "Expert service for all brands and models with our experienced technical team",
+    ru: "Профессиональный сервис для всех марок и моделей с нашей опытной командой",
+  },
+  features_maintenance: {
+    tr: "Düzenli Bakım",
+    en: "Regular Maintenance",
+    ru: "Регулярное обслуживание",
+  },
+  features_maintenance_desc: {
+    tr: "Cihazlarınızın ömrünü uzatan periyodik bakım ve kontrol hizmetleri",
+    en: "Periodic maintenance and inspection services that extend the life of your devices",
+    ru: "Периодическое обслуживание и проверки, продлевающие срок службы вашего оборудования",
+  },
+  features_support: {
+    tr: "7/24 Destek",
+    en: "24/7 Support",
+    ru: "Поддержка 24/7",
+  },
+  features_support_desc: {
+    tr: "Her zaman ulaşabileceğiniz müşteri destek hattı ve acil servis hizmeti",
+    en: "Customer support line and emergency service available anytime",
+    ru: "Служба поддержки клиентов и экстренная служба доступны в любое время",
+  },
+  features_quality: {
+    tr: "Kalite Garantisi",
+    en: "Quality Guarantee",
+    ru: "Гарантия качества",
+  },
+  features_quality_desc: {
+    tr: "En yüksek kalitede yedek parça ve işçilik garantisi",
+    en: "Highest quality spare parts and workmanship guarantee",
+    ru: "Гарантия на запчасти и работу высочайшего качества",
+  },
+  features_tabs_title: {
+    tr: `<span class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span> ile profesyonel iklimlendirme çözümleri`,
+    en: `Professional climate solutions with <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>`,
+    ru: `Профессиональные климатические решения с <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>`,
+  },
+  features_ac_service_heading: {
+    tr: "Klima Teknik Servis",
+    en: "AC Technical Service",
+    ru: "Техническое обслуживание кондиционеров",
+  },
+  features_ac_service_content: {
+    tr: "Tüm marka ve model klimalarınız için profesyonel bakım ve onarım hizmetleri sunuyoruz.",
+    en: "We provide professional maintenance and repair services for all brands and models of air conditioners.",
+    ru: "Мы предоставляем профессиональные услуги по обслуживанию и ремонту кондиционеров всех марок и моделей.",
+  },
+  features_ac_installation_heading: {
+    tr: "Klima Montaj",
+    en: "AC Installation",
+    ru: "Установка кондиционеров",
+  },
+  features_ac_installation_content: {
+    tr: "Uzman ekibimizle klimanızın montajını en uygun şekilde gerçekleştiriyoruz.",
+    en: "We perform your air conditioner installation in the most suitable way with our expert team.",
+    ru: "Мы выполняем установку вашего кондиционера наиболее подходящим образом с нашей командой экспертов.",
+  },
+  features_heating_service_heading: {
+    tr: "Petek ve Kombi Servisi",
+    en: "Radiator and Combi Boiler Service",
+    ru: "Обслуживание радиаторов и комбинированных котлов",
+  },
+  features_heating_service_content: {
+    tr: "Petek temizleme ve kombi bakım hizmetleri ile ısıtma sisteminizin verimli çalışmasını sağlıyoruz.",
+    en: "We ensure efficient operation of your heating system with radiator cleaning and combi boiler maintenance services.",
+    ru: "Мы обеспечиваем эффективную работу вашей системы отопления с помощью услуг по очистке радиаторов и обслуживанию комбинированных котлов.",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

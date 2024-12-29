@@ -18,6 +18,23 @@ export enum TranslationKeys {
   home_hero_reviews = "home_hero_reviews",
   brands_section_title = "brands_section_title",
   brands_section_subtitle = "brands_section_subtitle",
+  features_section_title = "features_section_title",
+  features_section_subtitle = "features_section_subtitle",
+  features_professional_service = "features_professional_service",
+  features_professional_service_desc = "features_professional_service_desc",
+  features_maintenance = "features_maintenance",
+  features_maintenance_desc = "features_maintenance_desc",
+  features_support = "features_support",
+  features_support_desc = "features_support_desc",
+  features_quality = "features_quality",
+  features_quality_desc = "features_quality_desc",
+  features_tabs_title = "features_tabs_title",
+  features_ac_service_heading = "features_ac_service_heading",
+  features_ac_service_content = "features_ac_service_content",
+  features_ac_installation_heading = "features_ac_installation_heading",
+  features_ac_installation_content = "features_ac_installation_content",
+  features_heating_service_heading = "features_heating_service_heading",
+  features_heating_service_content = "features_heating_service_content",
 }
 
 export type TranslationKey = TranslationKeys;

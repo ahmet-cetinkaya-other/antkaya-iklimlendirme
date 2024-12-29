@@ -11,12 +11,13 @@ import PricingSection from "~/presentation/shared/components/sections/pricing/Pr
 import FAQ from "~/presentation/shared/components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "~/presentation/shared/components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "~/presentation/shared/assets/images/living-room.webp";
+import wallMountedAcUnitImage from "~/presentation/shared/assets/images/wall-mounted-ac-unit.webp";
+import acTechnicianImage from "~/presentation/shared/assets/images/ac-technician.webp";
+import radiaorImage from "~/presentation/shared/assets/images/radiator.webp";
 import faqs from "~/domain/data/faqs.json";
-import features from "~/domain/data/features.json";
 import pricing from "~/domain/data/pricing.json";
 import featureImage from "~/presentation/shared/assets/images/image-not-found.svg";
 import construction from "~/presentation/shared/assets/images/image-not-found.svg";
-import tools from "~/presentation/shared/assets/images/image-not-found.svg";
 import dashboard from "~/presentation/shared/assets/images/image-not-found.svg";
 import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
@@ -49,47 +50,70 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
     alt="Modern air conditioning system installation and service"
   />
 
-  <BrandsSection
-    title={translate(TranslationKeys.brands_section_title)}
-    subTitle={translate(TranslationKeys.brands_section_subtitle)}
-  />
+  <div class="px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
+    <BrandsSection
+      title={translate(TranslationKeys.brands_section_title)}
+      subTitle={translate(TranslationKeys.brands_section_subtitle)}
+    />
+  </div>
 
-  <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    src={featureImage}
-    alt="Antkaya İklimlendirme products in floating boxes"
-    features={features}
-  />
+  <section class="container">
+    <FeaturesGeneral
+      title={translate(TranslationKeys.features_section_title)}
+      subTitle={translate(TranslationKeys.features_section_subtitle)}
+      features={[
+        {
+          heading: translate(TranslationKeys.features_professional_service),
+          content: translate(TranslationKeys.features_professional_service_desc),
+          svg: "wrench",
+        },
+        {
+          heading: translate(TranslationKeys.features_maintenance),
+          content: translate(TranslationKeys.features_maintenance_desc),
+          svg: "calendar",
+        },
+        {
+          heading: translate(TranslationKeys.features_support),
+          content: translate(TranslationKeys.features_support_desc),
+          svg: "phone",
+        },
+        {
+          heading: translate(TranslationKeys.features_quality),
+          content: translate(TranslationKeys.features_quality_desc),
+          svg: "shield",
+        },
+      ]}
+    />
 
-  <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span>'s offerings to perfectly suit your hardware and construction needs.`
-    tabs={[
-      {
-        heading: "Cutting-Edge Tools",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        svg: "tools",
-        src: tools,
-        alt: "Yellow and black heavy equipment on brown grass field",
-        first: true,
-      },
-      {
-        heading: "Intuitive Dashboards",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        svg: "dashboard",
-        src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
-        second: true,
-      },
-      {
-        heading: "Robust Features",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        svg: "house",
-        src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
-      },
-    ]}
-  />
+    <FeaturesNavs
+      title={translate(TranslationKeys.features_tabs_title)}
+      tabs={[
+        {
+          heading: translate(TranslationKeys.features_ac_service_heading),
+          content: translate(TranslationKeys.features_ac_service_content),
+          icon: "wrench",
+          imageSrc: acTechnicianImage,
+          imageAlt: "Air conditioner service and maintenance",
+          first: true,
+        },
+        {
+          heading: translate(TranslationKeys.features_ac_installation_heading),
+          content: translate(TranslationKeys.features_ac_installation_content),
+          icon: "snowflake",
+          imageSrc: wallMountedAcUnitImage,
+          imageAlt: "Air conditioner installation",
+          second: true,
+        },
+        {
+          heading: translate(TranslationKeys.features_heating_service_heading),
+          content: translate(TranslationKeys.features_heating_service_content),
+          icon: "fire",
+          imageSrc: radiaorImage,
+          imageAlt: "Radiator and heating system service",
+        },
+      ]}
+    />
+  </section>
 
   <TestimonialsSection
     title="Fast-Track Your Projects"
