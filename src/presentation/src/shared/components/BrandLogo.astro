@@ -1,10 +1,17 @@
 ---
+import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 
+type Props = {
+  class?: string;
+  imageClass?: string;
+  textClass?: string;
+};
+const props = Astro.props;
 ---
 
-<div class="flex items-center gap-1">
-  <img src="/favicon.png" alt="Brand Logo" class="h-6" />
-  <h1>
+<div class={mergeCls("flex items-center gap-1", props.class)}>
+  <img src="/favicon.png" alt="Brand Logo" class={mergeCls("h-6", props.imageClass)} />
+  <h1 class={mergeCls("text-xl font-bold", props.textClass)}>
     <span class="text-primary">Ant</span><span class="text-secondary">Kaya</span>
   </h1>
 </div>

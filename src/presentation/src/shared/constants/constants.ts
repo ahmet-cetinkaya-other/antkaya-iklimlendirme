@@ -1,14 +1,15 @@
+import Company from "~/domain/data/Company";
 import { TranslationKeys, type Locales } from "~/domain/models/TranslationKey";
 import ogImageSrc from "~/presentation/shared/assets/images/image-not-found.svg";
 
 export const SITE = {
-  title: "Lorem Ipsum",
+  title: Company.name,
   tagline: "Dolor Sit Amet",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   description_short: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  url: "https://loremipsum.com",
-  author: "John Doe",
+  url: "https://antkayaiklimlendimre.com",
+  author: Company.name,
 };
 
 export const SEO = {

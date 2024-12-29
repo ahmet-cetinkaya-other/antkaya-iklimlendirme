@@ -241,4 +241,79 @@ export default {
     en: "Frequently<br />Asked Questions",
     ru: "Часто Задаваемые<br />Вопросы",
   },
+  footer_newsletter_title: {
+    tr: "Bültenimize Katılın",
+    en: "Join Our Newsletter",
+    ru: "Подпишитесь на рассылку",
+  },
+  footer_newsletter_desc: {
+    tr: "En son haberler ve özel teklifler için bültenimize abone olun.",
+    en: "Subscribe to our newsletter for latest news and special offers.",
+    ru: "Подпишитесь на нашу рассылку для получения последних новостей и специальных предложений.",
+  },
+  footer_company: {
+    tr: "Şirket",
+    en: "Company",
+    ru: "Компания",
+  },
+  footer_services: {
+    tr: "Hizmetler",
+    en: "Services",
+    ru: "Услуги",
+  },
+  footer_about: {
+    tr: "Hakkımızda",
+    en: "About Us",
+    ru: "О нас",
+  },
+  footer_contact: {
+    tr: "İletişim",
+    en: "Contact",
+    ru: "Контакты",
+  },
+  footer_emergency: {
+    tr: "Acil Servis",
+    en: "Emergency Service",
+    ru: "Экстренная служба",
+  },
+  footer_maintenance: {
+    tr: "Bakım Hizmetleri",
+    en: "Maintenance Services",
+    ru: "Техническое обслуживание",
+  },
+  footer_installation: {
+    tr: "Montaj Hizmetleri",
+    en: "Installation Services",
+    ru: "Услуги по установке",
+  },
+  footer_repair: {
+    tr: "Tamir Servisi",
+    en: "Repair Service",
+    ru: "Ремонтные услуги",
+  },
+  footer_copyright: {
+    tr: "Tüm hakları saklıdır.",
+    en: "All rights reserved.",
+    ru: "Все права защищены.",
+  },
+  contact_email: {
+    tr: "E-posta",
+    en: "Email",
+    ru: "Электронная почта",
+  },
+  common_street: {
+    tr: "Sokak",
+    en: "Street",
+    ru: "Улица",
+  },
+  common_road: {
+    tr: "Caddesi",
+    en: "Road",
+    ru: "Дорога",
+  },
+  common_neighborhood: {
+    tr: "Mahallesi",
+    en: "Neighborhood",
+    ru: "Район",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

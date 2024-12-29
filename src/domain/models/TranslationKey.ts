@@ -48,6 +48,21 @@ export enum TranslationKeys {
   hero_alt_title = "hero_alt_title",
   hero_alt_subtitle = "hero_alt_subtitle",
   hero_alt_button = "hero_alt_button",
+  footer_newsletter_title = "footer_newsletter_title",
+  footer_newsletter_desc = "footer_newsletter_desc",
+  footer_company = "footer_company",
+  footer_services = "footer_services",
+  footer_about = "footer_about",
+  footer_contact = "footer_contact",
+  footer_emergency = "footer_emergency",
+  footer_maintenance = "footer_maintenance",
+  footer_installation = "footer_installation",
+  footer_repair = "footer_repair",
+  footer_copyright = "footer_copyright",
+  contact_email = "contact_email",
+  common_street = "common_street",
+  common_road = "common_road",
+  common_neighborhood = "common_neighborhood",
 }
 
 export type TranslationKey = TranslationKeys;

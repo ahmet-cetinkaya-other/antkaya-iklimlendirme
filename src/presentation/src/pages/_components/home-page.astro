@@ -16,8 +16,8 @@ import faqsData from "~/domain/data/Faq";
 // import pricing from "~/domain/data/pricing.json";
 import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import Contacts from "~/domain/data/Contacts";
 import { PAGES } from "~/presentation/shared/constants/constants";
+import Company from "~/domain/data/Company";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 ---
@@ -27,7 +27,7 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
     title={translate(TranslationKeys.contact_call_us)}
     btnId="dismiss-button"
     btnTitle={translate(TranslationKeys.contact_call)}
-    url={`tel:${Contacts.tel}`}
+    url={`tel:${Company.tel}`}
   />
 
   <HeroSection
@@ -70,7 +70,7 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
         {
           heading: translate(TranslationKeys.features_support),
           content: translate(TranslationKeys.features_support_desc),
-          svg: "phone",
+          svg: "contact",
         },
         {
           heading: translate(TranslationKeys.features_quality),
@@ -118,7 +118,7 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
       subTitle={translate(TranslationKeys.hero_alt_subtitle)}
       btnTitle={translate(TranslationKeys.hero_alt_button)}
       url={PAGES.contact.paths[currentLocale]}
-      icon="phone"
+      icon="contact"
     />
   </section>
 </MainLayout>
