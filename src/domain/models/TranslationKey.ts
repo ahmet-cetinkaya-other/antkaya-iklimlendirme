@@ -16,6 +16,8 @@ export enum TranslationKeys {
   home_hero_primary_btn = "home_hero_primary_btn",
   home_hero_secondary_btn = "home_hero_secondary_btn",
   home_hero_reviews = "home_hero_reviews",
+  brands_section_title = "brands_section_title",
+  brands_section_subtitle = "brands_section_subtitle",
 }
 
 export type TranslationKey = TranslationKeys;

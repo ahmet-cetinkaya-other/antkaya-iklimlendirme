@@ -76,4 +76,14 @@ export default {
     en: '<span class="font-bold">1000+</span> Happy Customers',
     ru: '<span class="font-bold">1000+</span> Довольных клиентов',
   },
+  brands_section_title: {
+    tr: "Desteklediğimiz Önde Gelen Markalar",
+    en: "Supported Leading Brands",
+    ru: "Поддерживаемые ведущие бренды",
+  },
+  brands_section_subtitle: {
+    tr: "Antkaya İklimlendirme olarak, sektördeki önde gelen markaların servis ve bakım hizmetlerini sunmaktan gurur duyuyoruz.",
+    en: "As Antkaya HVAC, we are proud to offer service and maintenance services of leading brands in the industry.",
+    ru: "Мы гордимся тем, что предлагаем сервис и обслуживание ведущих брендов в отрасли.",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

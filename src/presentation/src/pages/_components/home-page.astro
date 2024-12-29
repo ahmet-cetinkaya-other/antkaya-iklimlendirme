@@ -3,7 +3,7 @@
 import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
 import HeroSection from "~/presentation/shared/components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "~/presentation/shared/components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "~/presentation/shared/components/sections/landing/ClientsSection.astro";
+import BrandsSection from "~/presentation/shared/components/sections/landing/BrandsSection.astro";
 import FeaturesGeneral from "~/presentation/shared/components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "~/presentation/shared/components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "~/presentation/shared/components/sections/testimonials/TestimonialsSection.astro";
@@ -49,9 +49,9 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
     alt="Modern air conditioning system installation and service"
   />
 
-  <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  <BrandsSection
+    title={translate(TranslationKeys.brands_section_title)}
+    subTitle={translate(TranslationKeys.brands_section_subtitle)}
   />
 
   <FeaturesGeneral
