@@ -45,6 +45,9 @@ export enum TranslationKeys {
   faq_emergency_service_answer = "faq_emergency_service_answer",
   faq_boiler_maintenance_question = "faq_boiler_maintenance_question",
   faq_boiler_maintenance_answer = "faq_boiler_maintenance_answer",
+  hero_alt_title = "hero_alt_title",
+  hero_alt_subtitle = "hero_alt_subtitle",
+  hero_alt_button = "hero_alt_button",
 }
 
 export type TranslationKey = TranslationKeys;

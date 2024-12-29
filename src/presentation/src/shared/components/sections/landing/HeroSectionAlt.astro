@@ -1,17 +1,17 @@
 ---
 // Import the necessary dependencies
-import GithubBtn from "~/presentation/shared/components/ui/buttons/GithubBtn.astro";
+import PrimaryCTA from "../../ui/buttons/PrimaryCTA.astro";
 
 // Define props from Astro
-const { title, subTitle, url } = Astro.props;
-
-const btnTitle = Astro.currentLocale === "tr" ? "Continuer avec Github" : "Continue with Github";
+const { title, subTitle, url, btnTitle, icon = "arrow-right" } = Astro.props;
 
 // Define TypeScript interface for props
 interface Props {
   title: string;
   subTitle?: string;
   url?: string;
+  btnTitle: string;
+  icon?: string;
 }
 ---
 
@@ -89,11 +89,11 @@ interface Props {
   <div class="mx-auto mt-5 max-w-3xl text-center">
     {subTitle && <p class="text-pretty text-lg text-neutral-600 dark:text-neutral-400">{subTitle}</p>}
   </div>
-  <!-- Github Button -->
+  <!-- Button -->
   {
     url && (
       <div class="mt-8 flex justify-center gap-3">
-        <GithubBtn url={url} title={btnTitle} />
+        <PrimaryCTA url={url} title={btnTitle} icon={icon} iconClass="size-6" class="w-1/4" />
       </div>
     )
   }

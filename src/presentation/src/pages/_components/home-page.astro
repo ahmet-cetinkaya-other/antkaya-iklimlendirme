@@ -114,9 +114,11 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
     <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={faqsData} />
 
     <HeroSectionAlt
-      title="Let's Build Together"
-      subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      url="https://github.com/mearashadowfax/Antkaya İklimlendirme"
+      title={translate(TranslationKeys.hero_alt_title)}
+      subTitle={translate(TranslationKeys.hero_alt_subtitle)}
+      btnTitle={translate(TranslationKeys.hero_alt_button)}
+      url={PAGES.contact.paths[currentLocale]}
+      icon="phone"
     />
   </section>
 </MainLayout>

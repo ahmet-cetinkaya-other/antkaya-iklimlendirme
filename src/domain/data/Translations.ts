@@ -76,6 +76,21 @@ export default {
     en: '<span class="font-bold">1000+</span> Happy Customers',
     ru: '<span class="font-bold">1000+</span> Довольных клиентов',
   },
+  hero_alt_title: {
+    tr: "Hemen İletişime Geçin",
+    en: "Contact Us Now",
+    ru: "Свяжитесь с нами сейчас",
+  },
+  hero_alt_subtitle: {
+    tr: "Profesyonel iklimlendirme çözümleri için uzman ekibimiz sizinle iletişime geçmeyi bekliyor.",
+    en: "Our expert team is waiting to assist you with professional HVAC solutions.",
+    ru: "Наша команда экспертов готова помочь вам с профессиональными решениями ОВиК.",
+  },
+  hero_alt_button: {
+    tr: "İletişime Geç",
+    en: "Contact Us",
+    ru: "Связаться с нами",
+  },
   brands_section_title: {
     tr: "Desteklediğimiz Önde Gelen Markalar",
     en: "Supported Leading Brands",

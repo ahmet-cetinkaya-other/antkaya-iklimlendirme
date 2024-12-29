@@ -6,6 +6,8 @@ interface Props {
   url?: string;
   noArrow?: boolean;
   class?: string;
+  icon?: string;
+  iconClass?: string;
 }
 const props = Astro.props as Props;
 
@@ -30,6 +32,7 @@ const ringClasses = "dark:ring-zinc-200";
   )}
   href={props.url}
 >
+  {props.icon && <Icon name={props.icon} class={props.iconClass} />}
   {props.title}
   {props.noArrow ? null : <Icon name="arrowRight" />}
 </a>
