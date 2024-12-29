@@ -35,6 +35,16 @@ export enum TranslationKeys {
   features_ac_installation_content = "features_ac_installation_content",
   features_heating_service_heading = "features_heating_service_heading",
   features_heating_service_content = "features_heating_service_content",
+  faq_heading = "faq_heading",
+  faq_subtitle = "faq_subtitle",
+  faq_ac_maintenance_question = "faq_ac_maintenance_question",
+  faq_ac_maintenance_answer = "faq_ac_maintenance_answer",
+  faq_supported_brands_question = "faq_supported_brands_question",
+  faq_supported_brands_answer = "faq_supported_brands_answer",
+  faq_emergency_service_question = "faq_emergency_service_question",
+  faq_emergency_service_answer = "faq_emergency_service_answer",
+  faq_boiler_maintenance_question = "faq_boiler_maintenance_question",
+  faq_boiler_maintenance_answer = "faq_boiler_maintenance_answer",
 }
 
 export type TranslationKey = TranslationKeys;

@@ -52,9 +52,9 @@ export default {
     ru: "Позвоните нам",
   },
   home_hero_title: {
-    tr: 'Profesyonel İklimlendirme Çözümleri ile <span class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span>',
-    en: 'Professional Climate Solutions with <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>',
-    ru: 'Профессиональные климатические решения с <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>',
+    tr: 'Profesyonel İklimlendirme Çözümleri ile <span class="text-primary-500 dark:text-primary-400">Antkaya İklimlendirme</span>',
+    en: 'Professional Climate Solutions with <span class="text-primary-500 dark:text-primary-400">Antkaya HVAC</span>',
+    ru: 'Профессиональные климатические решения с <span class="text-primary-500 dark:text-primary-400">Antkaya HVAC</span>',
   },
   home_hero_subtitle: {
     tr: "Ev ve işyeriniz için uzman iklimlendirme servisi. Satış, montaj, bakım ve onarım hizmetleri.",
@@ -137,9 +137,9 @@ export default {
     ru: "Гарантия на запчасти и работу высочайшего качества",
   },
   features_tabs_title: {
-    tr: `<span class="text-yellow-500 dark:text-yellow-400">Antkaya İklimlendirme</span> ile profesyonel iklimlendirme çözümleri`,
-    en: `Professional climate solutions with <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>`,
-    ru: `Профессиональные климатические решения с <span class="text-yellow-500 dark:text-yellow-400">Antkaya HVAC</span>`,
+    tr: `<span class="text-primary-500 dark:text-primary-400">Antkaya İklimlendirme</span> ile profesyonel iklimlendirme çözümleri`,
+    en: `Professional climate solutions with <span class="text-primary-500 dark:text-primary-400">Antkaya HVAC</span>`,
+    ru: `Профессиональные климатические решения с <span class="text-primary-500 dark:text-primary-400">Antkaya HVAC</span>`,
   },
   features_ac_service_heading: {
     tr: "Klima Teknik Servis",
@@ -170,5 +170,60 @@ export default {
     tr: "Petek temizleme ve kombi bakım hizmetleri ile ısıtma sisteminizin verimli çalışmasını sağlıyoruz.",
     en: "We ensure efficient operation of your heating system with radiator cleaning and combi boiler maintenance services.",
     ru: "Мы обеспечиваем эффективную работу вашей системы отопления с помощью услуг по очистке радиаторов и обслуживанию комбинированных котлов.",
+  },
+  faq_title: {
+    tr: "Sıkça Sorulan Sorular",
+    en: "Frequently Asked Questions",
+    ru: "Часто задаваемые вопросы",
+  },
+  faq_subtitle: {
+    tr: "Klima ve ısıtma sistemleri hakkında en çok sorulan sorular",
+    en: "Most commonly asked questions about air conditioning and heating systems",
+    ru: "Наиболее часто задаваемые вопросы о системах кондиционирования и отопления",
+  },
+  faq_ac_maintenance_question: {
+    tr: "Klimamın bakımını ne sıklıkla yaptırmalıyım?",
+    en: "How often should I service my air conditioner?",
+    ru: "Как часто нужно обслуживать кондиционер?",
+  },
+  faq_ac_maintenance_answer: {
+    tr: "Klimanızın optimum performans göstermesi için yılda en az iki kez (yaz sezonu öncesi ve sonrası) bakım yapılmasını öneririz.",
+    en: "We recommend servicing your air conditioner at least twice a year (before and after the summer season) for optimal performance.",
+    ru: "Мы рекомендуем обслуживать кондиционер не менее двух раз в год (до и после летнего сезона) для оптимальной работы.",
+  },
+  faq_supported_brands_question: {
+    tr: "Hangi marka klimaların servisini yapıyorsunuz?",
+    en: "Which air conditioner brands do you service?",
+    ru: "Какие марки кондиционеров вы обслуживаете?",
+  },
+  faq_supported_brands_answer: {
+    tr: "Tüm büyük markaların (Daikin, Mitsubishi, Samsung, LG, Arçelik vb.) satış, montaj ve servis hizmetlerini sunmaktayız.",
+    en: "We provide sales, installation, and service for all major brands (Daikin, Mitsubishi, Samsung, LG, Arcelik, etc.).",
+    ru: "Мы предоставляем услуги по продаже, установке и обслуживанию всех основных брендов (Daikin, Mitsubishi, Samsung, LG, Arcelik и др.).",
+  },
+  faq_emergency_service_question: {
+    tr: "Acil servis hizmetiniz var mı?",
+    en: "Do you provide emergency service?",
+    ru: "Предоставляете ли вы экстренное обслуживание?",
+  },
+  faq_emergency_service_answer: {
+    tr: "Evet, 7/24 acil servis hizmetimiz mevcuttur. Acil durumlar için müşteri hizmetleri numaramızı arayabilirsiniz.",
+    en: "Yes, we provide 24/7 emergency service. You can call our customer service number for emergencies.",
+    ru: "Да, мы предоставляем круглосуточное экстренное обслуживание. Вы можете позвонить в нашу службу поддержки в случае экстренной ситуации.",
+  },
+  faq_boiler_maintenance_question: {
+    tr: "Kombi bakımı ne zaman yapılmalıdır?",
+    en: "When should boiler maintenance be performed?",
+    ru: "Когда следует проводить обслуживание котла?",
+  },
+  faq_boiler_maintenance_answer: {
+    tr: "Kombi bakımının ısıtma sezonu başlamadan önce, tercihen sonbahar aylarında yapılması önerilir. Yıllık düzenli bakım kombinin ömrünü uzatır ve verimli çalışmasını sağlar.",
+    en: "Boiler maintenance should be done before the heating season, preferably in autumn. Annual regular maintenance extends the boiler's life and ensures efficient operation.",
+    ru: "Техническое обслуживание котла следует проводить перед началом отопительного сезона, желательно осенью. Ежегодное регулярное обслуживание продлевает срок службы котла и обеспечивает эффективную работу.",
+  },
+  faq_heading: {
+    tr: "Sıkça Sorulan<br />Sorular",
+    en: "Frequently<br />Asked Questions",
+    ru: "Часто Задаваемые<br />Вопросы",
   },
 } as Record<TranslationKey, Record<Locales, string>>;

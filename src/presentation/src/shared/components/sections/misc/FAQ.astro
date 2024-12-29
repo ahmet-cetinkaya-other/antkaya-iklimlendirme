@@ -1,27 +1,21 @@
 ---
-// Import the necessary AccordionItem component and JSON data
+import type { TranslationKey } from "~/domain/models/TranslationKey";
 import AccordionItem from "~/presentation/shared/components/ui/blocks/AccordionItem.astro";
-
-// Define props from Astro
-const { title, faqs } = Astro.props;
-
-// Define TypeScript interface for props
-interface Faq {
-  question: string;
-  answer: string;
-}
-
-interface FaqGroup {
-  subTitle?: string;
-  faqs: Faq[];
-}
+import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import Faq from "~/domain/models/Faq";
 
 interface Props {
-  title: string;
-  faqs: FaqGroup;
+  title: TranslationKey;
+  subtitle?: TranslationKey;
+  faqs: Faq[];
 }
-// Define a helper function to generate ids dynamically.
-const makeId = (base: any, index: any) => `${base}${index + 1}`;
+const props = Astro.props;
+
+const { translate } = useI18nStatic(Astro.url);
+
+function makeId(base: any, index: any) {
+  return `${base}${index + 1}`;
+}
 ---
 
 <!-- Main container that holds all content. Customized for different viewport sizes. -->
@@ -30,31 +24,42 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
     <div class="md:col-span-2">
       <div class="max-w-xs">
         <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-          <Fragment set:html={title} />
+          <Fragment set:html={translate(props.title)} />
         </h2>
-        <p class="mt-1 hidden text-neutral-600 dark:text-neutral-400 md:block">
-          {faqs.subTitle}
-        </p>
+        {
+          props.subtitle && (
+            <p class="mt-1 hidden text-neutral-600 dark:text-neutral-400 md:block">
+              <Fragment set:html={translate(props.subtitle)} />
+            </p>
+          )
+        }
       </div>
     </div>
     <!-- FAQ accordion items -->
     <div class="md:col-span-3">
       <div class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700">
         {
-          faqs.faqs.map((question, i) => {
+          props.faqs.map((faq, i) => {
             // Generate ids dynamically for each FAQ accordion item.
             let id = makeId("hs-basic-with-title-and-arrow-stretched-heading-", i);
             let collapseId = makeId("hs-basic-with-title-and-arrow-stretched-collapse", i);
 
-            return <AccordionItem {...question} id={id} collapseId={collapseId} first={i === 0} />;
+            return (
+              <AccordionItem
+                id={id}
+                collapseId={collapseId}
+                first={i === 0}
+                question={translate(faq.question)}
+                answer={translate(faq.answer)}
+              />
+            );
           })
         }
       </div>
     </div>
   </div>
 </section>
-<!--Import the necessary Accordion plugin-->
-<!--https://preline.co/plugins/html/accordion.html-->
+
 <script>
   import "@preline/accordion/index.js";
 </script>

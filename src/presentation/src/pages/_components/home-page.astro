@@ -1,24 +1,19 @@
 ---
-// Import the necessary components
 import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
 import HeroSection from "~/presentation/shared/components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "~/presentation/shared/components/sections/landing/HeroSectionAlt.astro";
 import BrandsSection from "~/presentation/shared/components/sections/landing/BrandsSection.astro";
 import FeaturesGeneral from "~/presentation/shared/components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "~/presentation/shared/components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "~/presentation/shared/components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "~/presentation/shared/components/sections/pricing/PricingSection.astro";
+// import PricingSection from "~/presentation/shared/components/sections/pricing/PricingSection.astro";
 import FAQ from "~/presentation/shared/components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "~/presentation/shared/components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "~/presentation/shared/assets/images/living-room.webp";
 import wallMountedAcUnitImage from "~/presentation/shared/assets/images/wall-mounted-ac-unit.webp";
 import acTechnicianImage from "~/presentation/shared/assets/images/ac-technician.webp";
 import radiaorImage from "~/presentation/shared/assets/images/radiator.webp";
-import faqs from "~/domain/data/faqs.json";
-import pricing from "~/domain/data/pricing.json";
-import featureImage from "~/presentation/shared/assets/images/image-not-found.svg";
-import construction from "~/presentation/shared/assets/images/image-not-found.svg";
-import dashboard from "~/presentation/shared/assets/images/image-not-found.svg";
+import faqsData from "~/domain/data/Faq";
+// import pricing from "~/domain/data/pricing.json";
 import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 import Contacts from "~/domain/data/Contacts";
@@ -113,47 +108,15 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
         },
       ]}
     />
+
+    <!-- <PricingSection pricing={pricing} /> -->
+
+    <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={faqsData} />
+
+    <HeroSectionAlt
+      title="Let's Build Together"
+      subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      url="https://github.com/mearashadowfax/Antkaya İklimlendirme"
+    />
   </section>
-
-  <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    testimonials={[
-      {
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
-    ]}
-    statistics={[
-      {
-        count: "70k+",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      },
-      {
-        count: "35%",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      },
-      {
-        count: "15.3%",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      },
-      {
-        count: "2x",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      },
-    ]}
-  />
-
-  <PricingSection pricing={pricing} />
-
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
-
-  <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    url="https://github.com/mearashadowfax/Antkaya İklimlendirme"
-  />
 </MainLayout>
