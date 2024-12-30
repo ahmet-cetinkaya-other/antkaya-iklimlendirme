@@ -17,7 +17,7 @@ const props = Astro.props;
   >
     <!-- Remote body with navbar-like styling -->
     <div
-      class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl dark:border-neutral-600/80 dark:border-t-white/10 dark:bg-neutral-800/75 dark:before:bg-[linear-gradient(0deg,_rgba(255,255,255,0.12)_1px,transparent_1px)]"
+      class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl"
     >
       <!-- Infrared window with adjusted color -->
       <div class="absolute left-1/2 top-0 h-3 w-6 -translate-x-1/2 rounded-b-sm bg-neutral-900/30"></div>
@@ -29,9 +29,7 @@ const props = Astro.props;
 
       <!-- LCD Display -->
       <div class="relative flex flex-col items-center gap-3">
-        <div
-          class="relative w-full overflow-hidden rounded-lg bg-neutral-900/90 p-3 shadow-inner dark:bg-neutral-200/90"
-        >
+        <div class="relative w-full overflow-hidden rounded-lg bg-neutral-900/90 p-3 shadow-inner">
           <!-- LCD Background Pattern -->
           <div class="absolute inset-0 opacity-5">
             <div class="grid h-full w-full grid-cols-8 gap-px">
@@ -46,11 +44,9 @@ const props = Astro.props;
           {
             props.title && (
               <div class="relative">
-                <p class="font-lcd text-center text-base font-bold tracking-wide text-neutral-100 dark:text-neutral-800">
-                  {props.title}
-                </p>
+                <p class="font-lcd text-center text-base font-bold tracking-wide text-neutral-100">{props.title}</p>
 
-                <div class="font-lcd mt-1 flex flex-col gap-0.5 text-center text-xs text-neutral-100/70 dark:text-neutral-800/70">
+                <div class="font-lcd mt-1 flex flex-col gap-0.5 text-center text-xs text-neutral-100/70">
                   <div id="temperatureValue">25°C</div>
                   <div class="text-xs">
                     Humidity: <span id="humidityValue">50%</span>
