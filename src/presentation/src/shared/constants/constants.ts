@@ -46,7 +46,7 @@ export type PageLink = {
   name: TranslationKeys;
   paths: Record<Locales, string>;
 };
-export const PAGES: Record<string, PageLink> = {
+export const PAGES = {
   home: {
     name: TranslationKeys.common_home,
     paths: {
@@ -69,6 +69,14 @@ export const PAGES: Record<string, PageLink> = {
       tr: "/urunler/",
       en: "/products/",
       ru: "/продукты/",
+    },
+  },
+  faq: {
+    name: TranslationKeys.faq_short_title,
+    paths: {
+      tr: "/sss/",
+      en: "/faq/",
+      ru: "/чаво/",
     },
   },
   posts: {

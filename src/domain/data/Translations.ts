@@ -51,6 +51,76 @@ export default {
     en: "Call us",
     ru: "Позвоните нам",
   },
+  contact_title: {
+    tr: "Bizimle İletişime Geçin",
+    en: "Contact Us",
+    ru: "Свяжитесь с нами",
+  },
+  contact_subtitle: {
+    tr: "Sorularınız mı var veya bir proje mi görüşmek istiyorsunuz? Bize ulaşın ve araçlarımız ve hizmetlerimizle mükemmel çözümü birlikte oluşturalım.",
+    en: "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+    ru: "Есть вопросы или хотите обсудить проект? Свяжитесь с нами, и давайте вместе создадим идеальное решение с помощью наших инструментов и услуг.",
+  },
+  contact_form_title: {
+    tr: "Formu doldurun",
+    en: "Fill in the form",
+    ru: "Заполните форму",
+  },
+  contact_first_name: {
+    tr: "Ad",
+    en: "First Name",
+    ru: "Имя",
+  },
+  contact_last_name: {
+    tr: "Soyad",
+    en: "Last Name",
+    ru: "Фамилия",
+  },
+  contact_details: {
+    tr: "Detaylar",
+    en: "Details",
+    ru: "Подробности",
+  },
+  contact_knowledgebase_title: {
+    tr: "Bilgi Bankası",
+    en: "Knowledgebase",
+    ru: "База знаний",
+  },
+  contact_knowledgebase_content: {
+    tr: "Tüm bilgi bankası makalelerimize göz atın.",
+    en: "Browse through all of our knowledgebase articles.",
+    ru: "Просмотрите все наши статьи базы знаний.",
+  },
+  contact_knowledgebase_link: {
+    tr: "Kılavuzları ve öğreticileri ziyaret edin",
+    en: "Visit guides & tutorials",
+    ru: "Посетите руководства и учебники",
+  },
+  contact_faq_content: {
+    tr: "Sık sorulan sorular için hızlı ve net cevapları keşfedin.",
+    en: "Explore our FAQ for quick, clear answers to common queries.",
+    ru: "Изучите наш FAQ для быстрых и четких ответов на общие вопросы.",
+  },
+  contact_faq_link: {
+    tr: "SSS'yi ziyaret edin",
+    en: "Visit FAQ",
+    ru: "Посетить ЧАВО",
+  },
+  contact_visit_title: {
+    tr: "Ofisimizi ziyaret edin",
+    en: "Visit our office",
+    ru: "Посетите наш офис",
+  },
+  contact_email_title: {
+    tr: "E-posta ile iletişime geçin",
+    en: "Contact us by email",
+    ru: "Свяжитесь с нами по электронной почте",
+  },
+  contact_email_content: {
+    tr: "Yazılı iletişimi mi tercih ediyorsunuz? Bize e-posta gönderin",
+    en: "Prefer the written word? Drop us an email at",
+    ru: "Предпочитаете письменное общение? Напишите нам на",
+  },
   home_hero_title: {
     tr: 'Profesyonel İklimlendirme Çözümleri ile <span class="text-primary-500 dark:text-primary-400">Antkaya İklimlendirme</span>',
     en: 'Professional Climate Solutions with <span class="text-primary-500 dark:text-primary-400">Antkaya HVAC</span>',
@@ -191,6 +261,11 @@ export default {
     en: "Frequently Asked Questions",
     ru: "Часто задаваемые вопросы",
   },
+  faq_short_title: {
+    tr: "SSS",
+    en: "FAQ",
+    ru: "ЧАВО",
+  },
   faq_subtitle: {
     tr: "Klima ve ısıtma sistemleri hakkında en çok sorulan sorular",
     en: "Most commonly asked questions about air conditioning and heating systems",
@@ -237,9 +312,9 @@ export default {
     ru: "Техническое обслуживание котла следует проводить перед началом отопительного сезона, желательно осенью. Ежегодное регулярное обслуживание продлевает срок службы котла и обеспечивает эффективную работу.",
   },
   faq_heading: {
-    tr: "Sıkça Sorulan<br />Sorular",
-    en: "Frequently<br />Asked Questions",
-    ru: "Часто Задаваемые<br />Вопросы",
+    tr: "Sıkça Sorulan Sorular",
+    en: "Frequently Asked Questions",
+    ru: "Часто Задаваемые Вопросы",
   },
   footer_newsletter_title: {
     tr: "Bültenimize Katılın",
@@ -315,5 +390,20 @@ export default {
     tr: "Mahallesi",
     en: "Neighborhood",
     ru: "Район",
+  },
+  common_address: {
+    tr: "Adres",
+    en: "Address",
+    ru: "Адрес",
+  },
+  contact_submit: {
+    tr: "Gönder",
+    en: "Submit",
+    ru: "Отправить",
+  },
+  contact_redirected_your_email_client: {
+    tr: "E-posta uygulamanıza yönlendiriliyorsunuz...",
+    en: "Redirecting to your email app...",
+    ru: "Перенаправление в ваш почтовый клиент...",
   },
 } as Record<TranslationKey, Record<Locales, string>>;
