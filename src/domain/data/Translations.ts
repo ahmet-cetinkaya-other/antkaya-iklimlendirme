@@ -406,4 +406,144 @@ export default {
     en: "Redirecting to your email app...",
     ru: "Перенаправление в ваш почтовый клиент...",
   },
+  services_main_title: {
+    tr: "Profesyonel İklimlendirme Çözümleri",
+    en: "Professional HVAC Solutions",
+    ru: "Профессиональные решения для климатических систем",
+  },
+  services_main_subtitle: {
+    tr: "Ev ve işyeriniz için en iyi iklimlendirme çözümlerini sunuyoruz. Satış, montaj, bakım ve onarım hizmetlerimizle yanınızdayız.",
+    en: "We provide the best HVAC solutions for your home and business. We are at your service with our sales, installation, maintenance, and repair services.",
+    ru: "Мы предлагаем лучшие решения для климатических систем для вашего дома и бизнеса. Мы к вашим услугам с продажей, установкой, обслуживанием и ремонтом.",
+  },
+  services_main_cta: {
+    tr: "Hemen Teklif Alın",
+    en: "Get a Quote Now",
+    ru: "Получить предложение",
+  },
+  services_stats_title: {
+    tr: "Güvenilir Hizmet, Memnun Müşteriler",
+    en: "Reliable Service, Satisfied Customers",
+    ru: "Надежный сервис, довольные клиенты",
+  },
+  services_ac_service_title: {
+    tr: "Klima Teknik Servis ve Bakım",
+    en: "AC Technical Service and Maintenance",
+    ru: "Техническое обслуживание и ремонт кондиционеров",
+  },
+  services_ac_service_desc: {
+    tr: "Tüm marka ve model klimalarınız için profesyonel bakım, onarım ve temizlik hizmetleri sunuyoruz. Periyodik bakımlarla cihazlarınızın ömrünü uzatıyoruz.",
+    en: "We provide professional maintenance, repair, and cleaning services for all brands and models of air conditioners. We extend the life of your devices with periodic maintenance.",
+    ru: "Мы предоставляем профессиональные услуги по обслуживанию, ремонту и чистке кондиционеров всех марок и моделей. Мы продлеваем срок службы ваших устройств с помощью периодического обслуживания.",
+  },
+  services_ac_service_img_alt: {
+    tr: "Klima teknik servis ve bakım hizmeti",
+    en: "AC technical service and maintenance",
+    ru: "Техническое обслуживание и ремонт кондиционеров",
+  },
+  services_ac_install_title: {
+    tr: "Klima Montaj Hizmeti",
+    en: "AC Installation Service",
+    ru: "Услуги по установке кондиционеров",
+  },
+  services_ac_install_desc: {
+    tr: "Uzman ekibimizle klimanızın montajını en uygun şekilde gerçekleştiriyor, garanti kapsamında profesyonel montaj hizmeti sunuyoruz.",
+    en: "We perform your air conditioner installation in the most suitable way with our expert team, providing professional installation service under warranty.",
+    ru: "Мы выполняем установку вашего кондиционера наиболее подходящим образом с нашей командой экспертов, предоставляя профессиональную услугу установки с гарантией.",
+  },
+  services_ac_install_img_alt: {
+    tr: "Profesyonel klima montaj hizmeti",
+    en: "Professional AC installation service",
+    ru: "Профессиональная установка кондиционеров",
+  },
+  services_heating_title: {
+    tr: "Kombi ve Isıtma Sistemleri",
+    en: "Boiler and Heating Systems",
+    ru: "Котлы и системы отопления",
+  },
+  services_heating_desc: {
+    tr: "Kombi bakım, onarım ve petek temizleme hizmetleri ile ısıtma sisteminizin verimli çalışmasını sağlıyoruz.",
+    en: "We ensure efficient operation of your heating system with boiler maintenance, repair, and radiator cleaning services.",
+    ru: "Мы обеспечиваем эффективную работу вашей системы отопления с помощью обслуживания котлов, ремонта и очистки радиаторов.",
+  },
+  services_heating_img_alt: {
+    tr: "Kombi ve ısıtma sistemleri servisi",
+    en: "Boiler and heating systems service",
+    ru: "Обслуживание котлов и систем отопления",
+  },
+  services_maintenance_title: {
+    tr: "Periyodik Bakım Hizmetleri",
+    en: "Periodic Maintenance Services",
+    ru: "Услуги периодического обслуживания",
+  },
+  services_maintenance_desc: {
+    tr: "Düzenli bakım programlarımızla cihazlarınızın performansını artırıyor, enerji tasarrufu sağlıyor ve arıza riskini minimize ediyoruz.",
+    en: "With our regular maintenance programs, we increase the performance of your devices, provide energy savings, and minimize the risk of failure.",
+    ru: "С помощью наших программ регулярного обслуживания мы повышаем производительность ваших устройств, обеспечиваем энергосбережение и минимизируем риск поломки.",
+  },
+  services_maintenance_img_alt: {
+    tr: "Periyodik bakım ve kontrol hizmetleri",
+    en: "Periodic maintenance and inspection services",
+    ru: "Услуги периодического обслуживания и проверки",
+  },
+  services_emergency_title: {
+    tr: "7/24 Acil Servis",
+    en: "24/7 Emergency Service",
+    ru: "Круглосуточная аварийная служба",
+  },
+  services_emergency_desc: {
+    tr: "Acil durumlar için 7/24 teknik servis desteği sunuyoruz. Deneyimli ekibimiz en kısa sürede yanınızda.",
+    en: "We provide 24/7 technical service support for emergencies. Our experienced team is with you as soon as possible.",
+    ru: "Мы предоставляем круглосуточную техническую поддержку в экстренных случаях. Наша опытная команда будет с вами в кратчайшие сроки.",
+  },
+  services_emergency_img_alt: {
+    tr: "7/24 acil servis hizmeti",
+    en: "24/7 emergency service",
+    ru: "Круглосуточная аварийная служба",
+  },
+  services_learn_more: {
+    tr: "Detaylı Bilgi",
+    en: "Learn More",
+    ru: "Подробнее",
+  },
+  services_contact: {
+    tr: "İletişime Geç",
+    en: "Contact Us",
+    ru: "Связаться с нами",
+  },
+  services_schedule: {
+    tr: "Randevu Al",
+    en: "Schedule Service",
+    ru: "Записаться на обслуживание",
+  },
+  services_call_now: {
+    tr: "Hemen Ara",
+    en: "Call Now",
+    ru: "Позвонить сейчас",
+  },
+  services_stats_subtitle: {
+    tr: "20 yılı aşkın tecrübemiz ve binlerce başarılı projemizle sektörün öncü firmalarından biriyiz.",
+    en: "With over 20 years of experience and thousands of successful projects, we are one of the leading companies in the industry.",
+    ru: "С более чем 20-летним опытом и тысячами успешных проектов мы являемся одной из ведущих компаний в отрасли.",
+  },
+  services_stats_experience: {
+    tr: "Yıllık Tecrübe",
+    en: "Years of Experience",
+    ru: "Лет опыта",
+  },
+  services_stats_projects: {
+    tr: "Tamamlanan Proje",
+    en: "Completed Projects",
+    ru: "Завершенных проектов",
+  },
+  services_stats_satisfaction: {
+    tr: "Müşteri Memnuniyeti",
+    en: "Customer Satisfaction",
+    ru: "Довольных клиентов",
+  },
+  services_stats_support: {
+    tr: "Kesintisiz Hizmet",
+    en: "Continuous Service",
+    ru: "Непрерывное обслуживание",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

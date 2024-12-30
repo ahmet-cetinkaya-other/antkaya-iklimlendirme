@@ -6,6 +6,7 @@ import { TranslationKeys } from "~/domain/models/TranslationKey";
 import FooterSocialLink from "~/presentation/shared/components/ui/links/FooterSocialLink.astro";
 import Icon from "~/presentation/shared/components/ui/icons/Icon.astro";
 import CompanyData from "~/domain/data/Company";
+import IconBlock from "../../ui/blocks/IconBlock.astro";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 
@@ -27,12 +28,16 @@ const footerSections = [
     title: translate(TranslationKeys.footer_services),
     links: [
       {
-        name: translate(TranslationKeys.common_services),
-        url: PAGES.services.paths[currentLocale],
-      },
-      {
         name: translate(TranslationKeys.common_products),
         url: PAGES.products.paths[currentLocale],
+      },
+      {
+        name: translate(TranslationKeys.faq_short_title),
+        url: PAGES.faq.paths[currentLocale],
+      },
+      {
+        name: translate(TranslationKeys.common_posts),
+        url: PAGES.posts.paths[currentLocale],
       },
     ],
   },
@@ -135,10 +140,12 @@ const footerSections = [
       </div>
 
       <!-- Contact Column -->
-      <div class="relative z-10 flex flex-col items-center justify-center text-center">
-        <p class="text-neutral-700">
-          {CompanyData.address.replace(/{{(.*?)}}/g, (_, key) => translate(key))}
-        </p>
+      <div class="relative z-10 flex flex-col items-center justify-center">
+        <IconBlock icon="mapPin">
+          <p class="text-sm text-neutral-800">
+            {CompanyData.address.replace(/{{(.*?)}}/g, (_, key) => translate(key))}
+          </p>
+        </IconBlock>
 
         <div class="mt-4 flex items-center justify-center gap-3">
           {
