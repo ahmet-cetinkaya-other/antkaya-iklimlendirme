@@ -12,12 +12,14 @@ import heroImage from "~/presentation/shared/assets/images/living-room.webp";
 import wallMountedAcUnitImage from "~/presentation/shared/assets/images/wall-mounted-ac-unit.webp";
 import acTechnicianImage from "~/presentation/shared/assets/images/ac-technician.webp";
 import radiaorImage from "~/presentation/shared/assets/images/radiator.webp";
-import faqsData from "~/domain/data/Faq";
+import FaqsData from "~/domain/data/Faq";
 // import pricing from "~/domain/data/pricing.json";
 import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 import { PAGES } from "~/presentation/shared/constants/constants";
-import Company from "~/domain/data/Company";
+import CompanyData from "~/domain/data/Company";
+import SecondaryCTA from "../../shared/components/ui/buttons/SecondaryCTA.astro";
+import PrimaryCTA from "../../shared/components/ui/buttons/PrimaryCTA.astro";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 ---
@@ -27,7 +29,7 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
     title={translate(TranslationKeys.contact_call_us)}
     btnId="dismiss-button"
     btnTitle={translate(TranslationKeys.contact_call)}
-    url={`tel:${Company.tel}`}
+    url={`tel:${CompanyData.tel}`}
   />
 
   <HeroSection
@@ -111,7 +113,16 @@ const { translate, currentLocale } = useI18nStatic(Astro.url);
 
     <!-- <PricingSection pricing={pricing} /> -->
 
-    <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={faqsData} />
+    <section class="container py-6">
+      <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={FaqsData.slice(0, 4)} />
+      <div class="flex justify-end">
+        <PrimaryCTA
+          title={translate(TranslationKeys.common_more)}
+          url={PAGES.faq.paths[currentLocale]}
+          class="bg-neutral-200 text-black hover:bg-neutral-300"
+        />
+      </div>
+    </section>
 
     <HeroSectionAlt
       title={translate(TranslationKeys.hero_alt_title)}

@@ -45,6 +45,16 @@ export enum TranslationKeys {
   faq_emergency_service_answer = "faq_emergency_service_answer",
   faq_boiler_maintenance_question = "faq_boiler_maintenance_question",
   faq_boiler_maintenance_answer = "faq_boiler_maintenance_answer",
+  faq_ac_filter_question = "faq_ac_filter_question",
+  faq_ac_filter_answer = "faq_ac_filter_answer",
+  faq_gas_leak_question = "faq_gas_leak_question",
+  faq_gas_leak_answer = "faq_gas_leak_answer",
+  faq_service_cost_question = "faq_service_cost_question",
+  faq_service_cost_answer = "faq_service_cost_answer",
+  faq_warranty_question = "faq_warranty_question",
+  faq_warranty_answer = "faq_warranty_answer",
+  faq_service_area_question = "faq_service_area_question",
+  faq_service_area_answer = "faq_service_area_answer",
   hero_alt_title = "hero_alt_title",
   hero_alt_subtitle = "hero_alt_subtitle",
   hero_alt_button = "hero_alt_button",
@@ -109,6 +119,7 @@ export enum TranslationKeys {
   services_stats_projects = "services_stats_projects",
   services_stats_satisfaction = "services_stats_satisfaction",
   services_stats_support = "services_stats_support",
+  common_more = "common_more",
 }
 
 export type TranslationKey = TranslationKeys;

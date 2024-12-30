@@ -306,10 +306,65 @@ export default {
     en: "When should boiler maintenance be performed?",
     ru: "Когда следует проводить обслуживание котла?",
   },
+  common_more: {
+    tr: "Daha Fazla",
+    en: "More",
+    ru: "Больше",
+  },
   faq_boiler_maintenance_answer: {
     tr: "Kombi bakımının ısıtma sezonu başlamadan önce, tercihen sonbahar aylarında yapılması önerilir. Yıllık düzenli bakım kombinin ömrünü uzatır ve verimli çalışmasını sağlar.",
     en: "Boiler maintenance should be done before the heating season, preferably in autumn. Annual regular maintenance extends the boiler's life and ensures efficient operation.",
     ru: "Техническое обслуживание котла следует проводить перед началом отопительного сезона, желательно осенью. Ежегодное регулярное обслуживание продлевает срок службы котла и обеспечивает эффективную работу.",
+  },
+  faq_ac_filter_question: {
+    tr: "Klima filtresini ne sıklıkla temizlemeliyim?",
+    en: "How often should I clean my AC filter?",
+    ru: "Как часто нужно чистить фильтр кондиционера?",
+  },
+  faq_ac_filter_answer: {
+    tr: "Klima filtrelerinin ayda bir kez temizlenmesi önerilir. Yoğun kullanım veya tozlu ortamlarda bu süre daha kısa olabilir. Düzenli filtre temizliği, cihazın verimini artırır ve sağlıklı hava solumanızı sağlar.",
+    en: "AC filters should be cleaned once a month. This interval might be shorter in heavy usage or dusty environments. Regular filter cleaning improves device efficiency and ensures healthy air.",
+    ru: "Фильтры кондиционера следует чистить раз в месяц. При интенсивном использовании или в пыльной среде этот интервал может быть короче. Регулярная очистка фильтров повышает эффективность устройства и обеспечивает здоровый воздух.",
+  },
+  faq_gas_leak_question: {
+    tr: "Klimamda gaz kaçağı olduğunu nasıl anlarım?",
+    en: "How can I detect an AC gas leak?",
+    ru: "Как определить утечку газа в кондиционере?",
+  },
+  faq_gas_leak_answer: {
+    tr: "Gaz kaçağının belirtileri: yetersiz soğutma, normalden yüksek elektrik tüketimi, iç üniteden su damlaması ve tıslama sesi gelmesi. Bu belirtilerden herhangi birini fark ettiğinizde profesyonel servis desteği almanızı öneririz.",
+    en: "Signs of gas leak include: insufficient cooling, higher than normal electricity consumption, water dripping from indoor unit, and hissing sounds. We recommend getting professional service support if you notice any of these signs.",
+    ru: "Признаки утечки газа: недостаточное охлаждение, повышенное потребление электроэнергии, капание воды из внутреннего блока и шипящие звуки. При обнаружении любого из этих признаков рекомендуем обратиться за профессиональной поддержкой.",
+  },
+  faq_service_cost_question: {
+    tr: "Servis ücretleri nasıl belirleniyor?",
+    en: "How are service fees determined?",
+    ru: "Как определяется стоимость обслуживания?",
+  },
+  faq_service_cost_answer: {
+    tr: "Servis ücretleri, yapılacak işlemin türüne, kullanılacak yedek parçalara ve cihazın modeline göre değişiklik gösterir. Kesin fiyat için servis ekibimiz cihazı inceledikten sonra detaylı bilgi verilmektedir.",
+    en: "Service fees vary depending on the type of work, spare parts needed, and device model. Exact pricing is provided after our service team inspects the device.",
+    ru: "Стоимость обслуживания зависит от типа работы, необходимых запчастей и модели устройства. Точная цена предоставляется после осмотра устройства нашей сервисной командой.",
+  },
+  faq_warranty_question: {
+    tr: "Verdiğiniz hizmetler garantili mi?",
+    en: "Are your services under warranty?",
+    ru: "Предоставляется ли гарантия на ваши услуги?",
+  },
+  faq_warranty_answer: {
+    tr: "Evet, tüm bakım ve onarım hizmetlerimiz garantilidir. Yedek parçalar için 1 yıl, işçilik için 3 ay garanti sunuyoruz. Ayrıca yeni montajlarda 2 yıl servis garantisi vermekteyiz.",
+    en: "Yes, all our maintenance and repair services are warranted. We offer 1 year warranty for spare parts and 3 months for labor. We also provide 2 years service warranty for new installations.",
+    ru: "Да, все наши услуги по обслуживанию и ремонту имеют гарантию. Мы предоставляем гарантию 1 год на запчасти и 3 месяца на работу. Также мы предоставляем 2 года гарантии на новые установки.",
+  },
+  faq_service_area_question: {
+    tr: "Hangi bölgelere hizmet veriyorsunuz?",
+    en: "Which areas do you service?",
+    ru: "В каких районах вы предоставляете услуги?",
+  },
+  faq_service_area_answer: {
+    tr: "Antalya merkez ve tüm ilçelerinde (Muratpaşa, Konyaaltı, Kepez, Döşemealtı, Aksu) hizmet vermekteyiz. Acil servis hizmetimiz 30 km yarıçapındaki bölgeleri kapsamaktadır.",
+    en: "We serve in Antalya center and all districts (Muratpasa, Konyaalti, Kepez, Dosemealti, Aksu). Our emergency service covers areas within a 30 km radius.",
+    ru: "Мы обслуживаем центр Анталии и все районы (Муратпаша, Коньяалты, Кепез, Дёшемеалты, Аксу). Наша экстренная служба охватывает районы в радиусе 30 км.",
   },
   faq_heading: {
     tr: "Sıkça Sorulan Sorular",

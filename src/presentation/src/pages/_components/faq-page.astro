@@ -1,0 +1,12 @@
+---
+import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
+import FAQ from "~/presentation/shared/components/sections/misc/FAQ.astro";
+import { TranslationKeys } from "~/domain/models/TranslationKey";
+import FaqsData from "~/domain/data/Faq";
+---
+
+<MainLayout>
+  <section class="container pb-16 pt-48">
+    <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={FaqsData} />
+  </section>
+</MainLayout>

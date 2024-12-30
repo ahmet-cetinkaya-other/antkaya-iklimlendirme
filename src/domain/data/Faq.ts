@@ -18,4 +18,24 @@ export default [
     question: TranslationKeys.faq_boiler_maintenance_question,
     answer: TranslationKeys.faq_boiler_maintenance_answer,
   },
+  {
+    question: TranslationKeys.faq_ac_filter_question,
+    answer: TranslationKeys.faq_ac_filter_answer,
+  },
+  {
+    question: TranslationKeys.faq_gas_leak_question,
+    answer: TranslationKeys.faq_gas_leak_answer,
+  },
+  {
+    question: TranslationKeys.faq_service_cost_question,
+    answer: TranslationKeys.faq_service_cost_answer,
+  },
+  {
+    question: TranslationKeys.faq_warranty_question,
+    answer: TranslationKeys.faq_warranty_answer,
+  },
+  {
+    question: TranslationKeys.faq_service_area_question,
+    answer: TranslationKeys.faq_service_area_answer,
+  },
 ] as Faq[];
