@@ -2,9 +2,9 @@ import type { Locales, TranslationKey } from "../models/TranslationKey";
 
 const Translations: Record<TranslationKey, Record<Locales, string>> = {
   brands_section_subtitle: {
+    tr: "Antkaya İklimlendirme olarak, sektördeki önde gelen markaların servis ve bakım hizmetlerini sunmaktan gurur duyuyoruz.",
     en: "As Antkaya HVAC, we are proud to offer service and maintenance services of leading brands in the industry.",
     ru: "Мы гордимся тем, что предлагаем сервис и обслуживание ведущих брендов в отрасли.",
-    tr: "Antkaya İklimlendirme olarak, sektördeki önde gelen markaların servis ve bakım hizmetlerini sunmaktan gurur duyuyoruz.",
   },
   brands_section_title: {
     en: "Supported Leading Brands",
