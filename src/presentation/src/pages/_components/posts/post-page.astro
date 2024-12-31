@@ -93,226 +93,226 @@ const structuredData = {
   structuredData={structuredData}
   canonicalURL={canonicalURL}
 >
-  <meta data-page-translations={JSON.stringify(postTranslations)} /></MainLayout
->
-<MainSection color="secondary">
-  <Image
-    src={post.data.cardImage}
-    alt={post.data.cardImageAlt}
-    class="max-h-[30vh] rounded-lg object-cover shadow-lg"
-  />
-</MainSection>
-<section class="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
-  <!--Post post title-->
-  <ul class="mt-6 text-xs text-neutral-500">
-    <li
-      class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
-    >
-      {formatDate(post.data.pubDate)}
-    </li>
-  </ul>
-  <h2 class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl">
-    {post.data.title}
-  </h2>
-  <!--Post post contents-->
-  <div class="ac-content mb-5 space-y-5 md:mb-8 md:space-y-8">
-    <Content />
-  </div>
-  <style is:inline>
-    .ac-content h1 {
-      font-size: 2em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-    }
+  <meta data-page-translations={JSON.stringify(postTranslations)} />
+  <MainSection color="secondary">
+    <Image
+      src={post.data.cardImage}
+      alt={post.data.cardImageAlt}
+      class="max-h-[30vh] rounded-lg object-cover shadow-lg"
+    />
+  </MainSection>
+  <section class="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
+    <!--Post post title-->
+    <ul class="mt-6 text-xs text-neutral-500">
+      <li
+        class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
+      >
+        {formatDate(post.data.pubDate)}
+      </li>
+    </ul>
+    <h2 class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl">
+      {post.data.title}
+    </h2>
+    <!--Post post contents-->
+    <div class="ac-content mb-5 space-y-5 md:mb-8 md:space-y-8">
+      <Content />
+    </div>
+    <style is:inline>
+      .ac-content h1 {
+        font-size: 2em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
 
-    .ac-content h2 {
-      font-size: 1.75em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-    }
+      .ac-content h2 {
+        font-size: 1.75em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
 
-    .ac-content h3 {
-      font-size: 1.5em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-    }
+      .ac-content h3 {
+        font-size: 1.5em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
 
-    .ac-content p {
-      margin-bottom: 1em;
-      line-height: 1.6;
-    }
+      .ac-content p {
+        margin-bottom: 1em;
+        line-height: 1.6;
+      }
 
-    .ac-content ul,
-    .ac-content ol {
-      margin-bottom: 1em;
-      padding-left: 1.5em;
-    }
+      .ac-content ul,
+      .ac-content ol {
+        margin-bottom: 1em;
+        padding-left: 1.5em;
+      }
 
-    .ac-content li {
-      margin-bottom: 0.5em;
-    }
+      .ac-content li {
+        margin-bottom: 0.5em;
+      }
 
-    .ac-content a {
-      color: #1e90ff;
-      text-decoration: underline;
-    }
+      .ac-content a {
+        color: #1e90ff;
+        text-decoration: underline;
+      }
 
-    .ac-content blockquote {
-      border-left: 4px solid #ccc;
-      background-color: #f9f9f9;
-      color: #333;
-      padding: 1em;
-      border-radius: 0.5rem;
-    }
+      .ac-content blockquote {
+        border-left: 4px solid #ccc;
+        background-color: #f9f9f9;
+        color: #333;
+        padding: 1em;
+        border-radius: 0.5rem;
+      }
 
-    .ac-content pre {
-      padding: 1em;
-      border-radius: 0.5rem;
-    }
+      .ac-content pre {
+        padding: 1em;
+        border-radius: 0.5rem;
+      }
 
-    .ac-content img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1em 0;
+      .ac-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1em 0;
 
-      object-fit: cover;
-      border-radius: 0.5rem;
-      box-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
 
-    .ac-content ul {
-      list-style-type: disc;
-    }
+      .ac-content ul {
+        list-style-type: disc;
+      }
 
-    .ac-content ol {
-      list-style-type: decimal;
-    }
+      .ac-content ol {
+        list-style-type: decimal;
+      }
 
-    .ac-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1em;
-    }
+      .ac-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1em;
+      }
 
-    .ac-content th,
-    .ac-content td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
+      .ac-content th,
+      .ac-content td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
 
-    .ac-content th {
-      background-color: #f2f2f2;
-      text-align: left;
-    }
+      .ac-content th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
 
-    .ac-content tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
+      .ac-content tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
 
-    .ac-content tr:hover {
-      background-color: #ddd;
-    }
+      .ac-content tr:hover {
+        background-color: #ddd;
+      }
 
-    /* Dark mode styles */
-    html.dark .ac-content {
-      color: #e5e5e5;
-    }
+      /* Dark mode styles */
+      html.dark .ac-content {
+        color: #e5e5e5;
+      }
 
-    html.dark .ac-content h1,
-    html.dark .ac-content h2,
-    html.dark .ac-content h3,
-    html.dark .ac-content h4,
-    html.dark .ac-content h5,
-    html.dark .ac-content h6 {
-      color: #f3f4f6;
-    }
+      html.dark .ac-content h1,
+      html.dark .ac-content h2,
+      html.dark .ac-content h3,
+      html.dark .ac-content h4,
+      html.dark .ac-content h5,
+      html.dark .ac-content h6 {
+        color: #f3f4f6;
+      }
 
-    html.dark .ac-content p,
-    html.dark .ac-content ul,
-    html.dark .ac-content ol {
-      color: #d1d5db;
-    }
+      html.dark .ac-content p,
+      html.dark .ac-content ul,
+      html.dark .ac-content ol {
+        color: #d1d5db;
+      }
 
-    html.dark .ac-content a {
-      color: #60a5fa;
-    }
+      html.dark .ac-content a {
+        color: #60a5fa;
+      }
 
-    html.dark .ac-content a:hover {
-      color: #93c5fd;
-    }
+      html.dark .ac-content a:hover {
+        color: #93c5fd;
+      }
 
-    html.dark .ac-content blockquote {
-      border-left-color: #4b5563;
-      background-color: #1f2937;
-      color: #e5e5e5;
-    }
+      html.dark .ac-content blockquote {
+        border-left-color: #4b5563;
+        background-color: #1f2937;
+        color: #e5e5e5;
+      }
 
-    html.dark .ac-content table {
-      border-color: #374151;
-    }
+      html.dark .ac-content table {
+        border-color: #374151;
+      }
 
-    html.dark .ac-content th {
-      background-color: #374151;
-      color: #f3f4f6;
-      border-color: #4b5563;
-    }
+      html.dark .ac-content th {
+        background-color: #374151;
+        color: #f3f4f6;
+        border-color: #4b5563;
+      }
 
-    html.dark .ac-content td {
-      border-color: #4b5563;
-    }
+      html.dark .ac-content td {
+        border-color: #4b5563;
+      }
 
-    html.dark .ac-content tr:nth-child(even) {
-      background-color: #1f2937;
-    }
+      html.dark .ac-content tr:nth-child(even) {
+        background-color: #1f2937;
+      }
 
-    html.dark .ac-content tr:hover {
-      background-color: #374151;
-    }
+      html.dark .ac-content tr:hover {
+        background-color: #374151;
+      }
 
-    html.dark .ac-content img {
-      opacity: 0.9;
-    }
-  </style>
-</section>
-<div class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0">
-  <!--Post post tags-->
-  <div class="flex flex-wrap gap-x-2 gap-y-1 px-4 sm:flex-nowrap sm:items-center sm:gap-y-0">
-    {
-      post.data.tags?.map((tag: string) => (
-        <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
-          {capitalize(tag)}
-        </span>
-      ))
-    }
-  </div>
-  <!--Bookmark and Share buttons-->
-  <div class="flex items-center justify-end gap-x-1.5">
-    <Bookmark />
-    <div class="mx-3 block h-4 border-e border-neutral-400 dark:border-neutral-500"></div>
-    <div class="inline-flex">
-      <SocialShare pageTitle={post.data.title} />
+      html.dark .ac-content img {
+        opacity: 0.9;
+      }
+    </style>
+  </section>
+  <div class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0">
+    <!--Post post tags-->
+    <div class="flex flex-wrap gap-x-2 gap-y-1 px-4 sm:flex-nowrap sm:items-center sm:gap-y-0">
+      {
+        post.data.tags?.map((tag: string) => (
+          <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
+            {capitalize(tag)}
+          </span>
+        ))
+      }
+    </div>
+    <!--Bookmark and Share buttons-->
+    <div class="flex items-center justify-end gap-x-1.5">
+      <Bookmark />
+      <div class="mx-3 block h-4 border-e border-neutral-400 dark:border-neutral-500"></div>
+      <div class="inline-flex">
+        <SocialShare pageTitle={post.data.title} />
+      </div>
     </div>
   </div>
-</div>
 
-<!--Related articles section-->
-{
-  otherPosts.length > 0 && (
-    <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-      <div class="mb-10 max-w-2xl">
-        <h2 class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-          {translate(TranslationKeys.posts_other_posts)}
-        </h2>
-      </div>
+  <!--Related articles section-->
+  {
+    otherPosts.length > 0 && (
+      <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div class="mb-10 max-w-2xl">
+          <h2 class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+            {translate(TranslationKeys.posts_other_posts)}
+          </h2>
+        </div>
 
-      <div class="grid grid-cols-2 gap-6">
-        {otherPosts.map((entry) => (
-          <CardRelated postEntry={entry} />
-        ))}
-      </div>
-    </section>
-  )
-}
+        <div class="grid grid-cols-2 gap-6">
+          {otherPosts.map((entry) => (
+            <CardRelated postEntry={entry} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</MainLayout>
