@@ -28,13 +28,20 @@ const { currentLocale } = useI18nStatic(Astro.url);
   </head>
   <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
     <div class="container fixed inset-x-0 z-50 py-4 sm:py-6 lg:py-4">
-      <Navbar />
+      <Navbar transition:persist />
     </div>
 
     <main>
       <slot />
     </main>
 
-    <FooterSection />
+    <FooterSection transition:persist />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const preline = await import("preline/dist/preline.js");
+        preline.HSStaticMethods.autoInit();
+      });
+    </script>
   </body>
 </html>

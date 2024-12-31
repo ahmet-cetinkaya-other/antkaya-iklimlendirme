@@ -33,7 +33,7 @@ const uniqueId = `dropdown-${Math.random().toString(36).slice(2)}`;
   const hiddenInput = document.getElementById(`${uniqueId}-input`);
   let menu = null;
 
-  document.addEventListener("astro:page-load", onMount);
+  document.addEventListener("DOMContentLoaded", onMount);
   document.addEventListener("astro:after-swap", onMount);
   window.addEventListener("unload", onUnMount);
 
