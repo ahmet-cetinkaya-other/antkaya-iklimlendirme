@@ -4,7 +4,7 @@ import PostsPage from "~/presentation/src/pages/_components/posts/posts-page.ast
 import { PAGE_SIZE } from "~/presentation/src/features/posts/constants/pagination";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft);
+  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft && postEntry.id.endsWith("tr"));
   const totalPages = Math.ceil(posts.length / PAGE_SIZE);
   return Array.from({ length: totalPages }, (_, i) => ({
     params: { page: (i + 1).toString() },

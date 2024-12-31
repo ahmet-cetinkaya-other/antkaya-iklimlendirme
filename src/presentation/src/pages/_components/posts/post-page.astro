@@ -19,11 +19,6 @@ type Props = {};
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 
-export async function getStaticPaths() {
-  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft);
-  return posts.map((post) => ({ params: { slug: StringExtensions.slugify(post.data.title) } }));
-}
-
 const params = Astro.params;
 
 const posts: CollectionEntry<"posts">[] = await getCollection(

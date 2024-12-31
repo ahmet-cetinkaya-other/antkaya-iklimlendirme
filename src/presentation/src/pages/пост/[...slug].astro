@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import StringExtensions from "~/core/acore-ts/data/string/StringExtensions";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft);
+  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft && postEntry.id.endsWith("ru"));
   return posts.map((post) => ({ params: { slug: StringExtensions.slugify(post.data.title) } }));
 }
 ---

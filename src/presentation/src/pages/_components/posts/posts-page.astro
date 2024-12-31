@@ -12,19 +12,10 @@ import MainSection from "~/presentation/src/shared/components/ui/blocks/MainSect
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 
-export async function getStaticPaths() {
-  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft);
-  const totalPages = Math.ceil(posts.length / PAGE_SIZE);
-
-  return Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
-  }));
-}
-
 type Props = {};
 
 const params = Astro.params;
-const pageIndex = parseInt(params.page ?? 1) - 1;
+const pageIndex = params.page ? parseInt(params.page) - 1 : 0;
 
 const posts = (
   await getCollection("posts", (postEntry) => !postEntry.data.draft && postEntry.id.endsWith(currentLocale))
