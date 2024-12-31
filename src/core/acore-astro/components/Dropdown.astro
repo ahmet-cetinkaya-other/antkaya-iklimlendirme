@@ -33,17 +33,29 @@ const uniqueId = `dropdown-${Math.random().toString(36).slice(2)}`;
   const hiddenInput = document.getElementById(`${uniqueId}-input`);
   let menu = null;
 
-  // Update position on scroll and resize
-  window.addEventListener("scroll", updatePosition, true);
-  window.addEventListener("resize", updatePosition);
+  document.addEventListener("astro:page-load", onMount);
+  document.addEventListener("astro:after-swap", onMount);
+  window.addEventListener("unload", onUnMount);
 
-  // Click outside
-  document.addEventListener("click", (e) => {
-    if (menu && e.target instanceof Node && !triggerWrapper.contains(e.target) && !menu.contains(e.target)) hideMenu();
-  });
+  function onMount() {
+    // Update position on scroll and resize
+    window.addEventListener("scroll", updatePosition, true);
+    window.addEventListener("resize", updatePosition);
 
-  // Cleanup on page unload
-  window.addEventListener("unload", hideMenu);
+    // Click outside
+    document.addEventListener("click", (e) => {
+      if (menu && e.target instanceof Node && !triggerWrapper.contains(e.target) && !menu.contains(e.target))
+        hideMenu();
+    });
+  }
+
+  function onUnMount() {
+    hideMenu();
+    window.removeEventListener("scroll", updatePosition, true);
+    window.removeEventListener("resize", updatePosition);
+    document.removeEventListener("click", hideMenu);
+    window.removeEventListener("unload", hideMenu);
+  }
 
   function showMenu() {
     if (!menu) {
@@ -57,12 +69,12 @@ const uniqueId = `dropdown-${Math.random().toString(36).slice(2)}`;
           if (value) {
             hiddenInput.value = value;
           }
-          
+
           // Execute any onClick handler
           if (button.hasAttribute("onclick")) {
             button.onclick();
           }
-          
+
           hideMenu();
         });
       });

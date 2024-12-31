@@ -3,14 +3,14 @@ import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryC
 import Icon from "../icons/Icon.astro";
 
 const { title, subTitle, btnExists, btnTitle, btnURL, color = "primary" } = Astro.props;
-interface Props {
+type Props = {
   title?: string;
   subTitle?: string;
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
   color?: "primary" | "secondary";
-}
+};
 
 const bgGradient =
   color === "primary"

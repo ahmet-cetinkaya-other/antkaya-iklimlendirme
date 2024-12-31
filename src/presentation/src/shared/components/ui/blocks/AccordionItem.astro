@@ -1,13 +1,13 @@
 ---
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 
-interface Props {
+type Props = {
   id: string;
   collapseId: string;
   question: string;
   answer: string;
   first?: boolean;
-}
+};
 const { id, collapseId, question, answer, first } = Astro.props;
 
 const ACCORDION_CLASS_DEFAULT = "hs-accordion pb-3 active";

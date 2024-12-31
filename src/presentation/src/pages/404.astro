@@ -4,15 +4,24 @@ import Btn404 from "~/presentation/src/shared/components/ui/buttons/Btn404.astro
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 
-const {translate} = useI18nStatic(Astro.url);
+const { translate } = useI18nStatic(Astro.url);
 ---
 
 <MainLayout title={translate(TranslationKeys.error_404_title)}>
   <section class="grid h-svh place-content-center">
     <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
       <div class="mx-auto max-w-screen-sm text-center">
-        <h1 id="title" class="text-dark mb-4 text-7xl font-extrabold text-primary-500 dark:text-primary-400 lg:text-9xl">404</h1>
-        <p id="subtitle" class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl"></p>
+        <h1
+          id="title"
+          class="text-dark mb-4 text-7xl font-extrabold text-primary-500 dark:text-primary-400 lg:text-9xl"
+        >
+          404
+        </h1>
+        <p
+          id="subtitle"
+          class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl"
+        >
+        </p>
         <p id="content" class="mb-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"></p>
         <Btn404 id="go-back" />
       </div>
@@ -22,15 +31,16 @@ const {translate} = useI18nStatic(Astro.url);
 
 <script>
   import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
-  import Container, { Tokens } from "../Container";
+  import Container, { Tokens } from "~/presentation/src/Container";
   import { TranslationKeys } from "~/domain/models/TranslationKey";
 
   document.addEventListener("DOMContentLoaded", onMount);
   document.addEventListener("astro:after-swap", onMount);
 
-  function onMount(){
+  function onMount() {
     const i18n = Container.instance.resolve<II18n>(Tokens.I18n);
-    const locale = i18n.currentLocale.get() || localStorage.getItem("preferred_locale") || window.navigator.language.substring(0, 2);
+    const locale =
+      i18n.currentLocale.get() || localStorage.getItem("preferred_locale") || window.navigator.language.substring(0, 2);
 
     // Get elements
     const title = document.getElementById("title") as HTMLHeadingElement;

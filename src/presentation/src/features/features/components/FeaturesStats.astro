@@ -1,17 +1,16 @@
 ---
-// Import the necessary components
 import StatsBig from "~/presentation/src/shared/components/ui/blocks/StatsBig.astro";
 import StatsSmall from "~/presentation/src/shared/components/ui/blocks/StatsSmall.astro";
 
 const { title, subTitle, stats, mainStatTitle, mainStatSubTitle } = Astro.props;
 
-interface Props {
+type Props = {
   title: string;
   subTitle?: string;
   mainStatTitle: string;
   mainStatSubTitle: string;
   stats?: Stat[];
-}
+};
 
 // TypeScript type for the statistics
 type Stat = {

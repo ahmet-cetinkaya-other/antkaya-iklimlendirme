@@ -4,11 +4,11 @@ import AccordionItem from "~/presentation/src/shared/components/ui/blocks/Accord
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import Faq from "~/domain/models/Faq";
 
-interface Props {
+type Props = {
   title: TranslationKey;
   subtitle?: TranslationKey;
   faqs: Faq[];
-}
+};
 const props = Astro.props;
 
 const { translate } = useI18nStatic(Astro.url);

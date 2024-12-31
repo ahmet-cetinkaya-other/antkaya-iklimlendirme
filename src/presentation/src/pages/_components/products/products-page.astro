@@ -4,7 +4,7 @@ import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
 import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "~/presentation/src/shared/components/ui/cards/CardSmall.astro";
 import CardWide from "~/presentation/src/shared/components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "~/presentation/src/shared/components/sections/features/FeaturesStatsAlt.astro";
+import FeaturesStatsAlt from "~/presentation/src/features/features/components/FeaturesStatsAlt.astro";
 import TestimonialsSectionAlt from "~/presentation/src/shared/components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Importing necessary functions from Astro
@@ -19,7 +19,6 @@ const product: CollectionEntry<"products">[] = (
   })
 ).sort((a: CollectionEntry<"products">, b: CollectionEntry<"products">) => a.data.main.id - b.data.main.id);
 
-// Define variables for page content
 const title: string = "Lorem Ipsum Dolor Sit Amet";
 const subTitle: string =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";

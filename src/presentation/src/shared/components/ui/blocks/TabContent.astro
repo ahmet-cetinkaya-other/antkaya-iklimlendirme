@@ -1,21 +1,18 @@
 ---
-// Import the Image component from astro:assets
 import { Image } from "astro:assets";
 import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 
 // Destructure the component properties from Astro.props
-const { id, aria, imageSrc: src, imageAlt: alt, first, second, imageClass } = Astro.props;
+const { id, aria, imageSrc: src, imageAlt: alt, first, imageClass } = Astro.props;
 
-// Define TypeScript interface for the properties
-interface Props {
+type Props = {
   id: string;
   aria: string;
   imageSrc?: any;
   imageAlt: string;
   imageClass?: string;
   first?: boolean;
-  second?: boolean;
-}
+};
 // Set class based on 'first' property
 // If 'first' is present, show the tab content immediately
 const firstClass = first ? "" : "hidden";

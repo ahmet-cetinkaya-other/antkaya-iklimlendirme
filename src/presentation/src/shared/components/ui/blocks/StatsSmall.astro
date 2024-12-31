@@ -1,11 +1,10 @@
 ---
-// Extract the properties from Astro.props
 const { title, subTitle } = Astro.props;
-// Define TypeScript interface for the properties
-interface Props {
+
+type Props = {
   title: string;
   subTitle: string;
-}
+};
 ---
 
 <!-- Container for title and subtitle -->

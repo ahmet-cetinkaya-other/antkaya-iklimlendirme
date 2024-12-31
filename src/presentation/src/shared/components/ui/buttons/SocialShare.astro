@@ -1,12 +1,12 @@
 ---
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
-import { useI18nStatic } from "../../../hooks/useI18n";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 
-interface Props {
+type Props = {
   pageTitle: string;
   title?: string;
-}
+};
 
 const { pageTitle } = Astro.props;
 const { translate } = useI18nStatic(Astro.url);

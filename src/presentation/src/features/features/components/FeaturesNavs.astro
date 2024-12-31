@@ -1,14 +1,11 @@
 ---
-// Import the necessary dependencies
 import TabNav from "~/presentation/src/shared/components/ui/blocks/TabNav.astro";
 import TabContent from "~/presentation/src/shared/components/ui/blocks/TabContent.astro";
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 
-// Define props from Astro
 const { title, tabs } = Astro.props;
 
-// Define TypeScript interface for tab object
-interface Tab {
+type Tab = {
   heading: string;
   content: string;
   icon: string;
@@ -16,13 +13,12 @@ interface Tab {
   imageAlt: string;
   first?: boolean;
   second?: boolean;
-}
+};
 
-// Define TypeScript interface for props
-interface Props {
+type Props = {
   title?: string;
   tabs: Tab[];
-}
+};
 ---
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
@@ -66,7 +62,6 @@ interface Props {
                   imageSrc={tab.imageSrc}
                   imageAlt={tab.imageAlt}
                   first={tab.first}
-                  second={tab.second}
                   imageClass="aspect-[16/10] w-full object-cover"
                 />
               ))
@@ -85,8 +80,7 @@ interface Props {
     </div>
   </div>
 </section>
-<!--Import the necessary Tabs plugin-->
-<!--https://preline.co/plugins/html/tabs.html-->
+
 <script>
   import "@preline/tabs/index.js";
 </script>

@@ -2,13 +2,13 @@
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 // Destructure the properties from Astro.props
 const { title, id, noArrow } = Astro.props;
-// Define TypeScript interface for the properties
-interface Props {
+
+type Props = {
   title?: string;
   id?: string;
   noArrow?: boolean;
-}
-// Define CSS classes for styling the button
+};
+
 const baseClasses =
   "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
 const borderClasses = "border border-transparent";

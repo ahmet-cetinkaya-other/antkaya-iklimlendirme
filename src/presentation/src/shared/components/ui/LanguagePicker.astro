@@ -2,9 +2,8 @@
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 import Container, { Tokens } from "~/presentation/src/Container";
 import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
-import { useI18nStatic } from "../../hooks/useI18n";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import { navigate } from "astro:transitions/client";
 import Dropdown from "~/core/acore-astro/components/Dropdown.astro";
 
 const i18n = Container.resolve<II18n>(Tokens.I18n);
@@ -50,7 +49,7 @@ const { translate } = useI18nStatic(Astro.url);
   if (!(window as any).ac) (window as any).ac = {};
   (window as any).ac.onLocaleChange = onLocaleChange;
 
-  redirectPrefferedLocale();
+  document.addEventListener("DOMContentLoaded", redirectPrefferedLocale);
 
   function redirectPrefferedLocale() {
     const currentUrl = new URL(window.location.href);

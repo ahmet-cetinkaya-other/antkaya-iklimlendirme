@@ -2,7 +2,7 @@
 import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 
-interface Props {
+type Props = {
   title: string;
   subTitle: string;
   img: {
@@ -12,7 +12,7 @@ interface Props {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
-}
+};
 
 const { title, subTitle, img, btnExists, btnTitle, btnURL } = Astro.props;
 ---

@@ -1,17 +1,15 @@
 ---
-// Import necessary modules and utilities
 import { Image } from "astro:assets";
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
 const { product, productLocale = "" } = Astro.props;
 
-interface Props {
+type Props = {
   product: CollectionEntry<"products">;
   productLocale?: string;
-}
+};
 
-// Define classes to be used with the Image component
 const imageClass =
   "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
 ---

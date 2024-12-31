@@ -20,7 +20,10 @@ const props = Astro.props;
       class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl"
     >
       <!-- Infrared window with adjusted color -->
-      <div class="absolute left-1/2 top-0 h-3 w-6 -translate-x-1/2 rounded-b-sm bg-neutral-900/30"></div>
+      <div
+        class="absolute left-1/2 top-0 h-3 w-6 -translate-x-1/2 animate-ac-glow rounded-b-sm bg-emerald-400 text-emerald-400"
+      >
+      </div>
 
       <!-- Model number -->
       <div class="absolute left-3 top-2">
@@ -45,12 +48,11 @@ const props = Astro.props;
             props.title && (
               <div class="relative">
                 <p class="font-lcd text-center text-base font-bold tracking-wide text-neutral-100">{props.title}</p>
-
                 <div class="font-lcd mt-1 flex flex-col gap-0.5 text-center text-xs text-neutral-100/70">
-                  <div id="temperatureValue">25°C</div>
-                  <div class="text-xs">
-                    Humidity: <span id="humidityValue">50%</span>
-                  </div>
+                  <p class="font-lcd text-center text-xs text-neutral-100/70">Antalya</p>
+                  <p class="text-xs">
+                    <span id="temperatureValue">25°C</span> Humidity: <span id="humidityValue">50%</span>
+                  </p>
                 </div>
               </div>
             )

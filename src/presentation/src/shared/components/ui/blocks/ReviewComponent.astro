@@ -6,13 +6,13 @@ import Icon from "../icons/Icon.astro";
 
 const { avatars, starCount = 0, rating, reviews, theme = "dark" } = Astro.props;
 
-interface Props {
+type Props = {
   avatars?: Array<string>;
   starCount?: number;
   rating?: string;
   reviews?: string;
   theme?: "light" | "dark";
-}
+};
 ---
 
 <div class="mt-6 lg:mt-10">

@@ -1,15 +1,14 @@
 ---
-// Import necessary modules and utilities
 import { Image } from "astro:assets";
 import { formatDate } from "~/presentation/src/shared/utils/utils";
 import type { CollectionEntry } from "astro:content";
 
 const { postEntry, recentPostLocale = "" } = Astro.props;
 
-interface Props {
+type Props = {
   postEntry: CollectionEntry<"posts">;
   recentPostLocale?: string;
-}
+};
 ---
 
 <a

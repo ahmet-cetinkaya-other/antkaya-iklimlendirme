@@ -45,9 +45,14 @@ export default {
             opacity: "1",
           },
         },
+        "ac-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-33.33%)" },
+        },
       },
       animation: {
         "ac-glow": "ac-glow 2s ease-in-out infinite alternate",
+        "ac-scroll": "ac-scroll 30s linear infinite",
       },
     },
     container: {

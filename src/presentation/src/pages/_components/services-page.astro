@@ -3,7 +3,7 @@ import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
 import MainSection from "~/presentation/src/shared/components/ui/blocks/MainSection.astro";
 import LeftSection from "~/presentation/src/shared/components/ui/blocks/LeftSection.astro";
 import RightSection from "~/presentation/src/shared/components/ui/blocks/RightSection.astro";
-import FeaturesStats from "~/presentation/src/shared/components/sections/features/FeaturesStats.astro";
+import FeaturesStats from "~/presentation/src/features/features/components/FeaturesStats.astro";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 import { PAGES } from "~/presentation/src/shared/constants/constants";
@@ -15,7 +15,7 @@ import heatingService from "~/presentation/src/shared/assets/images/radiator.web
 import maintenance from "~/presentation/src/shared/assets/images/ac-cleaning.webp";
 import emergency from "~/presentation/src/shared/assets/images/ac-tools.webp";
 import CompanyData from "~/domain/data/Company";
-import Divider from "../../shared/components/ui/Divider.astro";
+import Divider from "~/presentation/src/shared/components/ui/Divider.astro";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 

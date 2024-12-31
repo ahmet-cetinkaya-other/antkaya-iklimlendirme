@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro dev --host",
     "build": "astro check && astro build && node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro",
@@ -25,7 +25,6 @@
     "globby": "^14.0.2",
     "gsap": "^3.12.5",
     "html-minifier-terser": "^7.2.0",
-    "lenis": "^1.1.18",
     "preline": "^2.6.0",
     "rimraf": "^6.0.1",
     "sharp": "^0.33.5",

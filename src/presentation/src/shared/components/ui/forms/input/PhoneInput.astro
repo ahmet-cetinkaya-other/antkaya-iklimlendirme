@@ -1,10 +1,10 @@
 ---
 const { label = Astro.currentLocale === "tr" ? "Numéro de téléphone" : "Phone Number", id } = Astro.props;
 
-interface Props {
+type Props = {
   label?: string;
   id: string;
-}
+};
 ---
 
 <div>

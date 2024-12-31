@@ -50,6 +50,7 @@
 
   document.addEventListener("DOMContentLoaded", onMount);
   document.addEventListener("astro:after-swap", onMount);
+  document.addEventListener("unload", onUnMount);
 
   function onMount() {
     initTheme();
@@ -59,6 +60,14 @@
       .forEach((button) => (button as HTMLElement).addEventListener("click", handleThemeButtonClick));
 
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", handleSystemThemeChange);
+  }
+
+  function onUnMount() {
+    document
+      .querySelectorAll("[data-hs-theme-click-value]")
+      .forEach((button) => (button as HTMLElement).removeEventListener("click", handleThemeButtonClick));
+
+    window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", handleSystemThemeChange);
   }
 
   function getSystemTheme(): "dark" | "light" {

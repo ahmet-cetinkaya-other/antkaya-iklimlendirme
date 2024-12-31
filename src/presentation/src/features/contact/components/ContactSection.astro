@@ -70,7 +70,7 @@ const companyEmail = CompanyData.email;
             </button>
           </div>
         </form>
-        <script define:vars={{ companyEmail }}>
+        <script is:inline define:vars={{ companyEmail }}>
           document.getElementById("contactForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const formData = new FormData(event.target);
@@ -113,11 +113,24 @@ ${details}`;
           </p>
         </IconBlock>
 
+        <IconBlock heading={translate(TranslationKeys.contact_call_us)} icon="phone">
+          <p>
+            {translate(TranslationKeys.contact_call_content)}:
+            <a href={`tel:${CompanyData.tel}`} class="block font-bold text-secondary">
+              {
+                `${CompanyData.tel.substring(0, 3)} ${CompanyData.tel.substring(3, 6)} ${CompanyData.tel.substring(6, 9)} ${CompanyData.tel.substring(9)}`
+              }
+            </a>
+          </p>
+        </IconBlock>
+
         <IconBlock heading={translate(TranslationKeys.contact_email_title)} icon="email">
-          {translate(TranslationKeys.contact_email_content)}:
-          <a href={`mailto:${CompanyData.email}`} class="font-bold text-secondary">
-            {CompanyData.email}
-          </a>
+          <p>
+            {translate(TranslationKeys.contact_email_content)}:
+            <a href={`mailto:${CompanyData.email}`} class="font-bold text-secondary">
+              {CompanyData.email}
+            </a>
+          </p>
         </IconBlock>
       </div>
     </div>

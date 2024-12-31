@@ -1,6 +1,6 @@
 ---
 import { getImage } from "astro:assets";
-import { OG, SEO, SITE } from "~/presentation/src/shared/constants/constants";
+import { OG, PAGES, SEO, SITE } from "~/presentation/src/shared/constants/constants";
 import faviconSvgSrc from "/public/favicon.svg";
 import faviconSrc from "/public/favicon.png";
 import { ClientRouter } from "astro:transitions";
@@ -13,16 +13,11 @@ const defaultProps = {
   structuredData: SEO.structuredData,
 };
 
-// Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
-// For example:
-// <MainLayout title="Custom Title" meta="Custom description." />
 const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
 
-// Define the metadata for your website and individual pages
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const canonical = Astro.url.href;
-const basePath = Astro.url.pathname;
 const ogTitle = OG.title;
 const ogDescription = OG.description;
 const socialImageRes = await getImage({
@@ -32,30 +27,21 @@ const socialImageRes = await getImage({
 });
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
-const languages: { [key: string]: string } = {
-  en: "",
-  tr: "tr",
-};
-
-function createHref(lang: string, prefix: string, path: string): string {
-  const hasPrefix = path.startsWith(`/${prefix}/`);
-
-  const basePath = hasPrefix ? path : `/${prefix}${path}`;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
-  return `${URL.slice(0, -1)}${normalizedBasePath}`;
-}
-
 const fullPath: string = Astro.url.pathname;
 
-const alternateLanguageLinks: string = Object.entries(languages)
-  .map(([lang, prefix]: [string, string]) => {
-    const basePath: string = lang === "en" ? fullPath.replace(/^\/tr\//, "/") : fullPath;
+// Find matching page from PAGES
+const currentPage = Object.values(PAGES).find((page) =>
+  Object.values(page.paths).some((path) => fullPath.startsWith(path)),
+);
 
-    const href: string = createHref(lang, prefix, basePath);
-
-    return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
-  })
-  .join("\n");
+const alternateLanguageLinks: string = currentPage
+  ? Object.entries(currentPage.paths)
+      .map(([lang, path]) => {
+        const href = `${URL.slice(0, -1)}${path}`;
+        return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
+      })
+      .join("\n")
+  : "";
 
 // Generate and optimize the favicon images
 const faviconSvg = await getImage({
@@ -73,7 +59,7 @@ const appleTouchIcon = await getImage({
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
      https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
-  structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  structuredData && <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 }
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
