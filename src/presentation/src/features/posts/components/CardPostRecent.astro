@@ -5,7 +5,7 @@ import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryC
 import { formatDate } from "~/presentation/src/shared/utils/utils";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { PAGES } from "~/presentation/src/shared/constants/constants";
-import SlugHelper from "~/presentation/src/shared/utils/SlugHelper";
+import StringExtensions from "~/core/acore-ts/data/string/StringExtensions";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 const props = Astro.props;
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
-const postHref = `${PAGES.post.paths[currentLocale]}${SlugHelper.slugify(props.postEntry.data.title)}/`;
+const postHref = `${PAGES.post.paths[currentLocale]}${StringExtensions.slugify(props.postEntry.data.title)}/`;
 ---
 
 <!-- Root container, which is divided into 2 grid column layout for larger screens -->

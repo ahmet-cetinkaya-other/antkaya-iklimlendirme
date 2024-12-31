@@ -4,18 +4,17 @@ import { formatDate } from "~/presentation/src/shared/utils/utils";
 import type { CollectionEntry } from "astro:content";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { PAGES } from "~/presentation/src/shared/constants/constants";
-import SlugHelper from "~/presentation/src/shared/utils/SlugHelper";
+import StringExtensions from "~/core/acore-ts/data/string/StringExtensions";
 
-const { postEntry, recentPostLocale = "" } = Astro.props;
+const { postEntry } = Astro.props;
 
 type Props = {
   postEntry: CollectionEntry<"posts">;
-  recentPostLocale?: string;
 };
 
 const { currentLocale } = useI18nStatic(Astro.url);
 
-const postHref = `${PAGES.post.paths[currentLocale]}${SlugHelper.slugify(postEntry.data.title)}/`;
+const postHref = `${PAGES.post.paths[currentLocale]}${StringExtensions.slugify(postEntry.data.title)}/`;
 ---
 
 <a
