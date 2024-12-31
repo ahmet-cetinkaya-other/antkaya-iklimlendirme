@@ -651,4 +651,24 @@ export default {
     en: "Copied",
     ru: "Скопировано",
   },
+  error_404_title: {
+    tr: "404",
+    en: "404", 
+    ru: "404"
+  },
+  error_404_subtitle: {
+    tr: "Sayfa Bulunamadı",
+    en: "Page Not Found",
+    ru: "Страница не найдена"
+  },
+  error_404_content: {
+    tr: "Aradığınız sayfa mevcut değil veya kaldırılmış olabilir. Lütfen ana sayfaya dönün veya başka bir sayfa deneyin.",
+    en: "The page you are looking for might have been removed or doesn't exist. Please return to homepage or try another page.",
+    ru: "Страница, которую вы ищете, возможно, была удалена или не существует. Пожалуйста, вернитесь на главную страницу или попробуйте другую страницу."
+  },
+  error_404_button: {
+    tr: "Geri Git",
+    en: "Go Back",
+    ru: "Вернуться назад"
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

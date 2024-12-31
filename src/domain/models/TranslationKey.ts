@@ -130,6 +130,10 @@ export enum TranslationKeys {
   common_share = "common_share",
   common_copy_link = "common_copy_link",
   common_copied = "common_copied",
+  error_404_title = "error_404_title",
+  error_404_subtitle = "error_404_subtitle", 
+  error_404_content = "error_404_content",
+  error_404_button = "error_404_button",
 }
 
 export type TranslationKey = TranslationKeys;

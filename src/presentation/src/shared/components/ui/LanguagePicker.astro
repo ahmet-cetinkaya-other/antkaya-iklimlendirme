@@ -74,6 +74,7 @@ const { translate } = useI18nStatic(Astro.url);
 
     let targetPath: string | undefined;
     const i18n = Container.resolve<II18n>(Tokens.I18n);
+    i18n.currentLocale.set(locale);
 
     if (pathSegments.length === 0 || pathSegments[0] === "") {
       targetPath = PAGES.home.paths[locale];
