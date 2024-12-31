@@ -1,5 +1,5 @@
 import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
-import Container, { Tokens } from "~/presentation/Container";
+import Container, { Tokens } from "~/presentation/src/Container";
 import type { TranslationKey, Locales } from "~/domain/models/TranslationKey";
 import { PAGES } from "../constants/constants";
 

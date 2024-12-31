@@ -1,11 +1,11 @@
 ---
 // Import section components
-import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
-import ProductTabBtn from "~/presentation/shared/components/ui/buttons/ProductTabBtn.astro";
-import PrimaryCTA from "~/presentation/shared/components/ui/buttons/PrimaryCTA.astro";
+import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
+import ProductTabBtn from "~/presentation/src/shared/components/ui/buttons/ProductTabBtn.astro";
+import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { SITE } from "~/presentation/shared/constants/constants";
+import { SITE } from "~/presentation/src/shared/constants/constants";
 
 // Global declaration for gsap animation library
 declare global {
@@ -48,7 +48,7 @@ const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
           src={props.product.data.main.imgMain}
           class="w-[600px]"
           alt={props.product.data.main.imgAlt}
-          format={"avif"}
+          format={"webp"}
           loading={"eager"}
         />
       </div>
@@ -186,7 +186,7 @@ const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
               src={props.product.data.blueprints.first}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
-              format={"avif"}
+              format={"webp"}
             />
           )
         }
@@ -199,7 +199,7 @@ const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
               src={props.product.data.blueprints.second}
               class="h-full w-full object-cover object-center"
               alt="Blueprint Illustration"
-              format={"avif"}
+              format={"webp"}
             />
           )
         }

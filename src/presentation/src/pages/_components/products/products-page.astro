@@ -1,16 +1,16 @@
 ---
 // Importing necessary components
-import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
-import PrimaryCTA from "~/presentation/shared/components/ui/buttons/PrimaryCTA.astro";
-import CardSmall from "~/presentation/shared/components/ui/cards/CardSmall.astro";
-import CardWide from "~/presentation/shared/components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "~/presentation/shared/components/sections/features/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "~/presentation/shared/components/sections/testimonials/TestimonialsSectionAlt.astro";
+import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
+import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "~/presentation/src/shared/components/ui/cards/CardSmall.astro";
+import CardWide from "~/presentation/src/shared/components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "~/presentation/src/shared/components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "~/presentation/src/shared/components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "~/presentation/shared/constants/constants";
+import { SITE } from "~/presentation/src/shared/constants/constants";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (

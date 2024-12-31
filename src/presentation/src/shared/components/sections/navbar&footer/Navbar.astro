@@ -1,13 +1,22 @@
 ---
-import ThemeIcon from "~/presentation/shared/components/ThemeIcon.astro";
-import NavLink from "~/presentation/shared/components/ui/links/NavLink.astro";
-import BrandLogo from "~/presentation/shared/components/BrandLogo.astro";
-import LanguagePicker from "~/presentation/shared/components/ui/LanguagePicker.astro";
-import { PAGES } from "~/presentation/shared/constants/constants";
+import ThemeIcon from "~/presentation/src/shared/components/ThemeIcon.astro";
+import NavLink from "~/presentation/src/shared/components/ui/links/NavLink.astro";
+import BrandLogo from "~/presentation/src/shared/components/BrandLogo.astro";
+import LanguagePicker from "~/presentation/src/shared/components/ui/LanguagePicker.astro";
+import { PAGES } from "~/presentation/src/shared/constants/constants";
 import type { Locales } from "~/domain/models/TranslationKey";
-import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 
 const { currentLocale } = useI18nStatic(Astro.url);
+
+const navbarItems = [
+  PAGES.home,
+  PAGES.services,
+  //  PAGES.products
+  PAGES.posts,
+  PAGES.faq,
+  PAGES.contact,
+];
 ---
 
 <!-- Main header component -->
@@ -125,7 +134,7 @@ const { currentLocale } = useI18nStatic(Astro.url);
       <div
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
-        {Object.values(PAGES).map((item) => <NavLink url={item.paths![currentLocale as Locales]} name={item.name} />)}
+        {navbarItems.map((item) => <NavLink url={item.paths![currentLocale as Locales]} name={item.name} />)}
 
         <div class="flex items-center justify-center gap-1 pb-4 md:pb-0">
           <!-- ThemeIcon component specifically for larger screens -->

@@ -1,8 +1,8 @@
 ---
 // Import the necessary dependencies
 import { Image } from "astro:assets";
-import IconBlock from "~/presentation/shared/components/ui/blocks/IconBlock.astro";
-import Icon from "~/presentation/shared/components/ui/icons/Icon.astro";
+import IconBlock from "~/presentation/src/shared/components/ui/blocks/IconBlock.astro";
+import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 
 interface Feature {
   heading: string;
@@ -37,8 +37,8 @@ const { title, subTitle, features } = Astro.props;
       {
         features &&
           features.map((feature) => (
-            <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} class="size-12 text-primary" />
+            <IconBlock heading={feature.heading} icon={feature.svg} iconClass="text-primary size-12">
+              <p>{feature.content}</p>
             </IconBlock>
           ))
       }

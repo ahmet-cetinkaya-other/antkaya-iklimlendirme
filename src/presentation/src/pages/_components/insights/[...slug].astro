@@ -1,7 +1,7 @@
 ---
 // Import section components
-import { SITE } from "~/presentation/shared/constants/constants";
-import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
+import { SITE } from "~/presentation/src/shared/constants/constants";
+import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
@@ -36,7 +36,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
               src={post.data.cardImage}
               alt={post.data.cardImageAlt}
               draggable={"false"}
-              format={"avif"}
+              format={"webp"}
             />
           </div>
           <div

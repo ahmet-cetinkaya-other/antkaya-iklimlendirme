@@ -120,6 +120,16 @@ export enum TranslationKeys {
   services_stats_satisfaction = "services_stats_satisfaction",
   services_stats_support = "services_stats_support",
   common_more = "common_more",
+  posts_page_title = "posts_page_title",
+  posts_page_subtitle = "posts_page_subtitle",
+  posts_recent_title = "posts_recent_title",
+  posts_no_posts = "posts_no_posts",
+  common_post = "common_post",
+  posts_read = "posts_read",
+  posts_other_posts = "posts_other_posts",
+  common_share = "common_share",
+  common_copy_link = "common_copy_link",
+  common_copied = "common_copied",
 }
 
 export type TranslationKey = TranslationKeys;

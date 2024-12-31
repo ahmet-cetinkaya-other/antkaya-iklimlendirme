@@ -1,6 +1,6 @@
 ---
-import Icon from "~/presentation/shared/components/ui/icons/Icon.astro";
-import Container, { Tokens } from "~/presentation/Container";
+import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
+import Container, { Tokens } from "~/presentation/src/Container";
 import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
 import { useI18nStatic } from "../../hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
@@ -43,8 +43,8 @@ const { translate } = useI18nStatic(Astro.url);
 <script>
   import { navigate } from "astro:transitions/client";
   import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
-  import Container, { Tokens } from "~/presentation/Container";
-  import { PAGES } from "~/presentation/shared/constants/constants";
+  import Container, { Tokens } from "~/presentation/src/Container";
+  import { PAGES } from "~/presentation/src/shared/constants/constants";
   import type { Locales } from "~/domain/models/TranslationKey";
 
   if (!(window as any).ac) (window as any).ac = {};
@@ -58,11 +58,10 @@ const { translate } = useI18nStatic(Astro.url);
     const i18n = Container.resolve<II18n>(Tokens.I18n);
     const locales = i18n.locales;
     const currentLocale = i18n.getLocaleFromUrl(currentUrl, i18n.locales[0]);
-    const prefferedLocale = localStorage.getItem("preffered_locale") || i18n.getBrowserLocale().split("-")[0];
+    const preferredLocale = localStorage.getItem("preffered_locale") || i18n.getBrowserLocale().split("-")[0];
 
-    if (prefferedLocale && locales.includes(prefferedLocale) && currentLocale !== prefferedLocale) {
-      const localizedUrl = i18n.getLocaleUrl(currentUrl, prefferedLocale, i18n.locales[0]);
-      navigate(localizedUrl.pathname);
+    if (preferredLocale && locales.includes(preferredLocale) && currentLocale !== preferredLocale) {
+      onLocaleChange(preferredLocale as Locales);
     }
   }
 
@@ -73,7 +72,7 @@ const { translate } = useI18nStatic(Astro.url);
     const pathSegments = decodedPath.split("/").filter(Boolean);
     const currentLocale = pathSegments[0];
 
-    let targetPath = "";
+    let targetPath: string | undefined;
     const i18n = Container.resolve<II18n>(Tokens.I18n);
 
     if (pathSegments.length === 0 || pathSegments[0] === "") {
@@ -89,9 +88,9 @@ const { translate } = useI18nStatic(Astro.url);
         );
       });
 
-      targetPath = currentPage?.paths[locale] || PAGES.home.paths[locale];
+      targetPath = currentPage?.paths[locale];
     }
 
-    navigate(targetPath);
+    if (targetPath) navigate(targetPath);
   }
 </script>

@@ -1,19 +1,19 @@
 ---
-import MainLayout from "~/presentation/shared/layouts/MainLayout.astro";
-import MainSection from "~/presentation/shared/components/ui/blocks/MainSection.astro";
-import LeftSection from "~/presentation/shared/components/ui/blocks/LeftSection.astro";
-import RightSection from "~/presentation/shared/components/ui/blocks/RightSection.astro";
-import FeaturesStats from "~/presentation/shared/components/sections/features/FeaturesStats.astro";
-import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
+import MainSection from "~/presentation/src/shared/components/ui/blocks/MainSection.astro";
+import LeftSection from "~/presentation/src/shared/components/ui/blocks/LeftSection.astro";
+import RightSection from "~/presentation/src/shared/components/ui/blocks/RightSection.astro";
+import FeaturesStats from "~/presentation/src/shared/components/sections/features/FeaturesStats.astro";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import { PAGES } from "~/presentation/shared/constants/constants";
+import { PAGES } from "~/presentation/src/shared/constants/constants";
 
 // Import images
-import acService from "~/presentation/shared/assets/images/ac-technician.webp";
-import acInstallation from "~/presentation/shared/assets/images/wall-mounted-ac-unit.webp";
-import heatingService from "~/presentation/shared/assets/images/radiator.webp";
-import maintenance from "~/presentation/shared/assets/images/ac-cleaning.webp";
-import emergency from "~/presentation/shared/assets/images/ac-tools.webp";
+import acService from "~/presentation/src/shared/assets/images/ac-technician.webp";
+import acInstallation from "~/presentation/src/shared/assets/images/wall-mounted-ac-unit.webp";
+import heatingService from "~/presentation/src/shared/assets/images/radiator.webp";
+import maintenance from "~/presentation/src/shared/assets/images/ac-cleaning.webp";
+import emergency from "~/presentation/src/shared/assets/images/ac-tools.webp";
 import CompanyData from "~/domain/data/Company";
 import Divider from "../../shared/components/ui/Divider.astro";
 

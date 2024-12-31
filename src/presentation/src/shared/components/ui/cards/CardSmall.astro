@@ -1,7 +1,7 @@
 ---
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
-import Icon from "~/presentation/shared/components/ui/icons/Icon.astro";
+import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
 const { product, productLocale = "" } = Astro.props;
@@ -30,7 +30,7 @@ const imageClass =
     alt={product.data.main.imgAlt}
     draggable={"false"}
     class={imageClass}
-    format={"avif"}
+    format={"webp"}
   />
   <!-- An overlay gradient that sits on top of the product image-->
   <div

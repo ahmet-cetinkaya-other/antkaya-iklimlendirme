@@ -1,9 +1,9 @@
 ---
-import Meta from "~/presentation/shared/components/Meta.astro";
-import Navbar from "~/presentation/shared/components/sections/navbar&footer/Navbar.astro";
-import FooterSection from "~/presentation/shared/components/sections/navbar&footer/FooterSection.astro";
-import { SITE } from "~/presentation/shared/constants/constants";
-import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import Meta from "~/presentation/src/shared/components/Meta.astro";
+import Navbar from "~/presentation/src/shared/components/sections/navbar&footer/Navbar.astro";
+import FooterSection from "~/presentation/src/shared/components/sections/navbar&footer/FooterSection.astro";
+import { SITE } from "~/presentation/src/shared/constants/constants";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 
 type Props = {
   title?: string;
@@ -15,13 +15,13 @@ const props = Astro.props;
 const { currentLocale } = useI18nStatic(Astro.url);
 ---
 
-<html lang={currentLocale} class="lenis lenis-smooth scroll-pt-16">
+<html lang={currentLocale} class="scroll-pt-16 scroll-smooth">
   <head>
     <Meta meta={props.meta} structuredData={props.structuredData} />
     <title>{props.title || SITE.title}</title>
-    <script>
-      import "~/presentation/shared/assets/scripts/lenisSmoothScroll";
-    </script>
+    <!--     <script>
+      import "~/presentation/src/shared/assets/scripts/lenisSmoothScroll";
+    </script -->
   </head>
   <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
     <div class="container fixed inset-x-0 z-50 py-4 sm:py-6 lg:py-4">

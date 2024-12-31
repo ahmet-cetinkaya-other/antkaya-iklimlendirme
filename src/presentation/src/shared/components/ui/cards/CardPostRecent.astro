@@ -1,0 +1,61 @@
+---
+// Import all required components and utilities
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
+import { formatDate } from "~/presentation/src/shared/utils/utils";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
+import { PAGES } from "~/presentation/src/shared/constants/constants";
+import SlugHelper from "~/presentation/src/shared/utils/SlugHelper";
+import { TranslationKeys } from "~/domain/models/TranslationKey";
+
+type Props = {
+  postEntry: CollectionEntry<"posts">;
+};
+const props = Astro.props;
+
+const { translate, currentLocale } = useI18nStatic(Astro.url);
+const postHref = `${PAGES.post.paths[currentLocale]}${SlugHelper.slugify(props.postEntry.data.title)}/`;
+---
+
+<!-- Root container, which is divided into 2 grid column layout for larger screens -->
+<div class="grid gap-8 sm:grid-cols-2 sm:items-center">
+  <!-- Container for the post post's cover image -->
+  <div class="sm:order-2">
+    <div class="relative rounded-lg pt-[50%] sm:pt-[100%]">
+      <a href={postHref}>
+        <Image
+          class="absolute start-0 top-0 size-full rounded-xl object-cover"
+          src={props.postEntry.data.cardImage}
+          alt={props.postEntry.data.cardImageAlt}
+          draggable={"false"}
+          loading={"eager"}
+          format={"webp"}
+        />
+      </a>
+    </div>
+  </div>
+  <!-- Container for the post post's heading, author avatar, author's role, and read more button -->
+  <div class="sm:order-1">
+    <!-- Post title which is also a hyperlink to the post detail page  -->
+    <a
+      href={postHref}
+      class="outline-none ring-zinc-500 transition duration-300 hover:text-orange-400 focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
+    >
+      <h2
+        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight"
+      >
+        {props.postEntry.data.title}
+      </h2>
+      <p class="mt-6 text-xs">{props.postEntry.data.description}</p>
+      <!-- Post publication date -->
+      <span class="mt-2 block text-xs text-neutral-600 dark:text-neutral-400">
+        {formatDate(props.postEntry.data.pubDate)}
+      </span>
+    </a>
+    <!-- Read More button which is a link to the post post detailed page -->
+    <div class="mt-5">
+      <PrimaryCTA url={postHref} title={translate(TranslationKeys.posts_read)} data-astro-prefetch />
+    </div>
+  </div>
+</div>

@@ -3,8 +3,7 @@
   "compilerOptions": {
     "baseUrl": "../",
     "paths": {
-      "~/*": ["./*"],
-      "~/presentation/*": ["./presentation/src/*"]
+      "~/*": ["./*"]
     },
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,

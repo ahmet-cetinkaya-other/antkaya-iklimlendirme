@@ -1,9 +1,11 @@
 ---
+import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 import Icon from "../icons/Icon.astro";
 
 interface Props {
   heading?: string;
   icon: string;
+  iconClass?: string;
 }
 const props = Astro.props;
 ---
@@ -11,7 +13,7 @@ const props = Astro.props;
 <!-- The root container that arranges your slot and the heading/content -->
 <div class="flex gap-x-5">
   <!-- Slot to allow for extensibility of the component -->
-  <Icon name={props.icon} class="size-6 text-neutral-700 dark:text-neutral-300" />
+  <Icon name={props.icon} class={mergeCls("size-6 text-neutral-700 dark:text-neutral-300", props.iconClass)} />
 
   <div class="grow">
     <!-- Heading of the section -->

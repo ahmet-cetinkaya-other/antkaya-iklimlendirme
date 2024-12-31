@@ -1,12 +1,12 @@
 ---
-import IconBlock from "~/presentation/shared/components/ui/blocks/IconBlock.astro";
-import TextInput from "~/presentation/shared/components/ui/forms/input/TextInput.astro";
-import PhoneInput from "~/presentation/shared/components/ui/forms/input/PhoneInput.astro";
-import TextAreaInput from "~/presentation/shared/components/ui/forms/input/TextAreaInput.astro";
-import { useI18nStatic } from "~/presentation/shared/hooks/useI18n";
+import IconBlock from "~/presentation/src/shared/components/ui/blocks/IconBlock.astro";
+import TextInput from "~/presentation/src/shared/components/ui/forms/input/TextInput.astro";
+import PhoneInput from "~/presentation/src/shared/components/ui/forms/input/PhoneInput.astro";
+import TextAreaInput from "~/presentation/src/shared/components/ui/forms/input/TextAreaInput.astro";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
 import CompanyData from "~/domain/data/Company";
-import { PAGES } from "~/presentation/shared/constants/constants";
+import { PAGES } from "~/presentation/src/shared/constants/constants";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 const companyEmail = CompanyData.email;

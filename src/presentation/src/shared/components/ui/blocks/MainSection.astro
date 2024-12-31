@@ -1,50 +1,63 @@
 ---
-import PrimaryCTA from "~/presentation/shared/components/ui/buttons/PrimaryCTA.astro";
+import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
 import Icon from "../icons/Icon.astro";
 
-const { title, subTitle, btnExists, btnTitle, btnURL } = Astro.props;
+const { title, subTitle, btnExists, btnTitle, btnURL, color = "primary" } = Astro.props;
 interface Props {
-  title: string;
-  subTitle: string;
+  title?: string;
+  subTitle?: string;
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
+  color?: "primary" | "secondary";
 }
+
+const bgGradient =
+  color === "primary"
+    ? "from-primary-50 to-neutral-200 dark:from-primary-500/10 dark:to-neutral-800"
+    : "from-secondary-300 to-neutral-200 dark:from-secondary-500/10 dark:to-neutral-800";
+
+const iconBg =
+  color === "primary" ? "bg-primary-100 dark:bg-primary-900/30" : "bg-secondary-100 dark:bg-secondary-900/30";
+
+const iconColor =
+  color === "primary" ? "text-primary-500 dark:text-primary-400" : "text-secondary-500 dark:text-secondary-400";
+
+const titleGradient =
+  color === "primary"
+    ? "from-primary-500 to-primary-400 dark:from-primary-400 dark:to-primary-600"
+    : "from-secondary-500 to-secondary-400 dark:from-secondary-400 dark:to-secondary-600";
+
+const decorativeBg =
+  color === "primary" ? "bg-primary-100/20 dark:bg-primary-900/30" : "bg-secondary-100/20 dark:bg-secondary-900/30";
+
+const icon = color === "primary" ? "sun" : "snowflake";
 ---
 
 <section
-  class="relative mx-auto flex min-h-[50vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-primary-50 to-white px-4 py-20 dark:from-primary-950/10 dark:to-neutral-950 sm:px-6 lg:min-h-[60vh] lg:px-8"
+  class={`relative mx-auto flex min-h-[30vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b ${bgGradient} px-4 sm:px-6 lg:px-8`}
 >
   <!-- Decorative shapes -->
-  <div class="pattern-dots absolute inset-0 opacity-5"></div>
-  <div class="absolute left-0 top-0 -ml-48 h-96 w-96 rounded-full bg-primary-100/20 blur-3xl dark:bg-primary-900/30">
-  </div>
-  <div class="absolute right-0 top-0 -mr-48 h-96 w-96 rounded-full bg-primary-100/20 blur-3xl dark:bg-primary-900/30">
-  </div>
+  <div class="ac-pattern-dots absolute inset-0 opacity-5"></div>
+  <div class={`absolute left-0 top-0 -ml-48 h-96 w-96 rounded-full ${decorativeBg} blur-3xl`}></div>
+  <div class={`absolute right-0 top-0 -mr-48 h-96 w-96 rounded-full ${decorativeBg} blur-3xl`}></div>
 
-  <div class="relative mx-auto max-w-3xl pt-16 text-center">
-    <!-- Icon -->
-    <div
-      class="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30"
-    >
-      <Icon name="snowflake" class="h-8 w-8 text-primary-500 dark:text-primary-400" />
-    </div>
+  <div class="relative mx-auto max-w-3xl pt-16 pt-40 text-center">
+    {
+      title && (
+        <>
+          <div class={`mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full ${iconBg}`}>
+            <Icon name={icon} class={`h-8 w-8 ${iconColor}`} />
+          </div>
 
-    <!-- Title with gradient text -->
-    <h1
-      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-5xl lg:text-6xl"
-    >
-      <span
-        class="bg-gradient-to-r from-primary-500 to-primary-400 bg-clip-text text-transparent dark:from-primary-400 dark:to-primary-600"
-      >
-        {title}
-      </span>
-    </h1>
+          <h1 class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-5xl lg:text-6xl">
+            <span class={`bg-gradient-to-r ${titleGradient} bg-clip-text text-transparent`}>{title}</span>
+          </h1>
+        </>
+      )
+    }
 
-    <!-- Subtitle with larger text -->
-    <p class="mb-8 text-pretty font-medium text-neutral-600 dark:text-neutral-400">
-      {subTitle}
-    </p>
+    {subTitle && <p class="mb-8 text-pretty font-medium text-neutral-600 dark:text-neutral-400">{subTitle}</p>}
 
     <!-- CTA Button with animation -->
     {
@@ -53,23 +66,29 @@ interface Props {
           <PrimaryCTA
             title={btnTitle}
             url={btnURL}
-            class="animate-pulse bg-secondary hover:animate-none hover:bg-secondary-600"
+            class={`animate-pulse ${color === "primary" ? "bg-secondary" : "bg-primary"} ${
+              color === "primary" ? "hover:bg-secondary-600" : "hover:bg-primary-600"
+            } hover:animate-none`}
           />
         </div>
       )
     }
 
+    <slot />
+
     <!-- Decorative bottom pattern -->
     <div
-      class="-bottom[0.5rem] absolute left-1/2 h-px w-full max-w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-secondary-200 to-transparent dark:via-secondary-800/50"
+      class={`-bottom[0.5rem] absolute left-1/2 h-px w-full max-w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent ${
+        color === "primary" ? "via-secondary-200 dark:via-secondary-800/50" : "via-primary-200 dark:via-primary-800/50"
+      } to-transparent`}
     >
     </div>
   </div>
 </section>
 
 <style>
-  .pattern-dots {
-    background-image: radial-gradient(currentColor 1px, transparent 1px);
+  .ac-pattern-dots {
+    background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
     background-size: 32px 32px;
   }
 </style>

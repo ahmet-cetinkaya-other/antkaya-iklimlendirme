@@ -601,4 +601,54 @@ export default {
     en: "Continuous Service",
     ru: "Непрерывное обслуживание",
   },
+  posts_page_title: {
+    tr: "Bilgilendirici Yazılar",
+    en: "Informative Articles",
+    ru: "Информативные статьи",
+  },
+  posts_page_subtitle: {
+    tr: "İklimlendirme sistemleri, bakım önerileri ve enerji tasarrufu hakkında faydalı bilgiler bulabileceğiniz blog yazılarımız.",
+    en: "Our blog posts where you can find useful information about HVAC systems, maintenance tips, and energy savings.",
+    ru: "Наши статьи, где вы найдете полезную информацию о системах ОВиК, советы по обслуживанию и энергосбережению.",
+  },
+  posts_recent_title: {
+    tr: "En Son Yazımız",
+    en: "Our Latest Post",
+    ru: "Наша последняя статья",
+  },
+  posts_no_posts: {
+    tr: "Henüz yazı bulunmamaktadır.",
+    en: "No posts available.",
+    ru: "Статьи пока не доступны.",
+  },
+  common_post: {
+    tr: "Yazı",
+    en: "Post",
+    ru: "Статья",
+  },
+  posts_read: {
+    tr: "Oku",
+    en: "Read",
+    ru: "Читать",
+  },
+  posts_other_posts: {
+    tr: "Diğer Yazılar",
+    en: "Other Posts",
+    ru: "Другие статьи",
+  },
+  common_share: {
+    tr: "Paylaş",
+    en: "Share",
+    ru: "Поделиться",
+  },
+  common_copy_link: {
+    tr: "Bağlantıyı kopyala",
+    en: "Copy link",
+    ru: "Копировать ссылку",
+  },
+  common_copied: {
+    tr: "Kopyalandı",
+    en: "Copied",
+    ru: "Скопировано",
+  },
 } as Record<TranslationKey, Record<Locales, string>>;

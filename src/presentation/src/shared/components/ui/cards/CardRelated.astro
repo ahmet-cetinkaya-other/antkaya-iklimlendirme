@@ -1,41 +1,41 @@
 ---
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
-import { formatDate } from "~/presentation/shared/utils/utils";
+import { formatDate } from "~/presentation/src/shared/utils/utils";
 import type { CollectionEntry } from "astro:content";
 
-const { blogEntry, recentBlogLocale = "" } = Astro.props;
+const { postEntry, recentPostLocale = "" } = Astro.props;
 
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
-  recentBlogLocale?: string;
+  postEntry: CollectionEntry<"posts">;
+  recentPostLocale?: string;
 }
 ---
 
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-  href={recentBlogLocale && recentBlogLocale !== "en"
-    ? `/${recentBlogLocale}/blog/${blogEntry.slug.replace(/^tr\//, "")}/`
-    : `/blog/${blogEntry.slug.replace(/^en\//, "")}/`}
+  href={recentPostLocale && recentPostLocale !== "en"
+    ? `/${recentPostLocale}/post/${postEntry.slug.replace(/^tr\//, "")}/`
+    : `/post/${postEntry.slug.replace(/^en\//, "")}/`}
   data-astro-prefetch
 >
   <div>
     <Image
       class="aspect-video rounded-xl"
-      src={blogEntry.data.cardImage}
-      alt={blogEntry.data.cardImageAlt}
+      src={postEntry.data.cardImage}
+      alt={postEntry.data.cardImageAlt}
       draggable={"false"}
-      format={"avif"}
+      format={"webp"}
     />
-    <!-- The title of the blog post -->
+    <!-- The title of the post post -->
     <h3
       class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-orange-400 dark:text-neutral-300 dark:group-hover:text-neutral-50"
     >
-      {blogEntry.data.title}
+      {postEntry.data.title}
     </h3>
-    <!-- The formatted publication date of the blog post -->
+    <!-- The formatted publication date of the post post -->
     <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-      {formatDate(blogEntry.data.pubDate)}
+      {formatDate(postEntry.data.pubDate)}
     </p>
   </div></a
 >

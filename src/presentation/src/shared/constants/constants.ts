@@ -1,6 +1,6 @@
 import Company from "~/domain/data/Company";
 import { TranslationKeys, type Locales } from "~/domain/models/TranslationKey";
-import ogImageSrc from "~/presentation/shared/assets/images/image-not-found.svg";
+import ogImageSrc from "~/presentation/src/shared/assets/images/image-not-found.svg";
 
 export const SITE = {
   title: Company.name,
@@ -77,6 +77,14 @@ export const PAGES = {
       tr: "/sss/",
       en: "/faq/",
       ru: "/чаво/",
+    },
+  },
+  post: {
+    name: TranslationKeys.common_post,
+    paths: {
+      tr: "/yazi/",
+      en: "/post/",
+      ru: "/пост/",
     },
   },
   posts: {
