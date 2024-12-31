@@ -671,5 +671,30 @@ const Translations: Record<TranslationKey, Record<Locales, string>> = {
     ru: "Надежный сервис, довольные клиенты",
     tr: "Güvenilir Hizmet, Memnun Müşteriler",
   },
+  seo_tagline: {
+    en: "Professional HVAC Solutions",
+    ru: "Профессиональные решения ОВиК",
+    tr: "Profesyonel İklimlendirme Çözümleri",
+  },
+  seo_description: {
+    tr: "Uzman ekip ile profesyonel iklimlendirme çözümleri. Antalya'da klima, ısıtma sistemleri, bakım ve onarım hizmetleri.",
+    en: "Professional HVAC solutions with expert team. Air conditioning, heating systems, maintenance and repair services in Antalya.",
+    ru: "Профессиональные решения ОВиК с командой экспертов. Кондиционирование, системы отопления, обслуживание и ремонт в Анталии.",
+  },
+  seo_description_short: {
+    en: "Expert HVAC solutions in Antalya",
+    ru: "Экспертные решения ОВиК в Анталии",
+    tr: "Antalya'da uzman iklimlendirme çözümleri",
+  },
+  seo_og_title: {
+    en: "Antkaya HVAC - Professional Climate Solutions",
+    ru: "Antkaya HVAC - Профессиональные климатические решения",
+    tr: "Antkaya İklimlendirme - Profesyonel İklimlendirme Çözümleri",
+  },
+  seo_og_description: {
+    en: "Your trusted partner for all HVAC needs. Professional air conditioning and heating solutions with quality service guarantee.",
+    ru: "Ваш надежный партнер для всех потребностей в ОВиК. Профессиональные решения для кондиционирования и отопления с гарантией качества обслуживания.",
+    tr: "Tüm iklimlendirme ihtiyaçlarınız için güvenilir çözüm ortağınız. Kaliteli hizmet garantisi ile profesyonel klima ve ısıtma çözümleri.",
+  },
 };
 export default Translations;

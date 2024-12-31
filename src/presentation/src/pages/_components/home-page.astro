@@ -14,14 +14,74 @@ import radiaorImage from "~/presentation/src/shared/assets/images/radiator.webp"
 import FaqsData from "~/domain/data/Faq";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import { PAGES } from "~/presentation/src/shared/constants/constants";
+import { PAGES, SITE, SEO, OG } from "~/presentation/src/shared/constants/constants";
 import CompanyData from "~/domain/data/Company";
 import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
+import ogImage from "~/presentation/src/shared/assets/images/antkaya-iklimlendirme-logo.webp";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
+
+const seoTitle = `${SITE.title} - ${translate(TranslationKeys.seo_tagline)}`;
+const seoDescription = translate(TranslationKeys.seo_description);
+const ogTitle = translate(TranslationKeys.seo_og_title);
+const ogDescription = translate(TranslationKeys.seo_og_description);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": SITE.url,
+  url: SITE.url,
+  inLanguage: currentLocale,
+  name: seoTitle,
+  description: seoDescription,
+  headline: translate(TranslationKeys.seo_tagline),
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
+    url: SITE.url,
+    name: seoTitle,
+    description: seoDescription,
+    publisher: {
+      "@type": "Organization",
+      name: SITE.title,
+      url: SITE.url,
+      logo: {
+        "@type": "ImageObject",
+        url: OG.image,
+      },
+    },
+    inLanguage: currentLocale,
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: OG.image,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "WebPage",
+          "@id": SITE.url,
+          url: SITE.url,
+          name: translate(TranslationKeys.common_home),
+        },
+      },
+    ],
+  },
+};
 ---
 
-<MainLayout>
+<MainLayout
+  title={seoTitle}
+  description={seoDescription}
+  ogType={OG.type}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={ogImage}
+  structuredData={structuredData}
+>
   <AnnouncementBanner
     title={translate(TranslationKeys.contact_call_us)}
     btnId="dismiss-button"

@@ -109,7 +109,7 @@ ${details}`;
 
         <IconBlock heading={translate(TranslationKeys.contact_visit_title)} icon="mapPin">
           <p class="text-sm text-neutral-800 dark:text-neutral-300">
-            {CompanyData.address.replace(/{{(.*?)}}/g, (_, key) => translate(key))}
+            {CompanyData.address.full.replace(/{{(.*?)}}/g, (_, key) => translate(key))}
           </p>
         </IconBlock>
 

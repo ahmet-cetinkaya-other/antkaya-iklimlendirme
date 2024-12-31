@@ -6,7 +6,7 @@ import RightSection from "~/presentation/src/shared/components/ui/blocks/RightSe
 import FeaturesStats from "~/presentation/src/features/features/components/FeaturesStats.astro";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import { PAGES } from "~/presentation/src/shared/constants/constants";
+import { PAGES, SITE, SEO, OG } from "~/presentation/src/shared/constants/constants";
 
 // Import images
 import acService from "~/presentation/src/shared/assets/images/ac-technician.webp";
@@ -18,6 +18,54 @@ import CompanyData from "~/domain/data/Company";
 import Divider from "~/presentation/src/shared/components/ui/Divider.astro";
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
+
+// SEO content
+const seoTitle = `${translate(TranslationKeys.services_main_title)} - ${SITE.title}`;
+const seoDescription = translate(TranslationKeys.services_main_subtitle);
+const ogTitle = `${SITE.title} - ${translate(TranslationKeys.common_services)}`;
+const ogDescription = translate(TranslationKeys.services_main_subtitle);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ServicePage",
+  "@id": `${SITE.url}/services`,
+  url: `${SITE.url}/services`,
+  inLanguage: currentLocale,
+  name: seoTitle,
+  description: seoDescription,
+  headline: translate(TranslationKeys.services_main_title),
+  provider: {
+    "@type": "Organization",
+    name: SITE.title,
+    url: SITE.url,
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: translate(TranslationKeys.services_ac_service_title),
+      description: translate(TranslationKeys.services_ac_service_desc),
+    },
+    {
+      "@type": "Offer",
+      name: translate(TranslationKeys.services_ac_install_title),
+      description: translate(TranslationKeys.services_ac_install_desc),
+    },
+    {
+      "@type": "Offer",
+      name: translate(TranslationKeys.services_heating_title),
+      description: translate(TranslationKeys.services_heating_desc),
+    },
+    {
+      "@type": "Offer",
+      name: translate(TranslationKeys.services_maintenance_title),
+      description: translate(TranslationKeys.services_maintenance_desc),
+    },
+    {
+      "@type": "Offer",
+      name: translate(TranslationKeys.services_emergency_title),
+      description: translate(TranslationKeys.services_emergency_desc),
+    },
+  ],
+};
 
 const articles = [
   {
@@ -83,7 +131,15 @@ const articles = [
 ];
 ---
 
-<MainLayout>
+<MainLayout
+  title={seoTitle}
+  description={seoDescription}
+  ogType="website"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={OG.image}
+  structuredData={structuredData}
+>
   <!-- OVERLAY -->
   <section>
     <MainSection

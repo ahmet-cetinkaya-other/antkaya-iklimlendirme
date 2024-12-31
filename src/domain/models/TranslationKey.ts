@@ -134,5 +134,10 @@ export enum TranslationKeys {
   services_stats_support = "services_stats_support",
   services_stats_title = "services_stats_title",
   contact_call_content = "contact_call_content",
+  seo_tagline = "seo_tagline",
+  seo_description = "seo_description",
+  seo_description_short = "seo_description_short",
+  seo_og_title = "seo_og_title",
+  seo_og_description = "seo_og_description",
 }
 export type TranslationKey = TranslationKeys;

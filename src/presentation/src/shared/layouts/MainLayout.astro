@@ -1,24 +1,30 @@
 ---
-import Meta from "~/presentation/src/shared/components/Meta.astro";
+import Meta, { type Props as MetaProps } from "~/presentation/src/shared/components/Meta.astro";
 import Navbar from "~/presentation/src/shared/layouts/components/Navbar.astro";
 import FooterSection from "~/presentation/src/shared/layouts/components/FooterSection.astro";
-import { SITE } from "~/presentation/src/shared/constants/constants";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 
-type Props = {
-  title?: string;
-  meta?: string;
-  structuredData?: object;
-};
-const props = Astro.props;
+type Props = MetaProps;
+
+const { title, description, ogTitle, ogDescription, ogType, ogImage, ogLocale, structuredData, canonicalURL } =
+  Astro.props;
 
 const { currentLocale } = useI18nStatic(Astro.url);
 ---
 
 <html lang={currentLocale} class="scroll-pt-16 scroll-smooth">
   <head>
-    <Meta meta={props.meta} structuredData={props.structuredData} />
-    <title>{props.title || SITE.title}</title>
+    <Meta
+      title={title}
+      description={description}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
+      ogType={ogType}
+      ogImage={ogImage}
+      ogLocale={ogLocale}
+      structuredData={structuredData}
+      canonicalURL={canonicalURL}
+    />
   </head>
   <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
     <div class="container fixed inset-x-0 z-50 py-4 sm:py-6 lg:py-4">

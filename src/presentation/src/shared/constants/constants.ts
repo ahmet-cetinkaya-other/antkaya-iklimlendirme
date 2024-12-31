@@ -1,33 +1,32 @@
 import Company from "~/domain/data/Company";
 import { TranslationKeys, type Locales } from "~/domain/models/TranslationKey";
-import ogImageSrc from "~/presentation/src/shared/assets/images/image-not-found.svg";
+import defaultOgImage from "~/presentation/src/shared/assets/images/antkaya-iklimlendirme-logo.webp";
 
 export const SITE = {
   title: Company.name,
-  tagline: "Dolor Sit Amet",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  description_short: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  tagline: TranslationKeys.seo_tagline,
+  description: TranslationKeys.seo_description,
+  description_short: TranslationKeys.seo_description_short,
   url: "https://antkayaiklimlendimre.com",
   author: Company.name,
 };
 
 export const SEO = {
   title: SITE.title,
-  description: SITE.description,
+  description: TranslationKeys.seo_description,
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    inLanguage: "en-US",
+    inLanguage: "tr",
     "@id": SITE.url,
     url: SITE.url,
     name: SITE.title,
-    description: SITE.description,
+    description: TranslationKeys.seo_description,
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: SITE.title,
-      description: SITE.description,
+      description: TranslationKeys.seo_description,
     },
   },
 };
@@ -36,10 +35,9 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Dolor Sit Amet`,
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  image: ogImageSrc,
+  title: TranslationKeys.seo_og_title,
+  description: TranslationKeys.seo_og_description,
+  image: defaultOgImage,
 };
 
 export type PageLink = {

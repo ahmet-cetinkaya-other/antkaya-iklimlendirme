@@ -1,29 +1,58 @@
 ---
 import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
 import ContactSection from "~/presentation/src/features/contact/components/ContactSection.astro";
-import { SITE } from "~/presentation/src/shared/constants/constants";
+import { SITE, OG } from "~/presentation/src/shared/constants/constants";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
+import { TranslationKeys } from "~/domain/models/TranslationKey";
+import CompanyData from "~/domain/data/Company";
 
-const pageTitle: string = `Contact | ${SITE.title}`;
+const { translate, currentLocale } = useI18nStatic(Astro.url);
+
+// SEO content
+const seoTitle = `${translate(TranslationKeys.contact_title)} - ${SITE.title}`;
+const seoDescription = translate(TranslationKeys.contact_subtitle);
+const ogTitle = `${SITE.title} - ${translate(TranslationKeys.common_contact)}`;
+const ogDescription = seoDescription;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${SITE.url}/contact`,
+  url: `${SITE.url}/contact`,
+  name: seoTitle,
+  description: seoDescription,
+  inLanguage: currentLocale,
+  provider: {
+    "@type": "Organization",
+    name: SITE.title,
+    url: SITE.url,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: CompanyData.address.city,
+      addressRegion: CompanyData.address.region,
+      streetAddress: CompanyData.address.street,
+      postalCode: CompanyData.address.postalCode,
+      addressCountry: CompanyData.address.country,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CompanyData.tel,
+      email: CompanyData.email,
+      contactType: "customer service",
+      areaServed: CompanyData.address.city,
+      availableLanguage: ["Turkish", "English", "Russian"],
+    },
+  },
+};
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
-  title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://antkayaiklimlendirme.com/contact",
-    url: "https://antkayaiklimlendirme.com/contact",
-    name: "Contact Us | Antkaya İklimlendirme",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://antkayaiklimlendirme.com",
-      name: "Antkaya İklimlendirme",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    inLanguage: "en-US",
-  }}
+  title={seoTitle}
+  description={seoDescription}
+  ogType="website"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={OG.image}
+  structuredData={structuredData}
 >
   <div class="container pb-12 pt-24">
     <ContactSection />

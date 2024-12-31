@@ -6,7 +6,7 @@ import SocialShare from "~/presentation/src/shared/components/ui/buttons/SocialS
 import { capitalize, formatDate } from "~/presentation/src/shared/utils/utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "~/presentation/src/shared/constants/constants";
+import { SITE, OG, PAGES } from "~/presentation/src/shared/constants/constants";
 import SlugHelper from "~/presentation/src/shared/utils/SlugHelper";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import ArrayExtensions from "~/core/acore-ts/data/array/ArrayExtensions";
@@ -38,9 +38,60 @@ const { Content } = await render(post);
 const otherPosts: CollectionEntry<"posts">[] = ArrayExtensions.shuffle(posts)
   .filter((p) => p.id !== post.id)
   .slice(0, 2);
+
+// SEO content
+const seoTitle = `${post.data.title} | ${SITE.title}`;
+const seoDescription = post.data.description;
+const ogTitle = post.data.title;
+const ogDescription = post.data.description;
+const canonicalURL = new URL(`${PAGES.posts.paths[currentLocale]}${SlugHelper.slugify(post.data.title)}`, Astro.site)
+  .href;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": canonicalURL,
+  url: canonicalURL,
+  name: seoTitle,
+  headline: post.data.title,
+  description: post.data.description,
+  inLanguage: currentLocale,
+  datePublished: post.data.pubDate.toISOString(),
+  image: {
+    "@type": "ImageObject",
+    url: post.data.cardImage,
+  },
+  author: {
+    "@type": "Organization",
+    name: SITE.title,
+    url: SITE.url,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: SITE.title,
+    url: SITE.url,
+    logo: {
+      "@type": "ImageObject",
+      url: OG.image,
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalURL,
+  },
+  keywords: post.data.tags?.join(", "),
+};
 ---
 
-<MainLayout title={`${post.data.title} | ${SITE.title}`}>
+<MainLayout
+  title={seoTitle}
+  description={seoDescription}
+  ogType="article"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={post.data.cardImage}
+  structuredData={structuredData}
+  canonicalURL={canonicalURL}
+>
   <MainSection color="secondary">
     <Image
       src={post.data.cardImage}

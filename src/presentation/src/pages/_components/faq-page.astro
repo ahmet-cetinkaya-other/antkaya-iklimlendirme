@@ -2,10 +2,46 @@
 import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
 import FAQ from "~/presentation/src/features/faq/components/FAQ.astro";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
+import { SITE, OG } from "~/presentation/src/shared/constants/constants";
 import FaqsData from "~/domain/data/Faq";
+import type Faq from "~/domain/models/Faq";
+
+const { translate, currentLocale } = useI18nStatic(Astro.url);
+
+// SEO content
+const seoTitle = `${translate(TranslationKeys.faq_heading)} - ${SITE.title}`;
+const seoDescription = translate(TranslationKeys.faq_subtitle);
+const ogTitle = `${SITE.title} - ${translate(TranslationKeys.faq_short_title)}`;
+const ogDescription = seoDescription;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${SITE.url}/faq`,
+  url: `${SITE.url}/faq`,
+  name: seoTitle,
+  description: seoDescription,
+  inLanguage: currentLocale,
+  mainEntity: FaqsData.map((faq: Faq) => ({
+    "@type": "Question",
+    name: translate(faq.question),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: translate(faq.answer),
+    },
+  })),
+};
 ---
 
-<MainLayout>
+<MainLayout
+  title={seoTitle}
+  description={seoDescription}
+  ogType="website"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={OG.image}
+  structuredData={structuredData}
+>
   <section class="container pb-16 pt-48">
     <FAQ title={TranslationKeys.faq_heading} subtitle={TranslationKeys.faq_subtitle} faqs={FaqsData} />
   </section>
