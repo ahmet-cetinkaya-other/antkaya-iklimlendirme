@@ -1,12 +1,15 @@
 ---
-import PostPage from "~/presentation/src/pages/_components/posts/post-page.astro";
 import { getCollection } from "astro:content";
-import StringExtensions from "~/core/acore-ts/data/string/StringExtensions";
+import PostsPage from "~/presentation/src/pages/_components/posts/posts-page.astro";
+import { PAGE_SIZE } from "~/presentation/src/features/posts/constants/pagination";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft && postEntry.id.endsWith("en"));
-  return posts.map((post) => ({ params: { slug: StringExtensions.slugify(post.data.title) } }));
+  const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
 }
 ---
 
-<PostPage />
+<PostsPage />
