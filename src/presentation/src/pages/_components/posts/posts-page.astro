@@ -24,6 +24,8 @@ export async function getStaticPaths(locale?: string) {
   }));
 }
 
+type Props = {};
+
 const params = Astro.params;
 const pageIndex = parseInt(params.page ?? 1) - 1;
 
