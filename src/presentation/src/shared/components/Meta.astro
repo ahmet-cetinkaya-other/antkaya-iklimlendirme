@@ -4,7 +4,7 @@ import type { ImageMetadata } from "astro";
 import { OG, PAGES, SEO, SITE } from "~/presentation/src/shared/constants/constants";
 import faviconSvgSrc from "/public/favicon.svg";
 import faviconSrc from "/public/favicon.png";
-import { ClientRouter } from "astro:transitions";
+// import { ClientRouter } from "astro:transitions";
 
 export type Props = {
   title?: string;
@@ -131,4 +131,4 @@ const appleTouchIcon = await getImage({
 <meta name="theme-color" content="#facc15" />
 
 <!-- View transitions -->
-<ClientRouter />
+<!-- <ClientRouter /> -->
