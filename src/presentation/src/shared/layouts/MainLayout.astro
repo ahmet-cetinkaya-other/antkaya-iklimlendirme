@@ -26,12 +26,14 @@ const { currentLocale } = useI18nStatic(Astro.url);
       canonicalURL={canonicalURL}
     />
   </head>
-  <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+  <body
+    class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+  >
     <div class="container fixed inset-x-0 z-50 py-4 sm:py-6 lg:py-4">
       <Navbar transition:persist />
     </div>
 
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
 
