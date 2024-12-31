@@ -5,12 +5,12 @@ export default {
   tel: "+905396069242",
   email: "antkayaiklimlendirme@gmail.com",
   address: {
-    full: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. {{${TranslationKeys.common_street}}} {{${TranslationKeys.common_road}}} {{${TranslationKeys.common_neighborhood}}}`,
-    city: "Ankara",
+    full: `Cumhuriyet {{${TranslationKeys.common_neighborhood}}}, Abdi İpekçi {{${TranslationKeys.common_road}}} No: 48/1 Muratpaşa / Antalya`,
+    city: "Antalya",
     country: "Turkey",
-    postalCode: "06500",
-    street: "Lorem ipsum",
-    region: "Çankaya",
+    postalCode: "07010",
+    street: "Abdi İpekçi",
+    region: "Muratpaşa",
   },
   socials: {
     facebook: "https://facebook.com/antkayaiklimlendirme",
