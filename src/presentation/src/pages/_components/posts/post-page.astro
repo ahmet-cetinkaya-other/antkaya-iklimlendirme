@@ -96,10 +96,10 @@ const structuredData = {
     <Image
       src={post.data.cardImage}
       alt={post.data.cardImageAlt}
-      class="h-96 w-full rounded-lg object-cover shadow-lg"
+      class="rounded-lg object-cover shadow-lg max-h-[30vh]"
     />
   </MainSection>
-  <section class="mx-auto max-w-3xl px-4 pb-12 pt-16 pt-6 sm:px-6 lg:px-8">
+  <section class="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
     <!--Post post title-->
     <ul class="mt-6 text-xs text-neutral-500">
       <li
@@ -155,10 +155,16 @@ const structuredData = {
       }
 
       .ac-content blockquote {
-        margin: 1em 0;
-        padding: 0.5em 1em;
         border-left: 4px solid #ccc;
         background-color: #f9f9f9;
+        color: #333;
+        padding: 1em;
+        border-radius: 0.5rem;
+      }
+
+      .ac-content pre {
+        padding: 1em;
+        border-radius: 0.5rem;
       }
 
       .ac-content img {
@@ -166,6 +172,11 @@ const structuredData = {
         height: auto;
         display: block;
         margin: 1em 0;
+
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        max-height: 30vh;
       }
 
       .ac-content ul {
@@ -200,11 +211,71 @@ const structuredData = {
       .ac-content tr:hover {
         background-color: #ddd;
       }
+
+      /* Dark mode styles */
+      html.dark .ac-content {
+          color: #e5e5e5;
+        }
+
+        html.dark .ac-content h1,
+        html.dark .ac-content h2,
+        html.dark   .ac-content h3,
+        html.dark   .ac-content h4,
+        html.dark   .ac-content h5,
+        html.dark  .ac-content h6 {
+          color: #f3f4f6;
+        }
+
+     html.dark   .ac-content p,
+     html.dark   .ac-content ul,
+     html.dark   .ac-content ol {
+          color: #d1d5db;
+        }
+
+      html.dark  .ac-content a {
+          color: #60a5fa;
+        }
+
+      html.dark  .ac-content a:hover {
+          color: #93c5fd;
+        }
+
+      html.dark  .ac-content blockquote {
+          border-left-color: #4b5563;
+          background-color: #1f2937;
+          color: #e5e5e5;
+        }
+
+     html.dark   .ac-content table {
+          border-color: #374151;
+        }
+
+      html.dark  .ac-content th {
+          background-color: #374151;
+          color: #f3f4f6;
+          border-color: #4b5563;
+        }
+
+      html.dark .ac-content td {
+          border-color: #4b5563;
+        }
+
+       html.dark .ac-content tr:nth-child(even) {
+          background-color: #1f2937;
+        }
+
+      html.dark  .ac-content tr:hover {
+          background-color: #374151;
+        }
+
+      html.dark  .ac-content img {
+          opacity: 0.9;
+        }
     </style>
   </section>
   <div class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0">
     <!--Post post tags-->
-    <div class="flex flex-wrap gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0">
+    <div class="flex flex-wrap gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0 px-4">
       {
         post.data.tags?.map((tag: string) => (
           <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
@@ -222,23 +293,23 @@ const structuredData = {
       </div>
     </div>
   </div>
+  
+  <!--Related articles section-->
+  {
+    otherPosts.length && (
+      <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div class="mb-10 max-w-2xl">
+          <h2 class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+            {translate(TranslationKeys.posts_other_posts)}
+          </h2>
+        </div>
+  
+        <div class="grid grid-cols-2 gap-6">
+          {otherPosts.map((entry) => (
+            <CardRelated postEntry={entry} />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </MainLayout>
-
-<!--Related articles section-->
-{
-  otherPosts.length && (
-    <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-      <div class="mb-10 max-w-2xl">
-        <h2 class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-          {translate(TranslationKeys.posts_other_posts)}
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-2 gap-6">
-        {otherPosts.map((entry) => (
-          <CardRelated postEntry={entry} />
-        ))}
-      </div>
-    </section>
-  )
-}

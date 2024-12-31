@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import { formatDate } from "~/presentation/src/shared/utils/utils";
 import type { CollectionEntry } from "astro:content";
+import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
+import { PAGES } from "~/presentation/src/shared/constants/constants";
+import SlugHelper from "~/presentation/src/shared/utils/SlugHelper";
 
 const { postEntry, recentPostLocale = "" } = Astro.props;
 
@@ -9,13 +12,15 @@ type Props = {
   postEntry: CollectionEntry<"posts">;
   recentPostLocale?: string;
 };
+
+const { currentLocale } = useI18nStatic(Astro.url);
+
+const postHref = `${PAGES.post.paths[currentLocale]}${SlugHelper.slugify(postEntry.data.title)}/`;
 ---
 
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-  href={recentPostLocale && recentPostLocale !== "en"
-    ? `/${recentPostLocale}/post/${postEntry.slug.replace(/^tr\//, "")}/`
-    : `/post/${postEntry.slug.replace(/^en\//, "")}/`}
+  href={postHref}
   data-astro-prefetch
 >
   <div>
@@ -26,15 +31,13 @@ type Props = {
       draggable={"false"}
       format={"webp"}
     />
-    <!-- The title of the post post -->
     <h3
       class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-orange-400 dark:text-neutral-300 dark:group-hover:text-neutral-50"
     >
       {postEntry.data.title}
     </h3>
-    <!-- The formatted publication date of the post post -->
     <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
       {formatDate(postEntry.data.pubDate)}
     </p>
-  </div></a
->
+  </div>
+</a>
