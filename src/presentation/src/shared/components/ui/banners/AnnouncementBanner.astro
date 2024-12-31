@@ -13,11 +13,11 @@ const props = Astro.props;
 <astro-banner btnId={props.btnId}>
   <div
     id="announcementBanner"
-    class="fixed bottom-0 start-1/2 z-[100] mx-auto w-full max-w-[280px] -translate-x-1/2 transform transition-transform duration-1000"
+    class="fixed bottom-0 start-1/2 z-[100] mx-auto w-full max-w-[200px] sm:max-w-[280px] -translate-x-1/2 transform transition-transform duration-1000"
   >
     <!-- Remote body with navbar-like styling -->
     <div
-      class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl"
+      class="relative rounded-2xl rounded-b-none border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 p-2 sm:p-6 shadow-lg backdrop-blur-xl transition-all duration-300 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-2xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl"
     >
       <!-- Infrared window with adjusted color -->
       <div
@@ -25,14 +25,14 @@ const props = Astro.props;
       >
       </div>
 
-      <!-- Model number -->
-      <div class="absolute left-3 top-2">
-        <p class="text-[7px] text-neutral-400">MODEL AC-{new Date().getFullYear()}</p>
+      <!-- Model number with smaller text -->
+      <div class="absolute left-2 top-1.5">
+        <p class="text-[6px] sm:text-[7px] text-neutral-400">MODEL AC-{new Date().getFullYear()}</p>
       </div>
 
       <!-- LCD Display -->
-      <div class="relative flex flex-col items-center gap-3">
-        <div class="relative w-full overflow-hidden rounded-lg bg-neutral-900/90 p-3 shadow-inner">
+      <div class="relative flex flex-col items-center gap-1.5 sm:gap-3">
+        <div class="relative w-full overflow-hidden rounded-lg bg-neutral-900/90 p-1.5 sm:p-3 shadow-inner">
           <!-- LCD Background Pattern -->
           <div class="absolute inset-0 opacity-5">
             <div class="grid h-full w-full grid-cols-8 gap-px">
@@ -47,10 +47,10 @@ const props = Astro.props;
           {
             props.title && (
               <div class="relative">
-                <p class="font-lcd text-center text-base font-bold tracking-wide text-neutral-100">{props.title}</p>
-                <div class="font-lcd mt-1 flex flex-col gap-0.5 text-center text-xs text-neutral-100/70">
-                  <p class="font-lcd text-center text-xs text-neutral-100/70">Antalya</p>
-                  <p class="text-xs">
+                <p class="font-lcd text-center text-xs sm:text-base font-bold tracking-wide text-neutral-100">{props.title}</p>
+                <div class="font-lcd mt-0.5 sm:mt-1 flex flex-col gap-0.5 text-center text-[8px] sm:text-xs text-neutral-100/70">
+                  <p class="font-lcd text-center text-[8px] sm:text-xs text-neutral-100/70">Antalya</p>
+                  <p class="text-[8px] sm:text-xs">
                     <span id="temperatureValue">25°C</span> Humidity: <span id="humidityValue">50%</span>
                   </p>
                 </div>
@@ -59,20 +59,20 @@ const props = Astro.props;
           }
         </div>
 
-        <div class="relative flex w-full flex-col gap-3">
+        <div class="relative flex w-full flex-col gap-1.5 sm:gap-3">
           <!-- Main action buttons -->
           <div class="relative flex w-full justify-between">
             <PrimaryCTA title={props.btnTitle} url={props.url} class="w-full bg-blue-500 hover:bg-blue-600" />
 
             <button
               type="button"
-              class="relative ml-2 rounded-full bg-gradient-to-b from-red-500 to-red-600 p-2 text-white shadow-lg shadow-red-500/20 transition duration-200 hover:from-red-600 hover:to-red-700 active:translate-y-0.5 active:shadow-none"
+              class="relative ml-1.5 sm:ml-2 rounded-full bg-gradient-to-b from-red-500 to-red-600 p-1.5 sm:p-2 text-white shadow-lg shadow-red-500/20 transition duration-200 hover:from-red-600 hover:to-red-700 active:translate-y-0.5 active:shadow-none"
               id={props.btnId}
               style="z-index: 1;"
             >
               <span class="sr-only">Dismiss</span>
               <svg
-                class="size-5"
+                class="size-4 sm:size-5"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
