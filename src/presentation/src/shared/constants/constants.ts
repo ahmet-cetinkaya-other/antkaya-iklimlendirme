@@ -7,7 +7,7 @@ export const SITE = {
   tagline: TranslationKeys.seo_tagline,
   description: TranslationKeys.seo_description,
   description_short: TranslationKeys.seo_description_short,
-  url: "https://antkayaiklimlendimre.com",
+  url: "https://antkayaiklimlendirme.com/",
   author: Company.name,
 };
 

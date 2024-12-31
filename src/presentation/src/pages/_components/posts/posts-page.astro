@@ -12,11 +12,8 @@ import MainSection from "~/presentation/src/shared/components/ui/blocks/MainSect
 
 const { translate, currentLocale } = useI18nStatic(Astro.url);
 
-export async function getStaticPaths(locale?: string) {
-  const posts = await getCollection(
-    "posts",
-    (postEntry) => !postEntry.data.draft && postEntry.id.endsWith(locale ?? currentLocale),
-  );
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", (postEntry) => !postEntry.data.draft);
   const totalPages = Math.ceil(posts.length / PAGE_SIZE);
 
   return Array.from({ length: totalPages }, (_, i) => ({
