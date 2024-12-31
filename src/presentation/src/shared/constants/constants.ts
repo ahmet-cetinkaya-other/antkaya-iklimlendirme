@@ -61,14 +61,14 @@ export const PAGES = {
       ru: "/услуги/",
     },
   },
-  products: {
-    name: TranslationKeys.common_products,
-    paths: {
-      tr: "/urunler/",
-      en: "/products/",
-      ru: "/продукты/",
-    },
-  },
+  // products: {
+  //   name: TranslationKeys.common_products,
+  //   paths: {
+  //     tr: "/urunler/",
+  //     en: "/products/",
+  //     ru: "/продукты/",
+  //   },
+  // },
   faq: {
     name: TranslationKeys.faq_short_title,
     paths: {

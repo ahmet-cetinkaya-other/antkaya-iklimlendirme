@@ -16,7 +16,7 @@ const footerSections = [
     links: [
       {
         name: translate(TranslationKeys.footer_about),
-        url: `/${Astro.currentLocale}/about/`,
+        url: PAGES.home.paths[currentLocale],
       },
       {
         name: translate(TranslationKeys.common_contact),
@@ -27,10 +27,10 @@ const footerSections = [
   {
     title: translate(TranslationKeys.footer_services),
     links: [
-      {
-        name: translate(TranslationKeys.common_products),
-        url: PAGES.products.paths[currentLocale],
-      },
+      // {
+      //   name: translate(TranslationKeys.common_products),
+      //   url: PAGES.products.paths[currentLocale],
+      // },
       {
         name: translate(TranslationKeys.common_posts),
         url: PAGES.posts.paths[currentLocale],

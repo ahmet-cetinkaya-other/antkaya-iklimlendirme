@@ -1,23 +1,23 @@
 ---
-import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
-import ProductTabBtn from "~/presentation/src/shared/components/ui/buttons/ProductTabBtn.astro";
-import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
-import { Image } from "astro:assets";
-import { SITE } from "~/presentation/src/shared/constants/constants";
+// import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
+// import ProductTabBtn from "~/presentation/src/shared/components/ui/buttons/ProductTabBtn.astro";
+// import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
+// import { Image } from "astro:assets";
+// import { SITE } from "~/presentation/src/shared/constants/constants";
 
-// Global declaration for gsap animation library
-declare global {
-  interface Window {
-    gsap: any;
-  }
-}
+// // Global declaration for gsap animation library
+// declare global {
+//   interface Window {
+//     gsap: any;
+//   }
+// }
 
-const props = Astro.props;
+// const props = Astro.props;
 
-const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
+// const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
 ---
 
-<MainLayout title={pageTitle}>
+<!-- <MainLayout title={pageTitle}>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800"></div>
 
   <section class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
@@ -315,4 +315,4 @@ const pageTitle: string = `${props.product.data.title} | ${SITE.title}`;
       });
     });
   });
-</script>
+</script> -->

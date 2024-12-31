@@ -1,63 +1,62 @@
 ---
-// Importing necessary components
-import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
-import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
-import CardSmall from "~/presentation/src/shared/components/ui/cards/CardSmall.astro";
-import CardWide from "~/presentation/src/shared/components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "~/presentation/src/features/features/components/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "~/presentation/src/shared/components/sections/testimonials/TestimonialsSectionAlt.astro";
+// import MainLayout from "~/presentation/src/shared/layouts/MainLayout.astro";
+// import PrimaryCTA from "~/presentation/src/shared/components/ui/buttons/PrimaryCTA.astro";
+// import CardSmall from "~/presentation/src/features/products/components/CardSmall.astro";
+// import CardWide from "~/presentation/src/features/products/components/CardWide.astro";
+// import FeaturesStatsAlt from "~/presentation/src/features/features/components/FeaturesStatsAlt.astro";
+// import TestimonialsSectionAlt from "~/presentation/src/shared/components/sections/testimonials/TestimonialsSectionAlt.astro";
 
-// Importing necessary functions from Astro
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "~/presentation/src/shared/constants/constants";
+// // Importing necessary functions from Astro
+// import { getCollection } from "astro:content";
+// import type { CollectionEntry } from "astro:content";
+// import { SITE } from "~/presentation/src/shared/constants/constants";
 
-// Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
-  })
-).sort((a: CollectionEntry<"products">, b: CollectionEntry<"products">) => a.data.main.id - b.data.main.id);
+// // Fetching all the product related content and sorting it by main.id
+// const product: CollectionEntry<"products">[] = (
+//   await getCollection("products", ({ id }) => {
+//     return id.startsWith("en/");
+//   })
+// ).sort((a: CollectionEntry<"products">, b: CollectionEntry<"products">) => a.data.main.id - b.data.main.id);
 
-const title: string = "Lorem Ipsum Dolor Sit Amet";
-const subTitle: string =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+// const title: string = "Lorem Ipsum Dolor Sit Amet";
+// const subTitle: string =
+//   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-// Testimonial data that will be rendered in the component
-const testimonials = [
-  // First testimonial data
-  {
-    content:
-      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
-    author: "John Doe",
-    role: "Role | Company",
-    avatarSrc: "https://via.placeholder.com/320",
-    avatarAlt: "Image Description",
-  },
-  // Second testimonial data
-  {
-    content:
-      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
-    author: "Jane Smith",
-    role: "Role | Company",
-    avatarSrc: "https://via.placeholder.com/320",
-    avatarAlt: "Image Description",
-  },
-  // Third testimonial data
-  {
-    content:
-      ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
-    author: "Richard Roe",
-    role: "Role | Company",
-    avatarSrc: "https://via.placeholder.com/320",
-    avatarAlt: "Image Description",
-  },
-];
+// // Testimonial data that will be rendered in the component
+// const testimonials = [
+//   // First testimonial data
+//   {
+//     content:
+//       ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
+//     author: "John Doe",
+//     role: "Role | Company",
+//     avatarSrc: "https://via.placeholder.com/320",
+//     avatarAlt: "Image Description",
+//   },
+//   // Second testimonial data
+//   {
+//     content:
+//       ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
+//     author: "Jane Smith",
+//     role: "Role | Company",
+//     avatarSrc: "https://via.placeholder.com/320",
+//     avatarAlt: "Image Description",
+//   },
+//   // Third testimonial data
+//   {
+//     content:
+//       ' "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ',
+//     author: "Richard Roe",
+//     role: "Role | Company",
+//     avatarSrc: "https://via.placeholder.com/320",
+//     avatarAlt: "Image Description",
+//   },
+// ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+// const pageTitle: string = `Products | ${SITE.title}`;
 ---
 
-<MainLayout
+<!-- <MainLayout
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
@@ -93,8 +92,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
@@ -108,7 +105,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
       }
     </section>
   </div>
-  <!--Features statistics section-->
+
   <FeaturesStatsAlt
     title="Lorem Ipsum Dolor Sit Amet"
     subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -118,6 +115,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     ]}
   />
-  <!--Testimonials section-->
+  
   <TestimonialsSectionAlt title="What Our Customers Say" testimonials={testimonials} />
-</MainLayout>
+</MainLayout> -->
