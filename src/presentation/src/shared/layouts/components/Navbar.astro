@@ -23,7 +23,7 @@ const navbarItems = [
 <header class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
   <!-- Navigation container -->
   <nav
-    class="perspective group relative mx-2 min-h-20 w-full rounded-3xl border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-xl transition-all duration-300 ease-in-out before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-3xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
+    class="ac-perspective group relative mx-2 min-h-20 w-full rounded-3xl border-2 border-t border-gray-300/80 border-t-gray-200/30 bg-neutral-50/90 px-4 py-3 shadow-lg backdrop-blur-xl transition-all duration-300 ease-in-out before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:right-0 before:-z-20 before:h-8 before:rounded-b-3xl before:bg-[linear-gradient(0deg,_rgba(0,0,0,0.08)_1px,transparent_1px)] before:bg-[size:8px_4px] before:content-[''] hover:-translate-y-0.5 hover:shadow-xl dark:border-gray-700/80 dark:border-t-gray-600/30 dark:bg-neutral-900/90 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Global"
   >
     <!-- Decorative vents -->
@@ -32,7 +32,7 @@ const navbarItems = [
         {
           Array(8)
             .fill("")
-            .map(() => <div class="h-[3px] w-8 rounded-sm bg-gray-300/90" />)
+            .map(() => <div class="h-[3px] w-8 rounded-sm bg-gray-300/90 dark:bg-gray-600/90" />)
         }
       </span>
 
@@ -40,7 +40,7 @@ const navbarItems = [
         {
           Array(4)
             .fill("")
-            .map(() => <div class="h-[3px] w-4 rounded-sm bg-gray-300/90" />)
+            .map(() => <div class="h-[3px] w-4 rounded-sm bg-gray-300/90 dark:bg-gray-600/90" />)
         }
       </span>
     </div>
@@ -49,21 +49,21 @@ const navbarItems = [
     <div class="absolute -bottom-1.5 left-0 right-0 flex justify-center overflow-visible">
       <div class="relative h-6 w-full max-w-[98%]">
         <!-- Black background -->
-        <div class="absolute z-10 h-3 w-full rounded-b-lg bg-neutral-900/80"></div>
+        <div class="absolute z-10 h-3 w-full rounded-b-lg bg-neutral-900/80 dark:bg-neutral-950/80"></div>
         <!-- Flap element -->
         <div
-          class="air-flap absolute top-1 z-20 h-1.5 w-full rounded-b-lg bg-gradient-to-b from-[#f8f9fa] to-[#f3f4f6] shadow-lg"
+          class="ac-air-flap absolute top-1 z-20 h-1.5 w-full rounded-b-lg bg-gradient-to-b from-[#f8f9fa] to-[#f3f4f6] shadow-lg dark:from-gray-700 dark:to-gray-800"
         >
         </div>
 
         <!-- Air flow particles -->
         <div class="absolute -bottom-1 z-10 w-full">
-          <div class="air-flow-container">
+          <div class="ac-air-flow-container">
             {
               Array(15)
                 .fill("")
                 .map(() => (
-                  <div class="air-particle h-3 dark:bg-gradient-to-b dark:from-blue-300/40 dark:to-blue-300/5" />
+                  <div class="ac-air-particle h-3 dark:bg-gradient-to-b dark:from-blue-300/40 dark:to-blue-300/5" />
                 ))
             }
           </div>
@@ -149,11 +149,11 @@ const navbarItems = [
 </header>
 
 <style>
-  .perspective {
+  .ac-perspective {
     perspective: 1000px;
   }
 
-  @keyframes airFlap {
+  @keyframes ac-air-flap {
     0% {
       transform: rotateX(0deg);
     }
@@ -171,7 +171,7 @@ const navbarItems = [
     }
   }
 
-  @keyframes airFlow {
+  @keyframes ac-air-flow {
     0% {
       transform: translateY(0);
       opacity: 0.8;
@@ -182,13 +182,13 @@ const navbarItems = [
     }
   }
 
-  .air-flap {
-    animation: airFlap 6s ease-in infinite;
+  .ac-air-flap {
+    animation: ac-air-flap 6s ease-in infinite;
     transform-origin: top;
     will-change: transform;
   }
 
-  .air-flow-container {
+  .ac-air-flow-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -196,26 +196,31 @@ const navbarItems = [
     transform: translateY(2px); /* Slightly move particles down */
   }
 
-  .air-particle {
-    animation: airFlow 3s ease-out infinite;
+  .ac-air-particle {
+    animation: ac-air-flow 3s ease-out infinite;
     width: 0.3rem;
     height: 1rem;
-    background: linear-gradient(to bottom, rgba(147, 197, 253, 1), rgba(147, 197, 253, 0.1));
+    background: linear-gradient(to bottom, rgba(209, 213, 219, 1), rgba(209, 213, 219, 0.1));
     border-radius: 4px;
     filter: blur(0.5px);
-    box-shadow: 0 0 2px rgba(147, 197, 253, 0.3);
+    box-shadow: 0 0 2px rgba(209, 213, 219, 0.3);
   }
 
-  .air-particle:nth-child(odd) {
+  :global(.dark) .ac-air-particle {
+    background: linear-gradient(to bottom, rgba(156, 163, 175, 0.7), rgba(156, 163, 175, 0.05));
+    box-shadow: 0 0 2px rgba(156, 163, 175, 0.2);
+  }
+
+  .ac-air-particle:nth-child(odd) {
     animation-delay: 0.3s;
   }
-  .air-particle:nth-child(3n) {
+  .ac-air-particle:nth-child(3n) {
     animation-delay: 0.6s;
   }
-  .air-particle:nth-child(3n + 1) {
+  .ac-air-particle:nth-child(3n + 1) {
     animation-delay: 0.9s;
   }
-  .air-particle:nth-child(5n) {
+  .ac-air-particle:nth-child(5n) {
     animation-delay: 1.2s;
   }
 </style>
