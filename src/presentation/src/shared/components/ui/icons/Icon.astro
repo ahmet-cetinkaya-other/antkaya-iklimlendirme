@@ -3,7 +3,7 @@ import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 import { Icons, type SvgPath } from "./icons.ts";
 
 type Props = {
-  name: string;
+  name: keyof typeof Icons;
   class?: string;
 };
 

@@ -4,14 +4,14 @@ import Container, { Tokens } from "~/presentation/src/Container";
 import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import { TranslationKeys } from "~/domain/models/TranslationKey";
-import Dropdown from "~/core/acore-astro/components/Dropdown.astro";
+import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 
 const i18n = Container.resolve<II18n>(Tokens.I18n);
 const locales = i18n.locales;
 const { translate } = useI18nStatic(Astro.url);
 ---
 
-<Dropdown dropdownClass="min-w-[120px] dark:bg-neutral-800 dark:text-neutral-200">
+<ac-dropdown>
   <button
     slot="trigger"
     type="button"
@@ -21,7 +21,7 @@ const { translate } = useI18nStatic(Astro.url);
     <Icon name="earth" class="text-emerald-300" />
   </button>
 
-  <div slot="content">
+  <div slot="content" class="hidden w-fit rounded-lg bg-white shadow-lg dark:bg-neutral-800 dark:text-neutral-200">
     {
       locales.map((locale) => (
         <button
@@ -30,16 +30,20 @@ const { translate } = useI18nStatic(Astro.url);
             const locale = this.getAttribute('data-locale');
             window.ac.onLocaleChange(locale);
           `}
-          class="ac-locale-button w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-neutral-700"
+          class={mergeCls("ac-locale-button block w-full px-4 py-2 hover:bg-gray-200 dark:hover:bg-neutral-700", {
+            "rounded-t-lg": locale === locales[0],
+            "rounded-b-lg": locale === locales[locales.length - 1],
+          })}
         >
           {translate(TranslationKeys[`common_${locale}` as keyof typeof TranslationKeys])}
         </button>
       ))
     }
   </div>
-</Dropdown>
+</ac-dropdown>
 
 <script>
+  import "~/core/acore-ts/ui/components/Dropdown";
   import { navigate } from "astro:transitions/client";
   import type II18n from "~/core/acore-ts/i18n/abstraction/II18n";
   import Container, { Tokens } from "~/presentation/src/Container";

@@ -26,6 +26,39 @@ export type SvgPath = {
   strokeLinejoin?: "miter" | "round" | "bevel" | "inherit";
 };
 export const Icons: Record<string, Svg> = {
+  clipboard: {
+    fill: "none",
+    height: 24,
+    paths: [
+      {
+        d: "M8 2h8v4H8z",
+      },
+      {
+        d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2",
+      },
+    ],
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    viewBox: "0 0 24 24",
+    width: 24,
+  },
+  clipboardSuccess: {
+    fill: "none",
+    height: 24,
+    paths: [
+      {
+        d: "M20 6 9 17 4 12",
+      },
+    ],
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    viewBox: "0 0 24 24",
+    width: 24,
+  },
   accordionActive: {
     class:
       "hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400",
