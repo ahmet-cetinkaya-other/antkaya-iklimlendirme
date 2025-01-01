@@ -148,7 +148,10 @@ const navbarItems = [
 <script>
   import "~/core/acore-ts/ui/components/Accordion";
 
-  // Wait for custom element to be defined
+document.addEventListener("DOMContentLoaded", onMount);
+document.addEventListener("astro:after-swap", onMount);
+
+function onMount() {
   customElements.whenDefined("ac-accordion").then(() => {
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.querySelector("ac-accordion.mobile-menu");
@@ -157,16 +160,14 @@ const navbarItems = [
 
     if (menuButton && mobileMenu) {
       menuButton.addEventListener("click", () => {
-        // Explicitly cast to access the toggle method
         (mobileMenu as any).toggle();
         menuOpenIcon?.classList.toggle("hidden");
         menuCloseIcon?.classList.toggle("hidden");
       });
     }
 
-    // Handle responsive behavior
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    function handleResize(e: MediaQueryListEvent | MediaQueryList) {
+    function handleResize(e) {
       if (e.matches) {
         (mobileMenu as any)?.open();
       } else {
@@ -177,6 +178,7 @@ const navbarItems = [
     mediaQuery.addListener(handleResize);
     handleResize(mediaQuery);
   });
+}
 </script>
 
 <style>
