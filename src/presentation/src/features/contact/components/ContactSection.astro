@@ -37,21 +37,21 @@ const companyEmail = CompanyData.email;
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
-                id="hs-firstname-contacts"
+                id="firstname-contacts"
                 label={translate(TranslationKeys.contact_first_name)}
-                name="hs-firstname-contacts"
+                name="firstname-contacts"
               />
               <TextInput
-                id="hs-lastname-contacts"
+                id="lastname-contacts"
                 label={translate(TranslationKeys.contact_last_name)}
-                name="hs-lastname-contacts"
+                name="lastname-contacts"
               />
             </div>
-            <PhoneInput id="hs-phone-number" />
+            <PhoneInput id="phone-number" />
             <TextAreaInput
-              id="hs-about-contacts"
+              id="about-contacts"
               label={translate(TranslationKeys.contact_details)}
-              name="hs-about-contacts"
+              name="about-contacts"
             />
           </div>
 
@@ -74,10 +74,10 @@ const companyEmail = CompanyData.email;
           document.getElementById("contactForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const formData = new FormData(event.target);
-            const firstName = formData.get("hs-firstname-contacts");
-            const lastName = formData.get("hs-lastname-contacts");
-            const phone = formData.get("hs-phone-number");
-            const details = formData.get("hs-about-contacts");
+            const firstName = formData.get("firstname-contacts");
+            const lastName = formData.get("lastname-contacts");
+            const phone = formData.get("phone-number");
+            const details = formData.get("about-contacts");
 
             const body = `Ad: ${firstName}
 Soyad: ${lastName}

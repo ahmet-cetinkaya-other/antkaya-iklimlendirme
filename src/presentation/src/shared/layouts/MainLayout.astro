@@ -38,12 +38,5 @@ const { currentLocale } = useI18nStatic(Astro.url);
     </main>
 
     <FooterSection transition:persist />
-
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const preline = await import("preline/dist/preline.js");
-        preline.HSStaticMethods.autoInit();
-      });
-    </script>
   </body>
 </html>

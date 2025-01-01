@@ -18,7 +18,7 @@ export type SvgPath = {
   class?: string;
   fill?: string;
   fillRule?: "nonzero" | "evenodd" | "inherit";
-  clipRule?: string;
+  clipRule?: "nonzero" | "evenodd" | "inherit";
   stroke?: string;
   strokeMiterlimit?: string;
   strokeWidth?: number;
@@ -31,12 +31,12 @@ export const Icons: Record<string, Svg> = {
     viewBox: "0 0 24 24",
     paths: [
       {
-      d: "m6 9 6 6 6-6",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: 2,
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
+        d: "m6 9 6 6 6-6",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: 2,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
       },
     ],
   },
@@ -54,7 +54,7 @@ export const Icons: Record<string, Svg> = {
     viewBox: "0 0 24 24",
     paths: [
       {
-      d: "M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z",
+        d: "M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z",
       },
     ],
   },
@@ -92,8 +92,6 @@ export const Icons: Record<string, Svg> = {
     width: 24,
   },
   accordionActive: {
-    class:
-      "hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400",
     fill: "none",
     height: 24,
     paths: [
@@ -109,8 +107,6 @@ export const Icons: Record<string, Svg> = {
     width: 24,
   },
   accordionNotActive: {
-    class:
-      "block h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400",
     fill: "none",
     height: 24,
     paths: [

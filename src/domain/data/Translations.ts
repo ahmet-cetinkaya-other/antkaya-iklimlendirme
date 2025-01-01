@@ -1,6 +1,11 @@
 import type { Locales, TranslationKey } from "../models/TranslationKey";
 
 const Translations: Record<TranslationKey, Record<Locales, string>> = {
+  common_phone: {
+    tr: "Telefon numarası",
+    en: "Phone number",
+    ru: "Телефон",
+  },
   brands_section_subtitle: {
     tr: "Antkaya İklimlendirme olarak, sektördeki önde gelen markaların servis ve bakım hizmetlerini sunmaktan gurur duyuyoruz.",
     en: "As Antkaya HVAC, we are proud to offer service and maintenance services of leading brands in the industry.",

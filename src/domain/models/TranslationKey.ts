@@ -139,5 +139,6 @@ export enum TranslationKeys {
   seo_description_short = "seo_description_short",
   seo_og_title = "seo_og_title",
   seo_og_description = "seo_og_description",
+  common_phone = "common_phone",
 }
 export type TranslationKey = TranslationKeys;

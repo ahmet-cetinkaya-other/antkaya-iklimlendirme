@@ -3,6 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
+import solidJs from "@astrojs/solid-js";
+
 export default defineConfig({
   site: "https://antkayaiklimlendirme.com",
   prefetch: true,
@@ -22,6 +24,7 @@ export default defineConfig({
       gzip: true,
       brotli: true,
     }),
+    solidJs(),
   ],
   experimental: {
     clientPrerender: true,

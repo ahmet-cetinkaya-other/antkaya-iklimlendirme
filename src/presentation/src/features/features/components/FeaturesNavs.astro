@@ -2,6 +2,8 @@
 import TabNav from "~/presentation/src/shared/components/ui/blocks/TabNav.astro";
 import TabContent from "~/presentation/src/shared/components/ui/blocks/TabContent.astro";
 import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
+import { Image } from "astro:assets";
+import { mergeCls } from "~/core/acore-ts/ui/ClassHelpers";
 
 const { title, tabs } = Astro.props;
 
@@ -19,6 +21,10 @@ type Props = {
   title?: string;
   tabs: Tab[];
 };
+
+const activeTabClass = "bg-neutral-50 shadow-md hover:border-transparent dark:bg-neutral-700/60";
+const activeTabHeadingClass = "text-orange-400 dark:text-orange-300";
+const activeTabContentClass = "text-neutral-600 dark:text-neutral-200";
 ---
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
@@ -27,45 +33,102 @@ type Props = {
       <!-- Section's heading and tab navigation -->
       <div class="mb-10 lg:order-2 lg:col-span-5 lg:col-start-8 lg:mb-0">
         <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl">
-          <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
           <Fragment set:html={title} />
         </h2>
 
-        <!-- Tab navigation - use the attribute 'first' in the first TabNav for the component to work -->
         <nav class="mt-5 grid gap-4 md:mt-10" aria-label="Tabs" role="tablist">
-          {
-            tabs.map((tab, index) => (
-              <TabNav
-                id={`tabs-with-card-item-${index + 1}`}
-                dataTab={`#tabs-with-card-${index + 1}`}
-                aria={`tabs-with-card-${index + 1}`}
-                heading={tab.heading}
-                content={tab.content}
-                first={tab.first}
-              >
-                <Icon name={tab.icon} class="size-12 text-secondary" />
-              </TabNav>
-            ))
-          }
+          <button
+            type="button"
+            class={mergeCls(
+              "dark:hover:bg-neutral-700 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:p-5",
+              activeTabClass,
+            )}
+          >
+            <span class="flex">
+              <Icon name={tabs[0].icon} class="size-12 text-secondary" />
+              <span class="ms-6 grow">
+                <span
+                  class={mergeCls(
+                    "block text-lg font-bold text-neutral-800 dark:text-neutral-200",
+                    activeTabHeadingClass,
+                  )}>{tabs[0].heading}</span
+                >
+                <span class={mergeCls("mt-1 block text-neutral-500 dark:text-neutral-400", activeTabContentClass)}
+                  >{tabs[0].content}</span
+                >
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class={mergeCls(
+              "dark:hover:bg-neutral-700 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:p-5",
+            )}
+          >
+            <span class="flex">
+              <Icon name={tabs[1].icon} class="size-12 text-secondary" />
+              <span class="ms-6 grow">
+                <span class={mergeCls("block text-lg font-bold text-neutral-800 dark:text-neutral-200")}
+                  >{tabs[1].heading}</span
+                >
+                <span class={mergeCls("mt-1 block text-neutral-500 dark:text-neutral-400")}>{tabs[1].content}</span>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class={mergeCls(
+              "dark:hover:bg-neutral-700 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:p-5",
+            )}
+          >
+            <span class="flex">
+              <Icon name={tabs[2].icon} class="size-12 text-secondary" />
+              <span class="ms-6 grow">
+                <span class={mergeCls("block text-lg font-bold text-neutral-800 dark:text-neutral-200")}
+                  >{tabs[1].heading}</span
+                >
+                <span class={mergeCls("mt-1 block text-neutral-500 dark:text-neutral-400")}>{tabs[1].content}</span>
+              </span>
+            </span>
+          </button>
         </nav>
       </div>
 
-      <!-- Contents for each tab - the 'first' attribute should be used in the first tab for that tab to be initially visible, 'second' changes the styles -->
       <div class="lg:col-span-7">
         <div class="relative">
           <div class="w-full overflow-hidden rounded-xl">
-            {
-              tabs.map((tab, index) => (
-                <TabContent
-                  id={`tabs-with-card-${index + 1}`}
-                  aria={`tabs-with-card-item-${index + 1}`}
-                  imageSrc={tab.imageSrc}
-                  imageAlt={tab.imageAlt}
-                  first={tab.first}
-                  imageClass="aspect-[16/10] w-full object-cover"
-                />
-              ))
-            }
+            <div id={`tabs-with-card-item-${0}`} role="tabpanel">
+              <Image
+                src={tabs[0].imageSrc}
+                alt={tabs[0].imageAlt}
+                class="aspect-[3/2] rounded-xl object-cover shadow-xl shadow-neutral-200 dark:shadow-neutral-900/[.2] lg:aspect-auto"
+                draggable={"false"}
+                format={"webp"}
+                loading={"eager"}
+              />
+            </div>
+            <div id={`tabs-with-card-item-${1}`} role="tabpanel">
+              <Image
+                src={tabs[1].imageSrc}
+                alt={tabs[1].imageAlt}
+                class="hidden aspect-[3/2] rounded-xl object-cover shadow-xl shadow-neutral-200 dark:shadow-neutral-900/[.2] lg:aspect-auto"
+                draggable={"false"}
+                format={"webp"}
+                loading={"eager"}
+              />
+            </div>
+            <div id={`tabs-with-card-item-${2}`} role="tabpanel">
+              <Image
+                src={tabs[2].imageSrc}
+                alt={tabs[2].imageAlt}
+                class="hidden aspect-[3/2] rounded-xl object-cover shadow-xl shadow-neutral-200 dark:shadow-neutral-900/[.2] lg:aspect-auto"
+                draggable={"false"}
+                format={"webp"}
+                loading={"eager"}
+              />
+            </div>
           </div>
         </div>
       </div>

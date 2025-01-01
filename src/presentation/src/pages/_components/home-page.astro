@@ -4,7 +4,8 @@ import HeroSection from "~/presentation/src/shared/components/sections/landing/H
 import HeroSectionAlt from "~/presentation/src/shared/components/sections/landing/HeroSectionAlt.astro";
 import BrandsSection from "~/presentation/src/shared/components/sections/landing/BrandsSection.astro";
 import FeaturesGeneral from "~/presentation/src/features/features/components/FeaturesGeneral.astro";
-import FeaturesNavs from "~/presentation/src/features/features/components/FeaturesNavs.astro";
+// import FeaturesNavs from "~/presentation/src/features/features/components/FeaturesNavs.astro";
+import FeaturesNavs from "~/presentation/src/features/features/components/FeaturesNavs";
 import FAQ from "~/presentation/src/features/faq/components/FAQ.astro";
 import AnnouncementBanner from "~/presentation/src/shared/components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "~/presentation/src/shared/assets/images/living-room.webp";
@@ -137,29 +138,28 @@ const structuredData = {
     />
 
     <FeaturesNavs
+      client:load
       title={translate(TranslationKeys.features_tabs_title)}
       tabs={[
         {
           heading: translate(TranslationKeys.features_ac_service_heading),
           content: translate(TranslationKeys.features_ac_service_content),
           icon: "wrench",
-          imageSrc: acTechnicianImage,
+          imageSrc: acTechnicianImage.src,
           imageAlt: "Air conditioner service and maintenance",
-          first: true,
         },
         {
           heading: translate(TranslationKeys.features_ac_installation_heading),
           content: translate(TranslationKeys.features_ac_installation_content),
           icon: "snowflake",
-          imageSrc: wallMountedAcUnitImage,
+          imageSrc: wallMountedAcUnitImage.src,
           imageAlt: "Air conditioner installation",
-          second: true,
         },
         {
           heading: translate(TranslationKeys.features_heating_service_heading),
           content: translate(TranslationKeys.features_heating_service_content),
           icon: "fire",
-          imageSrc: radiaorImage,
+          imageSrc: radiaorImage.src,
           imageAlt: "Radiator and heating system service",
         },
       ]}
