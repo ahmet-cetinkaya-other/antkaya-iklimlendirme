@@ -86,15 +86,15 @@ const navbarItems = [
         <span class="block md:hidden">
           <LanguagePicker />
         </span>
+        <!-- Menu button moved outside accordion -->
         <button
           type="button"
-          class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-none"
-          data-hs-collapse="#navbar-collapse-with-animation"
-          aria-controls="navbar-collapse-with-animation"
+          id="mobile-menu-button"
+          class="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-none"
           aria-label="Toggle navigation"
         >
           <svg
-            class="h-[1.25rem] w-[1.25rem] flex-shrink-0 hs-collapse-open:hidden"
+            class="menu-open h-[1.25rem] w-[1.25rem] flex-shrink-0"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -109,7 +109,7 @@ const navbarItems = [
             <line x1="3" x2="21" y1="18" y2="18"></line>
           </svg>
           <svg
-            class="hidden h-[1.25rem] w-[1.25rem] flex-shrink-0 hs-collapse-open:block"
+            class="menu-close hidden h-[1.25rem] w-[1.25rem] flex-shrink-0"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -126,12 +126,9 @@ const navbarItems = [
       </div>
     </div>
     <!-- Contains navigation links -->
-    <div
-      id="navbar-collapse-with-animation"
-      class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
-    >
-      <!-- Navigation links container -->
+    <ac-accordion class="mobile-menu md:!block">
       <div
+        slot="content"
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
         {navbarItems.map((item) => <NavLink url={item.paths![currentLocale as Locales]} name={item.name} />)}
@@ -144,9 +141,43 @@ const navbarItems = [
           </span>
         </div>
       </div>
-    </div>
+    </ac-accordion>
   </nav>
 </header>
+
+<script>
+  import "~/core/acore-ts/ui/components/Accordion";
+
+  // Wait for custom element to be defined
+  customElements.whenDefined("ac-accordion").then(() => {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.querySelector("ac-accordion.mobile-menu");
+    const menuOpenIcon = document.querySelector(".menu-open");
+    const menuCloseIcon = document.querySelector(".menu-close");
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", () => {
+        // Explicitly cast to access the toggle method
+        (mobileMenu as any).toggle();
+        menuOpenIcon?.classList.toggle("hidden");
+        menuCloseIcon?.classList.toggle("hidden");
+      });
+    }
+
+    // Handle responsive behavior
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    function handleResize(e: MediaQueryListEvent | MediaQueryList) {
+      if (e.matches) {
+        (mobileMenu as any)?.open();
+      } else {
+        (mobileMenu as any)?.close();
+      }
+    }
+
+    mediaQuery.addListener(handleResize);
+    handleResize(mediaQuery);
+  });
+</script>
 
 <style>
   .ac-perspective {
@@ -222,5 +253,17 @@ const navbarItems = [
   }
   .ac-air-particle:nth-child(5n) {
     animation-delay: 1.2s;
+  }
+
+  /* Add responsive styles for accordion */
+  @media (min-width: 768px) {
+    ac-accordion {
+      width: 100%;
+    }
+    
+    ac-accordion::part(content) {
+      height: auto !important;
+      overflow: visible !important;
+    }
   }
 </style>

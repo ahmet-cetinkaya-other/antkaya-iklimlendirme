@@ -1,8 +1,8 @@
 ---
 import type { TranslationKey } from "~/domain/models/TranslationKey";
-import AccordionItem from "~/presentation/src/shared/components/ui/blocks/AccordionItem.astro";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import Faq from "~/domain/models/Faq";
+import Icon from "~/presentation/src/shared/components/ui/icons/Icon.astro";
 
 type Props = {
   title: TranslationKey;
@@ -12,10 +12,6 @@ type Props = {
 const props = Astro.props;
 
 const { translate } = useI18nStatic(Astro.url);
-
-function makeId(base: any, index: any) {
-  return `${base}${index + 1}`;
-}
 ---
 
 <!-- Main container that holds all content. Customized for different viewport sizes. -->
@@ -34,26 +30,32 @@ function makeId(base: any, index: any) {
       }
     </div>
   </div>
+  
   <!-- FAQ accordion items -->
   <div class="md:col-span-3">
-    <div class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700">
+    <ac-accordion-group>
       {
-        props.faqs.map((faq, i) => {
-          // Generate ids dynamically for each FAQ accordion item.
-          let id = makeId("hs-basic-with-title-and-arrow-stretched-heading-", i);
-          let collapseId = makeId("hs-basic-with-title-and-arrow-stretched-collapse", i);
+        props.faqs.map((faq) => (
+          <ac-accordion>
+            <button
+              slot="trigger"
+              class="flex w-full items-center justify-between gap-2 py-4 text-start text-lg font-medium text-neutral-800 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-400"
+            >
+              <span set:html={translate(faq.question)} />
+              <Icon name="chevron-down" class="h-4 w-4 transition-transform duration-300" />
+            </button>
 
-          return (
-            <AccordionItem
-              id={id}
-              collapseId={collapseId}
-              first={i === 0}
-              question={translate(faq.question)}
-              answer={translate(faq.answer)}
-            />
-          );
-        })
+            <div slot="content" class="pb-4 pt-2 text-neutral-600 dark:text-neutral-400">
+              <p set:html={translate(faq.answer)} />
+            </div>
+          </ac-accordion>
+        ))
       }
-    </div>
+    </ac-accordion-group>
   </div>
 </div>
+
+<script>
+  import "~/core/acore-ts/ui/components/Accordion";
+  import "~/core/acore-ts/ui/components/AccordionGroup";
+</script>
