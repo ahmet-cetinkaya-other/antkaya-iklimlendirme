@@ -167,7 +167,7 @@ function onMount() {
     }
 
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    function handleResize(e) {
+    function handleResize(e: MediaQueryListEvent) {
       if (e.matches) {
         (mobileMenu as any)?.open();
       } else {
@@ -175,7 +175,7 @@ function onMount() {
       }
     }
 
-    mediaQuery.addListener(handleResize);
+    mediaQuery.addEventListener('change', handleResize);
     handleResize(mediaQuery);
   });
 }
