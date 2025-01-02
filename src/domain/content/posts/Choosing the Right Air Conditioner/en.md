@@ -50,8 +50,6 @@ The capacity of the air conditioner should match the size of the room. General g
 - Rooms exposed to sunlight will have higher cooling demands.  
 - Spaces with large windows may require increased capacity for energy efficiency.
 
-![AC Capacity Calculation Chart](./capacity-calculation.webp)
-
 ## Energy Efficiency and Eco-Friendly Options
 
 Energy efficiency and environmental impact are critical factors when selecting the right air conditioner.
