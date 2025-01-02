@@ -18,6 +18,8 @@ One of the key benefits of regular air conditioner and boiler maintenance is imp
 - Operate efficiently, quickly achieving the desired room temperature or water heating level.
 - Help reduce energy waste, contributing to a greener environment.
 
+![Clean AC Example](./clean-ac.webp)
+
 ### Energy Savings Statistics
 
 Studies show that poorly maintained air conditioners can consume up to 15% more energy. Similarly, boilers with neglected maintenance can waste up to 20% more energy.

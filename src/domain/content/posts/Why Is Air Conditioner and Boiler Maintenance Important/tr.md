@@ -18,6 +18,8 @@ Klima ve kombi bakımının en önemli faydalarından biri enerji verimliliğini
 - Daha verimli çalışarak oda sıcaklığını veya suyun ısısını daha kısa sürede istenilen seviyeye getirir.
 - Enerji israfını önler, çevreye daha az karbon salınımı yapılmasına katkı sağlar.
 
+![Temiz bir klima örneği](./clean-ac.webp)
+
 ### İstatistiklerle Enerji Tasarrufu
 
 Bir araştırmaya göre, düzenli bakım yapılmayan klimalar %15 daha fazla enerji harcayabilir. Benzer şekilde, temizlenmeyen kombilerde bu oran %20’ye kadar çıkabilir.
