@@ -126,9 +126,8 @@ const navbarItems = [
       </div>
     </div>
     <!-- Contains navigation links -->
-    <ac-accordion class="mobile-menu md:!block">
+    <div class="mobile-menu max-h-0 overflow-hidden transition-all duration-500 ease-in-out md:!block md:max-h-none">
       <div
-        slot="content"
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
         {navbarItems.map((item) => <NavLink url={item.paths![currentLocale as Locales]} name={item.name} />)}
@@ -141,42 +140,37 @@ const navbarItems = [
           </span>
         </div>
       </div>
-    </ac-accordion>
+    </div>
   </nav>
 </header>
 
 <script>
-  import "~/core/acore-ts/ui/components/Accordion";
+  document.addEventListener("DOMContentLoaded", onMount);
+  document.addEventListener("astro:after-swap", onMount);
 
-  // Wait for custom element to be defined
-  customElements.whenDefined("ac-accordion").then(() => {
-    const menuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.querySelector("ac-accordion.mobile-menu");
-    const menuOpenIcon = document.querySelector(".menu-open");
-    const menuCloseIcon = document.querySelector(".menu-close");
+  function onMount() {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    mobileMenuButton!.addEventListener("click", toggleMobileMenu);
+  }
 
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener("click", () => {
-        // Explicitly cast to access the toggle method
-        (mobileMenu as any).toggle();
-        menuOpenIcon?.classList.toggle("hidden");
-        menuCloseIcon?.classList.toggle("hidden");
-      });
+  function toggleMobileMenu() {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const mobileMenuOpenIcon = mobileMenuButton?.querySelector(".menu-open");
+    const mobileMenuCloseIcon = mobileMenuButton?.querySelector(".menu-close");
+
+    if (mobileMenu!.classList.contains("max-h-0")) {
+      mobileMenu!.classList.remove("max-h-0");
+      mobileMenu!.classList.add("max-h-[500px]");
+      mobileMenuOpenIcon!.classList.toggle("hidden");
+      mobileMenuCloseIcon!.classList.toggle("hidden");
+    } else {
+      mobileMenu!.classList.remove("max-h-[500px]");
+      mobileMenu!.classList.add("max-h-0");
+      mobileMenuOpenIcon!.classList.toggle("hidden");
+      mobileMenuCloseIcon!.classList.toggle("hidden");
     }
-
-    // Handle responsive behavior
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-    function handleResize(e: MediaQueryListEvent | MediaQueryList) {
-      if (e.matches) {
-        (mobileMenu as any)?.open();
-      } else {
-        (mobileMenu as any)?.close();
-      }
-    }
-
-    mediaQuery.addListener(handleResize);
-    handleResize(mediaQuery);
-  });
+  }
 </script>
 
 <style>
@@ -264,6 +258,17 @@ const navbarItems = [
     ac-accordion::part(content) {
       height: auto !important;
       overflow: visible !important;
+    }
+  }
+
+  /* Add responsive styles for mobile menu */
+  .mobile-menu {
+    will-change: max-height;
+  }
+
+  @media (max-width: 767px) {
+    .mobile-menu {
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 </style>
