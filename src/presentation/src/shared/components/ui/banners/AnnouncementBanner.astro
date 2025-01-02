@@ -113,7 +113,6 @@ const props = Astro.props;
   customElements.define("astro-banner", AstroBanner);
 
   document.addEventListener("DOMContentLoaded", updateWeatherInfo);
-  document.addEventListener("astro:after-swap", updateWeatherInfo);
 
   type WeatherData = {
     current: {
