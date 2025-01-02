@@ -30,24 +30,3 @@ If URL is '/' (home page), assign ID as 'home'
 >
   {translate(props.name)}
 </a>
-
-<script>
-  document.addEventListener("DOMContentLoaded", highlightActiveNavLink);
-  document.addEventListener("astro:after-swap", highlightActiveNavLink);
-
-  function highlightActiveNavLink() {
-    const pathName = decodeURI(window.location.pathname);
-    const navItems = document.querySelectorAll(".nav-link");
-    if (!navItems) throw new Error("No nav items found.");
-
-    navItems.forEach((navItem) => {
-      const href = navItem.getAttribute("href");
-      if (href === pathName) {
-        navItem.classList.add("text-neutral-900", "dark:text-neutral-50", "font-semibold");
-        navItem.setAttribute("aria-current", "page");
-      } else {
-        navItem.classList.remove("text-neutral-900", "dark:text-neutral-50", "font-semibold", "animate-ac-glow");
-      }
-    });
-  }
-</script>

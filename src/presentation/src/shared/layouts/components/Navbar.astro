@@ -145,12 +145,15 @@ const navbarItems = [
 </header>
 
 <script>
+  import { PAGES } from "../../constants/constants";
+
   document.addEventListener("DOMContentLoaded", onMount);
   document.addEventListener("astro:after-swap", onMount);
 
   function onMount() {
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     mobileMenuButton!.addEventListener("click", toggleMobileMenu);
+    highlightActiveNavLink();
   }
 
   function toggleMobileMenu() {
@@ -170,6 +173,32 @@ const navbarItems = [
       mobileMenuOpenIcon!.classList.toggle("hidden");
       mobileMenuCloseIcon!.classList.toggle("hidden");
     }
+  }
+
+  const ACTIVE_NAV_LINK_CLASS =
+    "text-primary dark:text-secondary-600 font-semibold animate-ac-glow hover:text-primary-400 dark:hover:text-secondary-600";
+  function highlightActiveNavLink() {
+    const pathName = decodeURI(window.location.pathname);
+    const pagePath = pathName.split("/")[1];
+
+    const navItems = document.querySelectorAll(".nav-link");
+    if (!navItems) throw new Error("No nav items found.");
+
+    navItems.forEach((navItem) => {
+      const href = navItem.getAttribute("href");
+      const hrefPagePath = href!.split("/")[1];
+
+      if (
+        hrefPagePath === pagePath ||
+        (Object.values(PAGES.posts.paths).includes(`/${hrefPagePath}/`!) &&
+          Object.values(PAGES.post.paths).includes(`/${pagePath}/`))
+      ) {
+        navItem.classList.add(...ACTIVE_NAV_LINK_CLASS.split(" "));
+        navItem.setAttribute("aria-current", "page");
+      } else {
+        navItem.classList.remove(...ACTIVE_NAV_LINK_CLASS.split(" "));
+      }
+    });
   }
 </script>
 
