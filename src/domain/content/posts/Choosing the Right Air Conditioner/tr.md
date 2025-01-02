@@ -50,8 +50,6 @@ Klimanın kapasitesini belirlerken odanın büyüklüğünü göz önünde bulun
 - Güneş ışığına maruz kalan odalarda soğutma yükü artar.  
 - Büyük cam yüzeylere sahip alanlarda enerji tüketimini optimize etmek için kapasiteyi artırmanız gerekebilir.
 
-![Klima kapasitesi hesaplama tablosu](./capacity-calculation.webp)
-
 ## Enerji Verimliliği ve Çevre Dostu Seçenekler
 
 Enerji verimliliği ve çevreye duyarlılık, doğru klima seçimi yaparken dikkate alınması gereken önemli faktörlerdir.
