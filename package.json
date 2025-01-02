@@ -12,7 +12,7 @@
     "build": "bun prepare-content && cd src/presentation && bun run build",
     "clean": "find src/presentation/src/content/* ! -name 'config.ts' -delete && rm -rf src/presentation/dist",
     "format": "(prettier --write . \"!src/presentation/**/*\" \"!src/core/**/*\") && (cd src/presentation && bun format)",
-    "install-all": "bun install && (cd src/presentation && bun install && cd ../..) && (cd src/core/acore-ts && bun install && cd ../../..)",
+    "install-all": "bun install && find . -name 'package.json' ! -path '*/node_modules/*' -execdir bun install \\;",
     "prepare-content": "find src/presentation/src/content/* ! -name 'config.ts' -delete && cp -r src/domain/content/* src/presentation/src/content/",
     "start": "(cd src/presentation && bun start)"
   },
