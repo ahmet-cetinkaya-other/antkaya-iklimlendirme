@@ -58,20 +58,26 @@ By using your air conditioner properly during summer, you can save energy and cr
 
 **Frequently Asked Questions**
 
-### Does an inverter air conditioner really use less energy?  
+### Does an inverter air conditioner really use less energy?
+
 Yes, inverter air conditioners optimize motor speed, reducing energy consumption.
 
-### What is the ideal temperature setting for summer?  
+### What is the ideal temperature setting for summer?
+
 A setting between 22-26°C (72-78°F) ensures energy savings and a healthy environment.
 
-### Why are standard air conditioners more affordable?  
+### Why are standard air conditioners more affordable?
+
 Standard air conditioners use simpler technology, making them generally less expensive.
 
-### How often should air conditioner maintenance be done?  
+### How often should air conditioner maintenance be done?
+
 Clean filters monthly and have a professional service it annually.
 
-### What does the dehumidification mode do?  
+### What does the dehumidification mode do?
+
 It balances indoor humidity levels, creating a more comfortable living space.
 
-### Should I choose an inverter or a standard air conditioner?  
+### Should I choose an inverter or a standard air conditioner?
+
 For long-term use and energy savings, go for an inverter air conditioner. For short-term use and a lower budget, standard models may suffice.
