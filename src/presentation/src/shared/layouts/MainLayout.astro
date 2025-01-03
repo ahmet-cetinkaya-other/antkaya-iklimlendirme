@@ -4,6 +4,7 @@ import Navbar from "~/presentation/src/shared/layouts/components/Navbar.astro";
 import FooterSection from "~/presentation/src/shared/layouts/components/FooterSection.astro";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
 import Analytics from "./components/Analytics.astro";
+import { SEO } from "../constants/constants";
 
 type Props = MetaProps;
 
@@ -27,7 +28,7 @@ const { currentLocale } = useI18nStatic(Astro.url);
       canonicalURL={canonicalURL}
       themeColor="#F38310"
     />
-    <Analytics />
+    <Analytics pathName={Astro.url.pathname} title={title ?? SEO.title} />
     <!-- Other -->
   </head>
   <body
