@@ -16,6 +16,7 @@ export type Props = {
   ogLocale?: string;
   structuredData?: Record<string, unknown>;
   canonicalURL?: string | URL;
+  themeColor?: string;
 };
 
 const defaultProps = {
@@ -40,6 +41,7 @@ const {
   ogLocale = defaultProps.ogLocale,
   structuredData = defaultProps.structuredData,
   canonicalURL = defaultProps.canonicalURL,
+  themeColor,
 } = Astro.props;
 
 const author = SITE.author;
@@ -118,7 +120,7 @@ const appleTouchIcon = await getImage({
 
 <!-- Links to the webmanifest and sitemap -->
 <link rel="manifest" href="/manifest.json" />
-<!-- https://docs.astro.build/en/guides/integrations-guide/sitemap/ -->
+<!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Links for favicons -->
@@ -128,7 +130,7 @@ const appleTouchIcon = await getImage({
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
 <!-- Set theme color -->
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content={themeColor} />
 
 <!-- View transitions -->
 <ClientRouter />

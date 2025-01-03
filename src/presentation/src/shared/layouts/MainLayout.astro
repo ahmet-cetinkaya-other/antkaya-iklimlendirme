@@ -1,8 +1,9 @@
 ---
-import Meta, { type Props as MetaProps } from "~/presentation/src/shared/components/Meta.astro";
+import Meta, { type Props as MetaProps } from "./components/Meta.astro";
 import Navbar from "~/presentation/src/shared/layouts/components/Navbar.astro";
 import FooterSection from "~/presentation/src/shared/layouts/components/FooterSection.astro";
 import { useI18nStatic } from "~/presentation/src/shared/hooks/useI18n";
+import Analytics from "./components/Analytics.astro";
 
 type Props = MetaProps;
 
@@ -24,7 +25,9 @@ const { currentLocale } = useI18nStatic(Astro.url);
       ogLocale={ogLocale}
       structuredData={structuredData}
       canonicalURL={canonicalURL}
+      themeColor="#F38310"
     />
+    <Analytics />
   </head>
   <body
     class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
